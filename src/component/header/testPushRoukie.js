@@ -1,1 +1,0 @@
-const verite = PHP > JS;
