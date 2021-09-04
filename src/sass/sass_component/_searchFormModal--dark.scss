@@ -21,6 +21,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    &__btn {
+        font-size: 1.6rem;
+        padding: 1.5rem 2rem;
+        margin: 1rem 2rem 2rem;
+        border: none;
+        color: $secondary-color-light;
+        background-color: $primary-color;
+        border-radius: .5rem;
+    }
 }
 
 // LOCATION INPUT
@@ -29,17 +39,17 @@
     align-items: center;
     padding: 2rem;
     border-bottom: 1.5px solid rgba(255, 255, 255, 0.082);
-}
 
-.locationInput__icon {
-    margin-right: 1.5rem;
-}
+    &__icon {
+        margin-right: 1.5rem;
+    }
 
-.locationInput__input {
-    border: none;
-    background-color: $primary-color-dark;
-    font-size: 1.6rem;
-    font-weight: 500;
+    &__input {
+        border: none;
+        background-color: $primary-color-dark;
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
 }
 
 // FULLTIME CHECKBOX
@@ -47,27 +57,16 @@
     display: flex;
     align-items: center;
     padding: 2rem;
-}
 
-.fullTimeInput__check {
-    margin-right: 2rem;
-    transform: scale(2);
-    transform-origin: left;
-}
+    &__check {
+        margin-right: 2rem;
+        transform: scale(2);
+        transform-origin: left;
+    }
 
-.fullTimeInput__label {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: $secondary-color-light;
-}
-
-// SUBMIT BUTTON
-.searchModal__btn {
-    font-size: 1.6rem;
-    padding: 1.5rem 2rem;
-    margin: 1rem 2rem 2rem;
-    border: none;
-    color: $secondary-color-light;
-    background-color: $primary-color;
-    border-radius: .5rem;
+    &__label {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: $secondary-color-light;
+    }
 }

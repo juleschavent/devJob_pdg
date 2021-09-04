@@ -1,6 +1,6 @@
 import Import from '../../assets/Import'
-// import "../../sass/sass_component/_searchFormModal.scss"
-import "../../sass/sass_component/_searchFormModal--dark.scss"
+import "../../sass/sass_component/_searchFormModal.scss"
+// import "../../sass/sass_component/_searchFormM odal--dark.scss"
 
 const SearchFormModal = () => {
     return (
