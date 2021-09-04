@@ -1,5 +1,5 @@
-// import "../../sass/sass_component/_footer.scss";
-import "../../sass/sass_component/_footer--dark.scss";
+import "../../sass/sass_component/_footer.scss";
+// import "../../sass/sass_component/_footer--dark.scss";
 import ApplyNow from "./ApplyNow";
 
 const Footer = () => {
