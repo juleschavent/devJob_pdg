@@ -8,7 +8,7 @@ const Toggle = () => {
             <img src={IconSun} alt="Icone du soleil pour mode clair" />
             <div className="toggle__container">
                 <input type="checkbox" id="toggle" name="toggle"></input>
-                <label for="toggle" />
+                <label htmlFor="toggle" />
             </div>
             <img src={IconMoon} alt="Icone de la lune pour mode sombre" />
         </div>
