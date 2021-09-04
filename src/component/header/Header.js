@@ -4,6 +4,7 @@ import IconSun from "../../assets/icon-sun.svg"
 import IconMoon from "../../assets/icon-moon.svg"
 import "../../sass/sass_component/_header.scss"
 
+
 const Header = () => {
     return (
         <header className="header">
@@ -12,18 +13,14 @@ const Header = () => {
                     <img src={Logo} alt="Logo de DevJobs" className="nav__logo" />
                 </Link>
                 <div className="nav__toggle">
-                    {/* DARK MODE PLACE HOLDER / A CHANGER PAR LE DEFINITIF */}
                     <img src={IconSun} alt="Icone du soleil pour mode clair" />
-                    <div className="toggle">
+                    <div className="toggle__container">
                         <input type="checkbox"
                             id="toggle" name="toggle"></input>
                         <label for="toggle">
                         </label>
-                        <img src={IconMoon} alt="Icone de la lune pour mode sombre" />
-
                     </div>
-
-                    {/*Placeholder IMG*/}
+                    <img src={IconMoon} alt="Icone de la lune pour mode sombre" />
                 </div>
             </nav>
         </header>
