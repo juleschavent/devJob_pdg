@@ -16,13 +16,13 @@ const Header = () => {
                     <img src={IconSun} alt="Icone du soleil pour mode clair" />
                     <div className="toggle">
                         <input type="checkbox"
-                        id="toggle" name="toggle"></input>
+                            id="toggle" name="toggle"></input>
                         <label for="toggle">
                         </label>
                         <img src={IconMoon} alt="Icone de la lune pour mode sombre" />
 
                     </div>
-                
+
                     {/*Placeholder IMG*/}
                 </div>
             </nav>
