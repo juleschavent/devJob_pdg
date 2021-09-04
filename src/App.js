@@ -1,11 +1,10 @@
-// import './App.scss';
-import './App--dark.scss';
+import './App.scss';
+// import './App--dark.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from './component/header/Header';
 import JobList from './component/main/JobList';
 import JobDetails from './component/main/JobDetails';
 import SearchForm from './component/main/SearchForm';
-import Footer from './component/footer/Footer';
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
             <JobDetails />
           </Route>
         </Switch>
-        <Footer />
       </div>
     </Router>
   );
