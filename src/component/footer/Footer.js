@@ -5,10 +5,10 @@ import ApplyNow from "./ApplyNow";
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footerContainer">
-                <div className="footerInfo">
-                    <h3 className="footerInfo__title">Senior Software Engineer</h3>
-                    <p className="footerInfo__subtitle">So Digital Inc.</p>
+            <div className="footer__container">
+                <div className="footer__container__info">
+                    <h3 className="footer__container__info__title">Senior Software Engineer</h3>
+                    <p className="footer__container__info__subtitle">So Digital Inc.</p>
                 </div>
                 <ApplyNow />
             </div>
