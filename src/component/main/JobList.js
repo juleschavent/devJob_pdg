@@ -1,5 +1,5 @@
-// import "../../sass/sass_component/_jobList.scss"
-import "../../sass/sass_component/_jobList--dark.scss"
+import "../../sass/sass_component/_jobList.scss"
+// import "../../sass/sass_component/_jobList--dark.scss"
 import Data from '../../assets/data.json'
 import Import from '../../assets/Import'
 import { Link } from 'react-router-dom'

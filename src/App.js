@@ -1,5 +1,5 @@
-// import './App.scss';
-import './App--dark.scss';
+import './App.scss';
+// import './App--dark.scss';
 import Header from './component/header/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import JobList from './component/main/JobList';
