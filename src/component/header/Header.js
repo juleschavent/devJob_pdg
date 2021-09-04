@@ -3,7 +3,11 @@ import Logo from "../../assets/logo.svg"
 import "../../sass/sass_component/_header.scss"
 
 const Header = () => {
+
+    // partie de code JS
+
     return (
+        // partie de code HTML
         <header className="header">
             <nav className="nav">
                 <Link to="/">
