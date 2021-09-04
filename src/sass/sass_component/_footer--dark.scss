@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $secondary-color-light;
+    background-color: $primary-color-dark;
 
     .footerContainer {
 
@@ -40,7 +40,7 @@
                 padding-bottom: 1.2rem;
                 font-size: 2rem;
                 font-weight: 700;
-                color: $primary-color-dark;
+                color: $secondary-color-light;
             }
 
             .footerInfo__subtitle {

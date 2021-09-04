@@ -1,4 +1,4 @@
-import "../../sass/sass_component/_loadMore.scss"
+import "../../sass/sass_component/_loadMore.scss";
 
 const LoadMore = () => {
     return (
