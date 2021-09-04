@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg"
 import "../../sass/sass_component/_header.scss"
+import Toggle from "./Toggle";
+
 
 const Header = () => {
 
@@ -10,9 +12,7 @@ const Header = () => {
                 <Link to="/">
                     <img src={Logo} alt="Logo de DevJobs" className="nav__logo" />
                 </Link>
-                <div className="nav__toggle">
-                    {/* DARK MODE PLACE HOLDER / A CHANGER PAR LE DEFINITIF */}
-                </div>
+                <Toggle />
             </nav>
         </header>
     );

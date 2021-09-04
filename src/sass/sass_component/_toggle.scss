@@ -1,26 +1,5 @@
 @import '/src/sass/utils/variable';
 
-// HEADER
-.header {
-    background-image: url(../../assets/mobile/bg-pattern-header.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    min-height: 13.6rem;
-    padding: 4rem 3rem;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-}
-
-.nav__logo {
-    width: 11.5rem;
-    height: 3.2rem;
-}
-
 .nav__toggle {
     width: 112px;
     height: 24px;
@@ -94,34 +73,5 @@
 
     input:checked:hover+label::after {
         background-color: $primary-color-light;
-    }
-}
-
-
-// ------------------BREAKPOINTS--------------------
-// TABLET
-@media screen and (min-width: 768px) {
-
-    // HEADER
-    .header {
-        background-image: url(../../assets/tablet/bg-pattern-header.svg);
-        min-height: 16rem;
-    }
-
-    .nav {
-        max-width: 68.9rem;
-    }
-}
-
-// DESKTOP
-@media screen and (min-width: 1440px) {
-
-    // HEADER
-    .header {
-        background-image: url(../../assets/desktop/bg-pattern-header.svg);
-    }
-
-    .nav {
-        max-width: 111rem;
     }
 }
