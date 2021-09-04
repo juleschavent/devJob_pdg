@@ -1,0 +1,66 @@
+@import '/src/sass/utils/variable';
+
+// FOOTER
+.footer {
+    min-height: 9.6rem;
+    border-radius: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color-dark;
+
+    .footerContainer {
+
+        .footerInfo__title {
+            display: none;
+        }
+
+        .footerInfo__subtitle {
+            display: none;
+        }
+    }
+}
+
+// ------------------BREAKPOINTS--------------------
+// TABLET
+@media screen and (min-width: 768px) {
+
+    // FOOTER
+    .footer {
+
+        .footerContainer {
+            width: 68.9rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .footerInfo__title {
+                display: flex;
+                padding-bottom: 1.2rem;
+                font-size: 2rem;
+                font-weight: 700;
+                color: $secondary-color-light;
+            }
+
+            .footerInfo__subtitle {
+                display: flex;
+                font-size: 1.6rem;
+                font-weight: 400;
+                color: $secondary-color-darker;
+            }
+        }
+    }
+}
+
+// DESKTOP
+@media screen and (min-width: 1440px) {
+
+    // FOOTER
+    .footer {
+
+        .footerContainer {
+            width: 73rem;
+        }
+    }
+}
