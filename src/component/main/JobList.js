@@ -1,19 +1,27 @@
 import "../../sass/sass_component/_jobList.scss"
 // import "../../sass/sass_component/_jobList--dark.scss"
-import Data from '../../assets/data.json'
 import Import from '../../assets/Import'
 import { Link } from 'react-router-dom'
 import LoadMore from "./LoadMore";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const JobList = () => {
 
-    console.log(Data)
+    const [companyList, setCompanyList] = useState(null)
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/company").then((response) => {
+            console.log(response);
+            setCompanyList(response.data)
+        });
+    }, [])
 
     return (
         <>
             <main>
-                {Data && Data.map((job, index) => (
+                {/* {Data && Data.map((job, index) => (
                     <Link to={`/jobdetails/${job.id}`} key={index} style={{ textDecoration: "none" }}>
                         <div className="card">
                             <img src={Import(job.logo, "logo/")} alt={job.company} className="card__logo" />
@@ -27,7 +35,14 @@ const JobList = () => {
                         </div>
                     </Link>
                 ))
-                }
+                } */}
+
+                {companyList && companyList.map((el, id) => (
+                    <div className="card" key={id}>
+                        <p>{el.company_name}</p>
+                    </div>
+                ))}
+
             </main>
             <LoadMore />
         </>
