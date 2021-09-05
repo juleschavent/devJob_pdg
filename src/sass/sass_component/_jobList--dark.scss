@@ -1,0 +1,94 @@
+@import '/src/sass/utils/variable';
+
+// GENERAL STYLE
+main {
+    padding: 4rem 2rem;
+    margin: 0 auto;
+}
+
+// CARD STYLE
+.card {
+    background-color: $primary-color-dark;
+    max-width: 46rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
+}
+
+.card__logo {
+    max-width: 5rem;
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
+}
+
+.addInfo {
+    display: flex;
+    justify-content: flex-start;
+
+    & * {
+        margin-right: 2rem;
+        color: $secondary-color-darker;
+        font-size: 1.6rem;
+        font-weight: 400;
+        position: relative;
+        margin-bottom: 1rem;
+    }
+}
+
+.addInfo__posted::after {
+    content: '';
+    position: absolute;
+    bottom: .5rem;
+    right: -1.3rem;
+    width: .4rem;
+    height: .4rem;
+    border-radius: 50%;
+    background-color: $secondary-color-darker;
+}
+
+.card__position {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $secondary-color-light;
+    margin-bottom: 1rem;
+}
+
+.card__company {
+    color: $secondary-color-darker;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.card__location {
+    color: $primary-color;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+// ------------------BREAKPOINTS--------------------
+// TABLET
+@media screen and (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        justify-content: center;
+        padding: 0;
+        margin: 4rem auto;
+        max-width: 68.9rem;
+    }
+
+}
+
+// DESKTOP
+@media screen and (min-width: 1440px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0;
+        max-width: 110rem;
+    }
+}

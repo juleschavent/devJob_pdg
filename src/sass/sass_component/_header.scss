@@ -1,0 +1,50 @@
+@import '/src/sass/utils/variable';
+
+// HEADER
+.header {
+    background-image: url(../../assets/mobile/bg-pattern-header.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    min-height: 13.6rem;
+    padding: 4rem 3rem;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.header__nav__logo {
+    width: 11.5rem;
+    height: 3.2rem;
+}
+
+// ------------------BREAKPOINTS--------------------
+// TABLET
+@media screen and (min-width: 768px) {
+
+    // HEADER
+    .header {
+        background-image: url(../../assets/tablet/bg-pattern-header.svg);
+        min-height: 16rem;
+    }
+
+    .header__nav {
+        max-width: 68.9rem;
+    }
+}
+
+// DESKTOP
+@media screen and (min-width: 1440px) {
+
+    // HEADER
+    .header {
+        background-image: url(../../assets/desktop/bg-pattern-header.svg);
+    }
+
+    .header__nav {
+        max-width: 111rem;
+    }
+}

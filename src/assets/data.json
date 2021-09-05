@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "company": "Infomaniak",
+        "logo": "infomaniak.png",
+        "position": "React, Gatsby and GraphQL",
+        "postedAt": "5h ago",
+        "contract": "remote",
+        "location": "Geneva",
+        "website": "https://www.infomaniak.com/",
+        "description": "Infomaniak et son équipe Frontend sont à la recherche d'un stagiaire pour l'intégration de maquette sur des technologies tel que React.",
+        "role" : "Vous serez en charge de l'intégration de maquette sur notre site web pour le développement de la branche billeterie et la refonte d'anciens modules. Une première expérience personnelle en React ainsi qu'avec les modules Gatsby et GraphQL est un plus.",
+        "experience": "Une première expérience sur des projets personnels où scolaire est nécessaire ainsi qu'une grande connaissance de HTML, CSS ainsi que des méthode de nommage BEM"
+    },
+        {
+        "id": 2,
+        "company": "Webtech",
+        "logo": "webtech.png",
+        "position": "Wordpress, PHP",
+        "postedAt": "2 days ago",
+        "contract": "en agence, remote",
+        "location": "Annecy",
+        "website": "https://webtech.fr/",
+        "description": "Webtech est à la recherche d'un stagiaire intégrateur web Wordpress pour assister notre équipe de développeur sur nos projets à venir",
+        "role" : "A la suite des indication que votre chef d'équipe vous fournira, vous serez chargé d'intégrer des pages web simple et ce dans un temps limité. De plus, il pourra vous être demandé de créer et/ou modifier des plugin afin de satisfaire la demande de nos clients.",
+        "experience": "Une connaissance solide de Wordpress est indispenssable ainsi que de PHP. Un test vous sera demandé sur PHP afin de valider votre recrutement."
+    },
+    {
+        "id": 3,
+        "company": "PX Group",
+        "logo": "pxgroupe.png",
+        "position": "PHP, Python",
+        "postedAt": "5 days ago",
+        "contract": "en agence",
+        "location": "Geneva",
+        "website": "https://www.pxgroup.com/fr",
+        "description": "Le groupe est composé d’une dizaine de sociétés complémentaires dans la fabrication de semi-produits individualisés de haute qualité destinés entre autre à l’horlogerie, à l’industrie et au médical ainsi que dans la fabrication d’outils de coupe. Nous proposons une expertise unique dans nos domaines. Empreint d’une identité familiale qui laisse une large place à l’entrepreneuriat, nous évoluons dans un environnement de travail dynamique favorisant l’autonomie et l’innovation.",
+        "role" : "Intégrer une équipe dynamique de développeurs au sein d’un groupe industriel international. Participer au développement complet d’une application novatrice en mode Start-up .Traduire les demandes des key users en fonctionnalités dans nos systèmes. Supporter et former les utilisateurs de notre ERP",
+        "experience": "Vous êtes en possession d’un diplôme de formation supérieure dans le domaine de l’informatique technique. Vous avez une première expérience réussie dans un poste similaire. Vous maitrisez le langage SQL, le développement d’applications mobiles et d’intelligence artificielle (idéalement Python)"
+    },
+    {
+        "id": 4,
+        "company": "Osengo",
+        "logo": "osengo.png",
+        "position": "HTML, CSS, Javascript",
+        "postedAt": "2 weeks ago",
+        "contract": "sur place",
+        "location": "Annemasse",
+        "website": "https://osengo.fr/",
+        "description": "Osengo by Aformac recherche un Assistant Formateur Développeur Web pour intervenir dans une formation qualifiante de développeur Web et Web mobile donnant accès à un titre Professionnel de niveau 5 ",
+        "role" : "Assurer la préparation et l'animation des formations dans le respect des référentiels et du process qualité. Elaborer et fournir la progression pédagogique et être garant du respect de son bon déroulement. Elaborer les supports selon les référentiels pédagogiques et animer la formation auprès des apprenants",
+        "experience": "Nous recherchons pour nos formations en présentiel des assistants formateur(-trice)s qui pourront accompagner nos apprenants dans leur apprentissage des compétences suivantes : Développer la partie front-end d'une application web ou web mobile en intégrant les recommandations de sécurité"
+    },
+    {
+        "id": 5,
+        "company": "Fokus",
+        "logo": "fokus.png",
+        "position": "JS, Angular, Node.js",
+        "postedAt": "2h ago",
+        "contract": "remote",
+        "location": "Aix-en-provence",
+        "website": "https://www.fokus-it.fr/",
+        "description": "Dans le cadre d'un recrutement en stage, nous recherchons un Développeur Web JS (H/F), pour renforcer notre pôle d'excellence « Transformation des Systèmes d'Informations ».",
+        "role" : "Participer à l'expression des besoins et la rédaction des spécifications. Participer à la conception technique (architecture) et au chiffrage du projet. Développer et configurer en JS, environnement Linux (Redhat 8). Définir et réaliser les procédures de test et corriger les bugs.",
+        "experience": "Aucune expérience professionnelle souhaité."
+    }
+]
