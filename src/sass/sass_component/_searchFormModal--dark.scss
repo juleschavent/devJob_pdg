@@ -8,65 +8,63 @@
     position: absolute;
     top: 0;
     left: 0;
-}
 
-.searchModal {
-    background-color: $primary-color-dark;
-    position: relative;
-    top: 18rem;
-    margin: 2rem;
-    border-radius: .7rem;
-    z-index: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &__btn {
-        font-size: 1.6rem;
-        padding: 1.5rem 2rem;
-        margin: 1rem 2rem 2rem;
-        border: none;
-        color: $secondary-color-light;
-        background-color: $primary-color;
-        border-radius: .5rem;
-    }
-}
-
-// LOCATION INPUT
-.locationInput {
-    display: flex;
-    align-items: center;
-    padding: 2rem;
-    border-bottom: 1.5px solid rgba(255, 255, 255, 0.082);
-
-    &__icon {
-        margin-right: 1.5rem;
-    }
-
-    &__input {
-        border: none;
+    &__searchModal {
         background-color: $primary-color-dark;
-        font-size: 1.6rem;
-        font-weight: 500;
-    }
-}
+        position: relative;
+        top: 18rem;
+        margin: 2rem;
+        border-radius: .7rem;
+        z-index: 1;
 
-// FULLTIME CHECKBOX
-.fullTimeInput {
-    display: flex;
-    align-items: center;
-    padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-    &__check {
-        margin-right: 2rem;
-        transform: scale(2);
-        transform-origin: left;
-    }
+        &__btn {
+            font-size: 1.6rem;
+            padding: 1.5rem 2rem;
+            margin: 1rem 2rem 2rem;
+            border: none;
+            color: $secondary-color-light;
+            background-color: $primary-color;
+            border-radius: .5rem;
+        }
 
-    &__label {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: $secondary-color-light;
+        &__locationInput {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.082);
+
+            &__icon {
+                margin-right: 1.5rem;
+            }
+
+            &__input {
+                border: none;
+                background-color: $primary-color-dark;
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+        }
+
+        &__fullTimeInput {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+
+            &__check {
+                margin-right: 2rem;
+                transform: scale(2);
+                transform-origin: left;
+            }
+
+            &__label {
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: $secondary-color-light;
+            }
+        }
     }
 }

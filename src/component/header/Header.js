@@ -8,9 +8,9 @@ const Header = () => {
 
     return (
         <header className="header">
-            <nav className="nav">
+            <nav className="header__nav">
                 <Link to="/">
-                    <img src={Logo} alt="Logo de DevJobs" className="nav__logo" />
+                    <img src={Logo} alt="Logo de DevJobs" className="header__nav__logo" />
                 </Link>
                 <Toggle />
             </nav>

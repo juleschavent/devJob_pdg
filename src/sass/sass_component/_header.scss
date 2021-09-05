@@ -10,93 +10,16 @@
     padding: 4rem 3rem;
 }
 
-.nav {
+.header__nav {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
 }
 
-.nav__logo {
+.header__nav__logo {
     width: 11.5rem;
     height: 3.2rem;
 }
-
-.nav__toggle {
-    width: 112px;
-    height: 24px;
-
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-
-    img:nth-of-type(2) {
-        width: 16px;
-        // height: 20px;
-    }
-
-}
-
-.toggle__container {
-    position: relative;
-
-    label {
-        display: grid;
-        grid-template-columns: 4.8rem;
-        grid-template-areas: "checkbox";
-    }
-
-    input {
-        position: absolute;
-        width: 112px;
-        height: 24px;
-        margin-left: -40px;
-        opacity: 0;
-
-    }
-
-    label::before,
-    label::after {
-        grid-area: checkbox;
-        content: '';
-        display: block;
-        // margin-top: .1em;
-    }
-
-    label::before {
-        width: 48px;
-        height: 24px;
-        border-radius: 1.6em;
-        background-color: $secondary-color-light;
-    }
-
-    label::after {
-        position: relative;
-        left: 5px;
-        top: 5px;
-
-        width: 1.4rem;
-        height: 1.4rem;
-        border-radius: 50%;
-
-        background-color: $primary-color-light;
-        transition: all .3s;
-    }
-
-    input:checked+label::after {
-        background-color: $primary-color;
-        transform: translateX(24px);
-    }
-
-    input:hover+label::after {
-        background-color: $primary-color;
-    }
-
-    input:checked:hover+label::after {
-        background-color: $primary-color-light;
-    }
-}
-
 
 // ------------------BREAKPOINTS--------------------
 // TABLET
@@ -108,7 +31,7 @@
         min-height: 16rem;
     }
 
-    .nav {
+    .header__nav {
         max-width: 68.9rem;
     }
 }
@@ -121,7 +44,7 @@
         background-image: url(../../assets/desktop/bg-pattern-header.svg);
     }
 
-    .nav {
+    .header__nav {
         max-width: 111rem;
     }
 }
