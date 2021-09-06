@@ -30,14 +30,23 @@ INNER JOIN company_has_tool ON company_has_tool.company_company_id = company.com
 INNER JOIN tool ON tool.tool_id = company_has_tool.tool_tool_id
 */
 
-// Read sur la DB
+// Read de la liste des entreprises
 app.get('/company', (req, res) => {
+    db.query(`SELECT * FROM company`, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+// Read de la liste des technos par entreprise
+app.get('/techno', (req, res) => {
     db.query(`SELECT * FROM company
-            INNER JOIN city ON city.city_id = company.city_city_id
             INNER JOIN company_has_technology ON company_has_technology.company_company_id = company.company_id
-            INNER JOIN technology ON technology.technology_id = company_has_technology.technology_technology_id
-            INNER JOIN company_has_tool ON company_has_tool.company_company_id = company.company_id
-            INNER JOIN tool ON tool.tool_id = company_has_tool.tool_tool_id`, (err, result) => {
+            INNER JOIN technology on technology.technology_id = company_has_technology.technology_technology_id
+            `, (err, result) => {
         if (err) {
             console.log(err)
         } else {

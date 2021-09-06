@@ -10,11 +10,19 @@ import axios from "axios";
 const JobList = () => {
 
     const [companyList, setCompanyList] = useState(null)
+    const [technoList, setTechnoList] = useState(null)
 
     useEffect(() => {
+        //get la liste des entreprises
         axios.get("http://localhost:3001/company").then((response) => {
             console.log(response);
-            setCompanyList(response.data)
+            setCompanyList(response.data);
+        });
+
+        //get la liste des technos par entreprise
+        axios.get("http://localhost:3001/techno").then((response) => {
+            console.log(response);
+            setTechnoList(response.data);
         });
     }, [])
 
@@ -32,7 +40,11 @@ const JobList = () => {
                             </div>
                             <h2 className="card__position">{el.company_name}</h2>
                             <div>
-                                <p>{el.technology_name}</p>
+                                {technoList && technoList.map((techno, idTechno) => (
+                                    el.company_id === techno.company_id ?
+                                        <p key={idTechno}>{techno.technology_name}</p>
+                                        : ""
+                                ))}
                             </div>
                             <p>{el.city_name}</p>
                         </div>
