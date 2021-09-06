@@ -3,6 +3,7 @@ import { ExternalLink } from "react-external-link";
 import Footer from "../footer/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import JobHeader from "./JobHeader";
 
 const JobDetails = () => {
     const { id } = useParams();
@@ -19,6 +20,7 @@ const JobDetails = () => {
 
     return (
         <>
+            <JobHeader />
             <div>
                 {companyDetails && companyDetails.map((el, index) => (
                     parseInt(id) === el.company_id ?
