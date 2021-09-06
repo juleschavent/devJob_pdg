@@ -1,29 +1,28 @@
 import { useParams } from "react-router-dom";
-import Data from "../../assets/data.json";
-import Import from '../../assets/Import'
 import { ExternalLink } from "react-external-link";
 import Footer from "../footer/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const JobDetails = () => {
     const { id } = useParams();
+    const [companyDetails, setCompanyDetails] = useState(null)
+
+    console.log("params id", id)
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/company").then((response) => {
+            console.log(response);
+            setCompanyDetails(response.data)
+        });
+    }, [])
 
     return (
         <>
             <div>
-                {Data && Data.map((job, index) => (
-                    job.id === parseInt(id) ?
-                        <article key={index}>
-                            <div>
-                                <img src={Import(job.logo, "logo/")} alt={job.company} />
-                                <p>{job.company}</p>
-                                <p>{job.company.toLocaleLowerCase()}.com</p>
-                                <button><ExternalLink href={job.website}>Company Site</ExternalLink></button>
-                            </div>
-                            <div>
-                                PLACERHOLDER WAITING FOR HTML/CSS WORK
-                                {/* PLACERHOLDER WAITING FOR HTML/CSS WORK */}
-                            </div>
-                        </article>
+                {companyDetails && companyDetails.map((el, index) => (
+                    parseInt(id) === el.company_id ?
+                        <p key={index}>{el.company_name}</p>
                         : ""
                 ))}
             </div>

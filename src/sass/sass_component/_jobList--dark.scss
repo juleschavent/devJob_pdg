@@ -11,62 +11,75 @@ main {
     background-color: $primary-color-dark;
     max-width: 46rem;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 2rem 3rem;
     margin: 0 auto;
     margin-bottom: 4rem;
     box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
-}
+    position: relative;
+    transition: .2s ease;
 
-.card__logo {
-    max-width: 5rem;
-    margin-top: -4rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
-}
+    &:hover {
+        transform: scale(1.05);
+    }
 
-.addInfo {
-    display: flex;
-    justify-content: flex-start;
+    &:hover>.card__companyName {
+        color: $primary-color-light;
+    }
 
-    & * {
-        margin-right: 2rem;
-        color: $secondary-color-darker;
+    &__logo {
+        max-width: 5rem;
+        margin-top: -4rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
+        border-radius: .2rem;
+    }
+
+    &__isNew {
+        position: absolute;
+        top: -1rem;
+        right: 2rem;
         font-size: 1.6rem;
-        font-weight: 400;
-        position: relative;
+        color: $secondary-color-light;
+        background-color: rgb(255, 78, 78);
+        padding: .2rem .4rem;
+        border-radius: .2rem;
+    }
+
+    &__companyName {
+        color: $secondary-color-light;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
+        transform-origin: left;
+        transition: .1s ease;
+    }
+
+    &__isRemote {
+        font-size: 1.4rem;
+        color: $secondary-color-darker;
         margin-bottom: 1rem;
     }
-}
 
-.addInfo__posted::after {
-    content: '';
-    position: absolute;
-    bottom: .5rem;
-    right: -1.3rem;
-    width: .4rem;
-    height: .4rem;
-    border-radius: 50%;
-    background-color: $secondary-color-darker;
-}
+    &__technoList {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
 
-.card__position {
-    font-size: 2rem;
-    font-weight: 700;
-    color: $secondary-color-light;
-    margin-bottom: 1rem;
-}
+        & * {
+            font-size: 1.6rem;
+            color: $secondary-color-light;
+            background-color: $primary-color;
+            padding: .2rem .4rem;
+            margin-right: 1rem;
+            border-radius: .2rem;
+        }
+    }
 
-.card__company {
-    color: $secondary-color-darker;
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-}
-
-.card__location {
-    color: $primary-color;
-    font-size: 1.4rem;
-    font-weight: 700;
+    &__city {
+        color: $primary-color;
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
 }
 
 // ------------------BREAKPOINTS--------------------
