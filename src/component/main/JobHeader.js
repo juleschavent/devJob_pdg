@@ -1,6 +1,6 @@
 import { ExternalLink } from "react-external-link";
-// import "../../sass/sass_component/_jobHeader.scss";
-import "../../sass/sass_component/_jobHeader--dark.scss";
+import "../../sass/sass_component/_jobHeader.scss";
+// import "../../sass/sass_component/_jobHeader--dark.scss";
 import TempLogo from "../../assets/noLogo.png"
 
 const JobHeader = () => {

@@ -8,8 +8,12 @@ import SearchForm from './component/main/SearchForm';
 
 function App() {
   return (
+    // Attention, bien diférencer les Compo des library react
+    // Router, Switch, Route sont des library
+    // Voir RESSOURCES/REACT/router.md
     <Router>
       <div className="App">
+        {/* Header, SearchForm etc sont des composants */}
         <Header />
         <Switch>
           <Route exact path="/">

@@ -6,28 +6,37 @@ import axios from "axios";
 import JobHeader from "./JobHeader";
 
 const JobDetails = () => {
+    // Récupère via useParams la variable ID qui lui a été passée de JobList.js
     const { id } = useParams();
-    const [companyDetails, setCompanyDetails] = useState(null)
-
-    console.log("params id", id)
+    const [companyDetails, setCompanyDetails] = useState({})
+    const [companyTechno, setCompanyTechno] = useState(null)
 
     useEffect(() => {
-        axios.get("http://localhost:3001/company").then((response) => {
-            console.log(response);
+        // req 
+        axios.get(`http://localhost:3001/details/${id}`, {}).then((response) => {
             setCompanyDetails(response.data)
+            // console.log("get company", response.data);
         });
+
+        axios.get(`http://localhost:3001/techno/${id}`, {}).then(
+            (response) => {
+                setCompanyTechno(response.data);
+                console.log("get techno tool", response.data);
+            }
+        );
     }, [])
 
     return (
         <>
             <JobHeader />
-            <div>
-                {companyDetails && companyDetails.map((el, index) => (
-                    parseInt(id) === el.company_id ?
-                        <p key={index}>{el.company_name}</p>
-                        : ""
-                ))}
-            </div>
+            {/* {companyDetails && companyDetails.map((el, index) => (
+                <div key={index}>
+                    <p>{el.company_name}</p>
+                </div>
+            ))} */}
+            {companyTechno && companyTechno.map((el, index) => (
+                <p>{el.tool_name}</p>
+            ))}
             <Footer />
         </>
     );

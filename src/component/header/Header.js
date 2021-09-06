@@ -9,6 +9,7 @@ const Header = () => {
     return (
         <header className="header">
             <nav className="header__nav">
+                {/* Link est une library venant de react router, il remplace les aHref */}
                 <Link to="/">
                     <img src={Logo} alt="Logo de DevJobs" className="header__nav__logo" />
                 </Link>
