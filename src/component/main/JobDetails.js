@@ -1,6 +1,4 @@
 import { useParams } from "react-router-dom";
-import Data from "../../assets/data.json";
-import Import from '../../assets/Import'
 import { ExternalLink } from "react-external-link";
 import Footer from "../footer/Footer";
 import { useEffect, useState } from "react";

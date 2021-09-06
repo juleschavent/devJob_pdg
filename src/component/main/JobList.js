@@ -1,16 +1,19 @@
 import "../../sass/sass_component/_jobList.scss"
 // import "../../sass/sass_component/_jobList--dark.scss"
-import Import from '../../assets/Import'
 import { Link } from 'react-router-dom'
 import LoadMore from "./LoadMore";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import NoLogo from "../../assets/noLogo.png"
+import MyDate from "../../assets/MyDate"
 
 
 const JobList = () => {
 
     const [companyList, setCompanyList] = useState(null)
     const [technoList, setTechnoList] = useState(null)
+
+    console.log(MyDate())
 
     useEffect(() => {
         //get la liste des entreprises
@@ -24,6 +27,7 @@ const JobList = () => {
             console.log(response);
             setTechnoList(response.data);
         });
+
     }, [])
 
     return (
@@ -31,14 +35,16 @@ const JobList = () => {
             <main>
 
                 {companyList && companyList.map((el, id) => (
-                    <Link to={`/jobdetails/${el.company_id}`} className="card" key={id} style={{ textDecoration: "none" }}>
-                        <div className="card">
-                            <img src={Import("fokus.png", "logo/")} alt="" className="card__logo" />
-                            <div className="addInfo">
-                                <p className="addInfo__posted">{el.company_postedat}</p>
-                                <p className="addInfo__contract">{el.company_remote}</p>
+                    <Link to={`/jobdetails/${el.company_id}`} key={id} style={{ textDecoration: "none" }}>
+                        <div>
+                            <img src={"https://logo.clearbit.com/" + el.company_logo}
+                                onError={(e) => { e.target.src = NoLogo }}
+                                alt={"logo de " + el.company_name} />
+                            <div>
+                                <p>{el.company_remote === 1 ? "Remote" : "No remote work"}</p>
+                                {MyDate() - parseInt(el.company_postedat) < 30 ? <p>Rencently added</p> : ""}
                             </div>
-                            <h2 className="card__position">{el.company_name}</h2>
+                            <h2>{el.company_name}</h2>
                             <div>
                                 {technoList && technoList.map((techno, idTechno) => (
                                     el.company_id === techno.company_id ?

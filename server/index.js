@@ -32,7 +32,8 @@ INNER JOIN tool ON tool.tool_id = company_has_tool.tool_tool_id
 
 // Read de la liste des entreprises
 app.get('/company', (req, res) => {
-    db.query(`SELECT * FROM company`, (err, result) => {
+    db.query(`SELECT * FROM company
+            INNER JOIN city ON city.city_id = company.city_city_id`, (err, result) => {
         if (err) {
             console.log(err)
         } else {
