@@ -8,36 +8,60 @@ import JobHeader from "./JobHeader";
 const JobDetails = () => {
     // Récupère via useParams la variable ID qui lui a été passée de JobList.js
     const { id } = useParams();
-    const [companyDetails, setCompanyDetails] = useState({})
+    const [companyDetails, setCompanyDetails] = useState(null)
     const [companyTechno, setCompanyTechno] = useState(null)
+    const [companyTool, setCompanyTool] = useState(null)
 
     useEffect(() => {
-        // req 
+        // req pour l'annonce qui a été cliquée grâce à variable ID
         axios.get(`http://localhost:3001/details/${id}`, {}).then((response) => {
             setCompanyDetails(response.data)
-            // console.log("get company", response.data);
+            console.log("get company", response.data);
         });
 
         axios.get(`http://localhost:3001/techno/${id}`, {}).then(
             (response) => {
                 setCompanyTechno(response.data);
-                console.log("get techno tool", response.data);
+                console.log("get techno", response.data);
+            }
+        );
+
+        axios.get(`http://localhost:3001/tool/${id}`, {}).then(
+            (response) => {
+                setCompanyTool(response.data);
+                console.log("get tool", response.data);
             }
         );
     }, [])
 
     return (
         <>
-            <JobHeader />
-            {/* {companyDetails && companyDetails.map((el, index) => (
+            <JobHeader companyDetails={companyDetails} />
+
+            {/* Boucle sur companyDetails pour afficher les infos */}
+            {companyDetails && companyDetails.map((el, index) => (
                 <div key={index}>
                     <p>{el.company_name}</p>
+
+                    {/* Boucle sur companyTechno pour afficher les technos */}
+                    {companyTechno && companyTechno.map((el, index) => (
+                        <p key={index}>{el.technology_name}</p>
+                    ))}
+                    {/* Boucle sur companyTool pour afficher les tools */}
+                    {companyTool && companyTool.map((el, index) => (
+                        <p key={index}>{el.tool_name}</p>
+                    ))}
+
+                    <ExternalLink href={el.company_website}>
+                        <p>{el.company_website}</p>
+                    </ExternalLink>
+                    <p>{el.city_name}</p>
+                    <p>{el.company_adress}</p>
+                    <p>{el.company_description}</p>
                 </div>
-            ))} */}
-            {companyTechno && companyTechno.map((el, index) => (
-                <p>{el.tool_name}</p>
             ))}
-            <Footer />
+
+            <Footer  />
         </>
     );
 }

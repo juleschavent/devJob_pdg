@@ -30,6 +30,8 @@ INNER JOIN company_has_tool ON company_has_tool.company_company_id = company.com
 INNER JOIN tool ON tool.tool_id = company_has_tool.tool_tool_id
 */
 
+// Création des req et endpoint pour y avoir accès en front
+
 // Read de la liste des entreprises
 app.get('/companyList', (req, res) => {
     db.query(`SELECT * FROM company
@@ -59,12 +61,14 @@ app.get('/details/:id', (req, res) => {
 })
 
 
-// Read de la liste des technos par entreprise
-app.get('/techno', (req, res) => {
+// Read de la liste des technos par entreprise grâce à endpoint techno/:id
+app.get('/techno/:id', (req, res) => {
+    const id = req.params.id;
     db.query(`SELECT * FROM company
             INNER JOIN company_has_technology ON company_has_technology.company_company_id = company.company_id
-            INNER JOIN technology on technology.technology_id = company_has_technology.technology_technology_id
-            `, (err, result) => {
+            INNER JOIN technology ON technology.technology_id = company_has_technology.technology_technology_id
+            WHERE company_id = ?
+            `, id, (err, result) => {
         if (err) {
             console.log(err)
         } else {
@@ -73,13 +77,10 @@ app.get('/techno', (req, res) => {
     })
 })
 
-// Read de l'entreprise dans JobDetails via l'ID passé en props
-app.get('/techno/:id', (req, res) => {
+// Read de la liste des tools par entreprise grâce à endpoint tool/:id
+app.get('/tool/:id', (req, res) => {
     const id = req.params.id;
     db.query(`SELECT * FROM company
-            INNER JOIN city ON city.city_id = company.city_city_id
-            INNER JOIN company_has_technology ON company_has_technology.company_company_id = company.company_id
-            INNER JOIN technology ON technology.technology_id = company_has_technology.technology_technology_id
             INNER JOIN company_has_tool ON company_has_tool.company_company_id = company.company_id
             INNER JOIN tool ON tool.tool_id = company_has_tool.tool_tool_id
             WHERE company_id = ?
@@ -91,3 +92,5 @@ app.get('/techno/:id', (req, res) => {
         }
     })
 })
+
+
