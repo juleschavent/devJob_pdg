@@ -46,6 +46,21 @@ app.get('/companyList', (req, res) => {
         })
 })
 
+// Filtre par techno
+app.get('/companyList/:techno', (req, res) => {
+    const techno = req.params.techno;
+    db.query(`SELECT * FROM company
+            INNER JOIN city ON city.city_id = company.city_city_id
+            WHERE company.company_name LIKE "%?%"`, techno,
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result)
+            }
+        })
+})
+
 app.get('/details/:id', (req, res) => {
     const id = req.params.id;
     db.query(`SELECT * FROM company
