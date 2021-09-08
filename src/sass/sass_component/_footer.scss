@@ -7,16 +7,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $secondary-color-light;
+    transition: all .2 ease-in-out;
 
-    .footer__container {
+    &--light {
+        background-color: $secondary-color-light;
+    }
 
-        .footer__container__info__title {
+    &--dark {
+        background-color: $primary-color-dark;
+    }
+
+    &__container {
+
+        &__info__title {
             display: none;
-        }
 
-        .footer__container__info__subtitle {
-            display: none;
+            &__subtitle {
+                display: none;
+            }
         }
     }
 }
@@ -40,7 +48,14 @@
                 padding-bottom: 1.2rem;
                 font-size: 2rem;
                 font-weight: 700;
-                color: $primary-color-dark;
+
+                &--light {
+                    color: $primary-color-dark;
+                }
+
+                &--dark {
+                    color: $secondary-color-light;
+                }
             }
 
             .footer__container__info__subtitle {

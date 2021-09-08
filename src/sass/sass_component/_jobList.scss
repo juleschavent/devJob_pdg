@@ -8,30 +8,50 @@ main {
 
 // CARD STYLE
 .card {
-    background-color: $secondary-color-light;
     max-width: 46rem;
     min-height: 15.2rem;
     border-radius: 1rem;
     padding: 2rem 3rem;
     margin: 0 auto;
     margin-bottom: 4rem;
-    box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
     position: relative;
-    transition: .2s ease;
+    transition: all .2s ease-in-out;
+
+    &--light {
+        background-color: $secondary-color-light;
+        box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
+    }
+
+    &--dark {
+        background-color: $primary-color-dark;
+        box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
+    }
 
     &:hover {
         transform: scale(1.05);
     }
 
-    &:hover>.card__companyName {
+    &:hover>.card__companyName--light {
         color: $primary-color;
+    }
+
+    &:hover>.card__companyName--dark {
+        color: $primary-color-light;
     }
 
     &__logo {
         max-width: 5rem;
         margin-top: -4rem;
         margin-bottom: 2rem;
-        box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
+        transition: all .2s ease-in-out;
+
+        &--light {
+            box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
+        }
+
+        &--dark {
+            box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
+        }
     }
 
     &__isNew {
@@ -46,21 +66,19 @@ main {
     }
 
     &__companyName {
-        color: $primary-color-dark;
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: .5rem;
         transform-origin: left;
-        transition: .1s ease;
-    }
+        transition: all .2s ease-in-out;
 
-    &__companyName {
-        color: $primary-color-dark;
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: .5rem;
-        transform-origin: left;
-        transition: .1s ease;
+        &--light {
+            color: $primary-color-dark;
+        }
+
+        &--dark {
+            color: $secondary-color-light;
+        }
     }
 
     &__isRemote {

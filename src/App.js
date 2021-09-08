@@ -1,19 +1,21 @@
 import './App.scss';
-// import './App--dark.scss';
+
 import Header from './component/header/Header';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import SearchForm from './component/main/SearchForm';
 import JobList from './component/main/JobList';
 import JobDetails from './component/main/JobDetails';
-import SearchForm from './component/main/SearchForm';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { ThemeContext } from './component/context/ThemeContext'
+import { useContext } from 'react';
 
 function App() {
+
+  const { theme } = useContext(ThemeContext);
+
   return (
-    // Attention, bien diférencer les Compo des library react
-    // Router, Switch, Route sont des library
-    // Voir RESSOURCES/REACT/router.md
     <Router>
-      <div className="App">
-        {/* Header, SearchForm etc sont des composants */}
+      <div className={theme ? "App App--light" : "App App--dark"}>
         <Header />
         <Switch>
           <Route exact path="/">

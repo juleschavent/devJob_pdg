@@ -61,7 +61,7 @@ const JobDetails = () => {
                 </div>
             ))}
 
-            <Footer  />
+            <Footer companyDetails={companyDetails} companyTechno={companyTechno} />
         </>
     );
 }

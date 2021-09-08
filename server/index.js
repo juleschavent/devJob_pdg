@@ -60,6 +60,19 @@ app.get('/details/:id', (req, res) => {
         })
 })
 
+// Read de la liste des technos pour chaque entreprise
+app.get('/techno', (req, res) => {
+    db.query(`SELECT * FROM company
+            INNER JOIN company_has_technology ON company_has_technology.company_company_id = company.company_id
+            INNER JOIN technology ON technology.technology_id = company_has_technology.technology_technology_id
+            `, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
 
 // Read de la liste des technos par entreprise grâce à endpoint techno/:id
 app.get('/techno/:id', (req, res) => {
