@@ -40,17 +40,18 @@ main {
     }
 
     &__logo {
-        max-width: 5rem;
+        max-width: 6rem;
         margin-top: -4rem;
         margin-bottom: 2rem;
         transition: all .2s ease-in-out;
+        border-radius: 50%;
 
         &--light {
-            box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
+            box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.171);
         }
 
         &--dark {
-            box-shadow: 0 .2rem .2rem rgba(47, 47, 47, 0.589);
+            box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.596);
         }
     }
 
