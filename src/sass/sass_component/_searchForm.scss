@@ -28,6 +28,7 @@
         &__input {
             border: none;
             transition: all .2s ease-in-out;
+            padding: 1rem;
 
             &--dark {
                 border: none;
@@ -86,11 +87,17 @@
                 &__input {
                     border: none;
                     background: none;
-                    padding: 3rem 0;
+                    padding: 1rem;
+                    margin: 2rem 0;
                     font-size: 1.6rem;
                     font-weight: 400;
                     margin-left: 1.6rem;
+                    margin-right: 1.6rem;
                     width: 100%;
+
+                    &--dark {
+                        color: $secondary-color-light;
+                    }
                 }
 
                 &__check {
@@ -133,12 +140,12 @@
 
     .search__form__inputs:not(:last-of-type) {
         border-right: 1px solid rgba(0, 0, 0, 0.198);
-        grid-column: span 4;
+        grid-column: span 5;
     }
 
     .search__form__inputs--dark:not(:last-of-type) {
         border-right: 1px solid rgba(228, 228, 228, 0.301);
-        grid-column: span 4;
+        grid-column: span 5;
     }
 }
 
