@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ConstContext } from "../context/ConstContext";
+import { useState } from "react/cjs/react.development";
 
 const JobList = () => {
 
@@ -17,14 +18,24 @@ const JobList = () => {
 
     const { companyName } = useContext(ConstContext);
     const { location } = useContext(ConstContext);
+    const { remote } = useContext(ConstContext);
 
+    // Système D pour afficher message d'erreur lorsqu'aucune entreprise ne correspond à la recherche
+    let isCompany = [];
+    if (companyList) {
+        companyList.forEach(el => {
+            isCompany.push(el.company_name)
+        });
+    }
 
     return (
         <>
             <main>
                 {companyList && companyList.map((el, id) => (
-                    (companyName === "" && location === "") ||
-                        (el.company_name.toLowerCase().indexOf(companyName) === 0 && el.city_name.toLowerCase().indexOf(location) === 0) ?
+                    (el.company_remote <= remote &&
+                        (el.company_name.toLowerCase().indexOf(companyName) === 0 &&
+                            el.city_name.toLowerCase().indexOf(location) === 0))
+                        ?
                         <Link to={`/jobdetails/${el.company_id}`} key={id} style={{ textDecoration: "none" }}>
                             <div className={"card " + (theme ? "card--light" : "card--dark")}>
                                 <img src={"https://logo.clearbit.com/" + el.company_logo}
@@ -34,7 +45,7 @@ const JobList = () => {
                                 <h2 className={"card__companyName " + (theme ? "card__companyName--light" : "card__companyName--dark")}>{el.company_name}</h2>
                                 {MyDate() - parseInt(el.company_postedat) < 30 ?
                                     <p className="card__isNew">New</p> : ""}
-                                <p className="card__isRemote">{el.company_remote === 1 ? "Remote" : "No remote work"}</p>
+                                <p className="card__isRemote">{el.company_remote === 1 ? "No remot work" : "Remote"}</p>
                                 <div className="card__technoList">
                                     {technoList && technoList.map((techno, idTechno) => (
                                         el.company_id === techno.company_id ?
@@ -47,8 +58,13 @@ const JobList = () => {
                         </Link>
                         : ""
                 ))}
-                {companyName !== "" ? <p>No company match your search</p> : ""}
             </main>
+
+            {companyList && companyName !== '' && isCompany.some(el => el.toLowerCase().indexOf(companyName) >= 0) === false ?
+                <aside>
+                    <h2>No company matches your search...</h2>
+                </aside> : ""}
+
             <LoadMore />
         </>
     );

@@ -13,8 +13,7 @@ const SearchForm = () => {
 
     const { handleCompanyName } = useContext(ConstContext);
     const { handleLocation } = useContext(ConstContext);
-
-    const { handleSearch } = useContext(ConstContext);
+    const { handleRemote } = useContext(ConstContext);
 
     return (
         <aside className="search">
@@ -44,10 +43,9 @@ const SearchForm = () => {
                         <input type="text" placeholder="Filter by location..." className="search__form__inputs__input" onChange={handleLocation} />
                     </div>
                     <div className={theme ? "search__form__inputs" : "search__form__inputs search__form__inputs--dark"}>
-                        <input type="checkbox" className="search__form__inputs__check" />
-                        <label className={theme ? "search__form__inputs__checkLabel" : "search__form__inputs__checkLabel search__form__inputs__checkLabel--dark"}>Full Time <MediaQuery minWidth={1440}>Only</MediaQuery></label>
+                        <input type="checkbox" className="search__form__inputs__check" onChange={handleRemote} />
+                        <label className={theme ? "search__form__inputs__checkLabel" : "search__form__inputs__checkLabel search__form__inputs__checkLabel--dark"}>Remote <MediaQuery minWidth={1440}>Only</MediaQuery></label>
                     </div>
-                    <button className="search__form__btn" onClick={handleSearch}>Search</button>
                 </form>
             </MediaQuery>
             {/* DESKTOP END*/}
