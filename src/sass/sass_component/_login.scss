@@ -1,0 +1,99 @@
+@import '/src/sass/utils/variable';
+
+.login {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.822);
+    z-index: 1000;
+    // filter: blur(4px);
+
+    &__form {
+        text-align: center;
+        padding: 2rem;
+        width: fit-content;
+        max-width: 46rem;
+        border-radius: .5rem;
+
+        &--light {
+            color: $primary-color-dark;
+            background-color: $secondary-color-light;
+            box-shadow: 0 .2rem .2rem rgba(129, 129, 129, 0.589);
+        }
+
+        &--dark {
+            color: $secondary-color-light background-color;
+            background-color: $primary-color-dark;
+            box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.596);
+        }
+
+        &>* {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        &__title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 900;
+
+            &--dark {
+                color: $secondary-color-light;
+            }
+        }
+
+        &__error {
+            font-size: 1.6rem;
+            color: rgb(255, 65, 65);
+        }
+
+        &__input {
+            color: $secondary-color-light;
+            background: $primary-color-light;
+            border: none;
+            border-radius: .2rem;
+            padding: 1rem 2rem;
+
+            &::placeholder {
+                color: $secondary-color-light;
+            }
+        }
+
+        &__btn {
+            font-size: 1.6rem;
+            color: $secondary-color-light;
+            background-color: $primary-color;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: .5rem;
+            transition: all .1s ease-in-out;
+
+            &:hover {
+                background-color: $primary-color-light;
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+
+        &__goBack {
+            text-decoration: underline;
+            font-size: 1.4rem;
+            cursor: pointer;
+
+            &--dark {
+                color: $secondary-color-light;
+            }
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
