@@ -36,6 +36,7 @@ const ConstContextProvider = (props) => {
         // console.log(mobileSearch)
     };
 
+    // get les détails de l'entreprise ciblée
     const [companyDetails, setCompanyDetails] = useState(null)
     const handleCompanyDetails = (id) => {
         axios.get(`http://localhost:3001/details/${id}`, {}).then((response) => {
@@ -44,6 +45,7 @@ const ConstContextProvider = (props) => {
         });
     }
 
+    // get les technos de l'entreprise ciblée
     const [companyTechno, setCompanyTechno] = useState(null)
     const handleCompanyTechno = (id) => {
         axios.get(`http://localhost:3001/tool/${id}`, {}).then(
@@ -54,12 +56,46 @@ const ConstContextProvider = (props) => {
         );
     }
 
+    // get les tools de l'entreprise ciblée
     const [companyTool, setCompanyTool] = useState(null)
     const handleCompanyTool = (id) => {
         axios.get(`http://localhost:3001/techno/${id}`, {}).then(
             (response) => {
                 setCompanyTechno(response.data);
                 // console.log("get techno", response.data);
+            }
+        );
+    }
+
+    // get la liste des villes
+    const [citys, setCitys] = useState(null)
+    const handleCitys = () => {
+        axios.get(`http://localhost:3001/citys`, {}).then(
+            (response) => {
+                setCitys(response.data);
+                // console.log("get citys", response.data);
+            }
+        );
+    }
+
+    // get la liste des technos pour update
+    const [listTechno, setListTechno] = useState(null)
+    const handleListTechno = () => {
+        axios.get(`http://localhost:3001/technoList`, {}).then(
+            (response) => {
+                setListTechno(response.data);
+                // console.log("get liste techno pour update", response.data);
+            }
+        );
+    }
+
+    // get la liste des villes
+    const [toolList, setToolList] = useState(null)
+    const handleToolList = () => {
+        axios.get(`http://localhost:3001/tools`, {}).then(
+            (response) => {
+                setToolList(response.data);
+                // console.log("get liste tools pour update", response.data);
             }
         );
     }
@@ -73,7 +109,7 @@ const ConstContextProvider = (props) => {
 
         //get la liste des technos par entreprise, sert à boucler dans la boucle principale pour afficher chaque techno d'une entreprise
         axios.get("http://localhost:3001/techno").then((response) => {
-            // console.log(response);
+            console.log(response);
             setTechnoList(response.data);
         });
     }, [companyDetails])
@@ -95,7 +131,13 @@ const ConstContextProvider = (props) => {
             companyTechno,
             handleCompanyTechno,
             companyTool,
-            handleCompanyTool
+            handleCompanyTool,
+            citys,
+            handleCitys,
+            listTechno,
+            handleListTechno,
+            toolList,
+            handleToolList
         }}>
             {props.children}
         </ConstContext.Provider>

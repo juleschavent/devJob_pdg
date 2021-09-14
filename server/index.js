@@ -94,6 +94,46 @@ app.get('/tool/:id', (req, res) => {
         }
     })
 })
+
+// Read la liste des villes
+app.get('/citys', (req, res) => {
+    db.query(`SELECT * FROM city
+            ORDER BY city_name ASC`,
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result)
+            }
+        })
+})
+
+// Read la liste des technos
+app.get('/technoList', (req, res) => {
+    db.query(`SELECT * FROM technology
+            ORDER BY technology_name ASC`,
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result)
+            }
+        })
+})
+
+// Read la liste des tools
+app.get('/tools', (req, res) => {
+    db.query(`SELECT * FROM tool
+            ORDER BY tool_name ASC`,
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result)
+            }
+        })
+})
+
 ////////////////////////////////////////            READ FIN
 
 ///////////////////////////////////////             UPDATE
