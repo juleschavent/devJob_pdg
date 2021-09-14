@@ -1,53 +1,37 @@
 import { useParams } from "react-router-dom";
 import { ExternalLink } from "react-external-link";
 import Footer from "../footer/Footer";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext, useEffect } from "react";
 import JobHeader from "./JobHeader";
+import { ConstContext } from "../context/ConstContext";
 
 const JobDetails = () => {
-    // Récupère via useParams la variable ID qui lui a été passée de JobList.js
     const { id } = useParams();
-    const [companyDetails, setCompanyDetails] = useState(null)
-    const [companyTechno, setCompanyTechno] = useState(null)
-    const [companyTool, setCompanyTool] = useState(null)
+    const {
+        companyDetails,
+        handleCompanyDetails,
+        companyTechno,
+        handleCompanyTechno,
+        companyTool,
+        handleCompanyTool
+    } = useContext(ConstContext)
 
     useEffect(() => {
-        // req pour l'annonce qui a été cliquée grâce à variable ID
-        axios.get(`http://localhost:3001/details/${id}`, {}).then((response) => {
-            setCompanyDetails(response.data)
-            // console.log("get company", response.data);
-        });
-
-        axios.get(`http://localhost:3001/techno/${id}`, {}).then(
-            (response) => {
-                setCompanyTechno(response.data);
-                // console.log("get techno", response.data);
-            }
-        );
-
-        axios.get(`http://localhost:3001/tool/${id}`, {}).then(
-            (response) => {
-                setCompanyTool(response.data);
-                // console.log("get tool", response.data);
-            }
-        );
+        handleCompanyDetails(id)
+        handleCompanyTechno(id)
+        handleCompanyTool(id)
     }, [])
 
     return (
         <>
-            <JobHeader companyDetails={companyDetails} />
-
-            {/* Boucle sur companyDetails pour afficher les infos */}
+            <JobHeader />
             {companyDetails && companyDetails.map((el, index) => (
                 <div key={index}>
                     <p>{el.company_name}</p>
 
-                    {/* Boucle sur companyTechno pour afficher les technos */}
                     {companyTechno && companyTechno.map((el, index) => (
                         <p key={index}>{el.technology_name}</p>
                     ))}
-                    {/* Boucle sur companyTool pour afficher les tools */}
                     {companyTool && companyTool.map((el, index) => (
                         <p key={index}>{el.tool_name}</p>
                     ))}
@@ -60,8 +44,7 @@ const JobDetails = () => {
                     <p>{el.company_description}</p>
                 </div>
             ))}
-
-            <Footer companyDetails={companyDetails} companyTechno={companyTechno} />
+            <Footer />
         </>
     );
 }

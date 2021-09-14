@@ -3,10 +3,12 @@ import ApplyNow from "./ApplyNow";
 
 import { ThemeContext } from "../context/ThemeContext";
 import { useContext } from "react";
+import { ConstContext } from "../context/ConstContext";
 
-const Footer = ({ companyDetails, companyTechno }) => {
+const Footer = () => {
 
     const { theme } = useContext(ThemeContext);
+    const { companyDetails, companyTechno } = useContext(ConstContext)
 
     return (
         companyDetails && companyTechno &&

@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
     transition: all .2s ease-in-out;
 
     &--light {
@@ -71,6 +72,19 @@
         &:hover {
             background-color: $primary-color-light;
             cursor: pointer;
+        }
+    }
+
+    &__editIcon {
+        color: $primary-color-light;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+            color: $primary-color;
         }
     }
 }

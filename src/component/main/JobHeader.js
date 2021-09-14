@@ -1,13 +1,19 @@
 import "../../sass/sass_component/_jobHeader.scss";
 import NoLogo from "../../assets/noLogo.png"
+import EditIcon from '@material-ui/icons/Edit';
 
 import { ExternalLink } from "react-external-link";
 import { ThemeContext } from "../context/ThemeContext";
 import { useContext } from "react";
+import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
+import { ConstContext } from "../context/ConstContext";
 
-const JobHeader = ({ companyDetails }) => {
+const JobHeader = () => {
 
     const { theme } = useContext(ThemeContext);
+    const { currentUser } = useAuth();
+    const { companyDetails } = useContext(ConstContext)
 
     return (
         companyDetails &&
@@ -22,7 +28,9 @@ const JobHeader = ({ companyDetails }) => {
                 </div>
                 <ExternalLink href={companyDetails[0].company_website} style={{ textDecoration: 'none' }}><button className={"header__details__headings__btn " + (theme ? "header__details__headings__btn--light" : "header__details__headings__btn--dark")}>Company Site</button></ExternalLink>
             </div>
-        </section>
+            {currentUser && <Link to="/jobupdate"><EditIcon className="header__details__editIcon" /></Link>}
+            {/* {currentUser && <Link to={`/jobupdate/${companyDetails}`}><EditIcon className="header__details__editIcon" /></Link>} */}
+        </section >
     );
 }
 

@@ -29,16 +29,45 @@ const ConstContextProvider = (props) => {
         }
     };
 
+    // toggle pour search form en mobile
     const [mobileSearch, setMobileSearch] = useState(false);
     const handleMobileSearch = () => {
         setMobileSearch(!mobileSearch);
         // console.log(mobileSearch)
     };
 
+    const [companyDetails, setCompanyDetails] = useState(null)
+    const handleCompanyDetails = (id) => {
+        axios.get(`http://localhost:3001/details/${id}`, {}).then((response) => {
+            setCompanyDetails(response.data)
+            // console.log("get company", response.data);
+        });
+    }
+
+    const [companyTechno, setCompanyTechno] = useState(null)
+    const handleCompanyTechno = (id) => {
+        axios.get(`http://localhost:3001/tool/${id}`, {}).then(
+            (response) => {
+                setCompanyTool(response.data);
+                // console.log("get tool", response.data);
+            }
+        );
+    }
+
+    const [companyTool, setCompanyTool] = useState(null)
+    const handleCompanyTool = (id) => {
+        axios.get(`http://localhost:3001/techno/${id}`, {}).then(
+            (response) => {
+                setCompanyTechno(response.data);
+                // console.log("get techno", response.data);
+            }
+        );
+    }
+
     useEffect(() => {
         // Get la liste des entreprises, req principale
         axios.get("http://localhost:3001/companyList").then((response) => {
-            // console.log(response);
+            console.log(response);
             setCompanyList(response.data);
         });
 
@@ -47,7 +76,7 @@ const ConstContextProvider = (props) => {
             // console.log(response);
             setTechnoList(response.data);
         });
-    }, [])
+    }, [companyDetails])
 
     return (
         <ConstContext.Provider value={{
@@ -60,7 +89,13 @@ const ConstContextProvider = (props) => {
             remote, setRemote,
             handleRemote,
             mobileSearch,
-            handleMobileSearch
+            handleMobileSearch,
+            companyDetails,
+            handleCompanyDetails,
+            companyTechno,
+            handleCompanyTechno,
+            companyTool,
+            handleCompanyTool
         }}>
             {props.children}
         </ConstContext.Provider>
