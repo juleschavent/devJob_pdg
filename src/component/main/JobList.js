@@ -2,12 +2,14 @@ import "../../sass/sass_component/_jobList.scss"
 import LoadMore from "./LoadMore";
 import MyDate from "../../assets/MyDate"
 import NoLogo from "../../assets/noLogo.png"
+import EditIcon from '@material-ui/icons/Edit';
 
 import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ConstContext } from "../context/ConstContext";
 import { useState } from "react/cjs/react.development";
+import { useAuth } from "../context/AuthContext";
 
 const JobList = () => {
 
@@ -19,6 +21,8 @@ const JobList = () => {
     const { companyName } = useContext(ConstContext);
     const { location } = useContext(ConstContext);
     const { remote } = useContext(ConstContext);
+
+    const { currentUser } = useAuth();
 
     // Système D pour afficher message d'erreur lorsqu'aucune entreprise ne correspond à la recherche
     let isCompany = [];
@@ -54,6 +58,7 @@ const JobList = () => {
                                     ))}
                                 </div>
                                 <p className="card__city">{el.city_name}</p>
+                                {currentUser && <EditIcon className="card__editIcon" />}
                             </div>
                         </Link>
                         : ""

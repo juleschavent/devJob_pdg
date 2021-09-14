@@ -1,6 +1,9 @@
 ## API LOGO CLEARBIT 
   https://clearbit.com/docs?javascript#logo-api
 
+## SITE LOGO TECHNO 
+  https://devicon.dev/
+
 
 ## PRINCIPES FONDAMENTAUX A CONNAITRE
 
