@@ -3,7 +3,6 @@
 // DIV AROUND BUTTON
 .loadMore {
     text-align: center;
-    grid-column: span 2;
 
     // LOAD MORE BUTTON
     .loadMore__btn {
@@ -19,12 +18,5 @@
             background-color: $primary-color-light;
             cursor: pointer;
         }
-    }
-}
-
-// DESKTOP
-@media screen and (min-width: 1440px) {
-    .loadMore {
-        grid-column: span 3;
     }
 }

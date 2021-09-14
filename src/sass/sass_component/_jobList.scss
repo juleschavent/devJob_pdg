@@ -4,7 +4,6 @@
 main {
     padding: 4rem 2rem;
     margin: 0 auto;
-    padding-bottom: 5rem;
 }
 
 // CARD STYLE
@@ -111,31 +110,6 @@ main {
     }
 }
 
-.error {
-    grid-column: span 2;
-    text-align: center;
-    margin-top: -3rem;
-    display: flex;
-    justify-content: center;
-
-
-    &__copy {
-        font-size: 1.6rem;
-        margin-right: 2rem;
-        font-weight: 300;
-        letter-spacing: .3rem;
-
-        &--dark {
-            color: $secondary-color-light;
-        }
-
-        &--highlight {
-            font-weight: 900;
-            color: rgb(255, 34, 34);
-        }
-    }
-}
-
 // ------------------BREAKPOINTS--------------------
 // TABLET
 @media screen and (min-width: 768px) {
@@ -145,8 +119,7 @@ main {
         gap: 2rem;
         justify-content: center;
         padding: 0;
-        padding-bottom: 5rem;
-        // margin: 4rem auto;
+        margin: 4rem auto;
         max-width: 68.9rem;
     }
 
@@ -157,79 +130,6 @@ main {
     main {
         grid-template-columns: 1fr 1fr 1fr;
         padding: 0;
-        padding-bottom: 5rem;
         max-width: 110rem;
-    }
-
-    .error {
-        grid-column: span 3;
-    }
-}
-
-//Dot Animation
-.dot-bricks {
-    position: relative;
-    top: 15px;
-    left: -9999px;
-    width: 7px;
-    height: 7px;
-    border-radius: 5px;
-    background-color: #9880ff;
-    color: #9880ff;
-    box-shadow: 9991px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff, 10007px 0 0 0 #9880ff;
-    animation: dotBricks 2s infinite ease;
-}
-
-@keyframes dotBricks {
-    0% {
-        box-shadow: 9991px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff, 10007px 0 0 0 #9880ff;
-    }
-
-    8.333% {
-        box-shadow: 10007px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff, 10007px 0 0 0 #9880ff;
-    }
-
-    16.667% {
-        box-shadow: 10007px -16px 0 0 #9880ff, 9991px -16px 0 0 #9880ff, 10007px 0 0 0 #9880ff;
-    }
-
-    25% {
-        box-shadow: 10007px -16px 0 0 #9880ff, 9991px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff;
-    }
-
-    33.333% {
-        box-shadow: 10007px 0 0 0 #9880ff, 9991px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff;
-    }
-
-    41.667% {
-        box-shadow: 10007px 0 0 0 #9880ff, 10007px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff;
-    }
-
-    50% {
-        box-shadow: 10007px 0 0 0 #9880ff, 10007px -16px 0 0 #9880ff, 9991px -16px 0 0 #9880ff;
-    }
-
-    58.333% {
-        box-shadow: 9991px 0 0 0 #9880ff, 10007px -16px 0 0 #9880ff, 9991px -16px 0 0 #9880ff;
-    }
-
-    66.666% {
-        box-shadow: 9991px 0 0 0 #9880ff, 10007px 0 0 0 #9880ff, 9991px -16px 0 0 #9880ff;
-    }
-
-    75% {
-        box-shadow: 9991px 0 0 0 #9880ff, 10007px 0 0 0 #9880ff, 10007px -16px 0 0 #9880ff;
-    }
-
-    83.333% {
-        box-shadow: 9991px -16px 0 0 #9880ff, 10007px 0 0 0 #9880ff, 10007px -16px 0 0 #9880ff;
-    }
-
-    91.667% {
-        box-shadow: 9991px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff, 10007px -16px 0 0 #9880ff;
-    }
-
-    100% {
-        box-shadow: 9991px -16px 0 0 #9880ff, 9991px 0 0 0 #9880ff, 10007px 0 0 0 #9880ff;
     }
 }

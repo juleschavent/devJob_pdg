@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ConstContext } from "../context/ConstContext";
+import { useState } from "react/cjs/react.development";
 
 const JobList = () => {
 
@@ -21,13 +22,9 @@ const JobList = () => {
 
     // Système D pour afficher message d'erreur lorsqu'aucune entreprise ne correspond à la recherche
     let isCompany = [];
-    let isLocation = [];
     if (companyList) {
         companyList.forEach(el => {
-            if (el.company_remote <= remote) {
-                isCompany.push(el.company_name)
-                isLocation.push(el.city_name)
-            }
+            isCompany.push(el.company_name)
         });
     }
 
@@ -61,24 +58,14 @@ const JobList = () => {
                         </Link>
                         : ""
                 ))}
-
-                {(companyList && companyName !== '' && isCompany.some(el => el.toLowerCase().indexOf(companyName) === 0) === false) ||
-                    (companyList && location !== '' && isLocation.some(el => el.toLowerCase().indexOf(location) === 0) === false)
-                    ?
-                    <aside className="error">
-                        <h2 className={"error__copy " + (theme ? "" : "error__copy--dark")}>No <span className="error__copy--highlight">company</span> or <span className="error__copy--highlight">location</span> matches your search</h2>
-                        <div className="col-3">
-                            <div className="snippet" data-title=".dot-bricks">
-                                <div className="stage">
-                                    <div className="dot-bricks"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                    : <LoadMore />}
             </main>
 
-            {/* <LoadMore /> */}
+            {companyList && companyName !== '' && isCompany.some(el => el.toLowerCase().indexOf(companyName) >= 0) === false ?
+                <aside>
+                    <h2>No company matches your search...</h2>
+                </aside> : ""}
+
+            <LoadMore />
         </>
     );
 }
