@@ -2,10 +2,8 @@ import "../../sass/sass_component/_jobContent.scss";
 import Import from "../../assets/Import";
 import { ExternalLink } from "react-external-link";
 
-
 import { ThemeContext } from "../context/ThemeContext";
 import { useContext } from "react";
-
 
 
 const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
@@ -25,7 +23,7 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                     {companyTechno.map((el, id) => (
                     <div className={"jobContent__duties__technos__used " + (theme ? "jobContent__duties__technos__used--light" : "jobContent__duties__technos__used--dark")}>
                         <img src={Import(el.technology_name.toLowerCase() + ".svg", "technoLogo/") } alt="" 
-                        t/>
+                        title={el.technology_name}/>
                     </div>
                     ))}
                 </div>
@@ -37,7 +35,13 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                     <div className={"jobContent__duties__tools__used " + (theme ? "jobContent__duties__tools__used--light" : "jobContent__duties__tools__used--dark") }>
                         <p>{el.tool_name}</p>
                     </div>
+
                     ))}
+                    
+                        {/* <div className="jobContent__duties__tools__used">
+                            <p>blablabla</p>
+                        </div> */}
+
                 </div>                
                 
             </div>
@@ -50,8 +54,13 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                         {/* <h4>Publié / mis à jour le: </h4> */}
                         <h4>Publié le: {el.company_postedat} </h4>
 
-
-                        <h4>Front-end</h4>
+                        <h4> {el.company_front === 1 && el.company_back === 1 
+                        ? "Fullstack" 
+                        : (el.company_front === 1 && el.company_back === 0) 
+                        ? "Front-End" 
+                        : (el.company_back === 1 && el.company_front === 0) 
+                        ? "Back-End" 
+                        : "null" }</h4>
 
 
                     </div>
