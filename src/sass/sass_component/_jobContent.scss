@@ -1,0 +1,276 @@
+@import '/src/sass/utils/variable';
+
+
+/*Conteneur principal*/
+.jobContent{
+    width: 32.7rem;
+
+    margin: 30rem auto;
+    padding: 4rem 2.4rem ;
+
+    border-radius: 6px;
+
+
+    &--light{
+        background-color: $secondary-color-light;
+    }
+
+    &--dark{
+        background-color: $primary-color-dark;
+    }
+
+    &__separator{
+        height: 0.09rem;
+        margin-top: -2.4rem;
+        margin-bottom: 4.8rem;
+        background-color: $secondary-color-dark;
+    }
+
+    /* Conteneur des technos + tools*/
+    &__duties{
+        width: 32.7rem;
+        border-radius: 6px;
+
+        padding: 2.4rem 0;
+        margin: -20rem 0 4.8rem -2.4rem;
+
+        &--light{
+            background-color: $secondary-color-light;
+        }
+
+        &--dark{
+            background-color: $primary-color-dark;
+        }
+
+        h2{
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            color: $primary-color;
+            text-align: center;
+        }
+
+        &__technos{
+            margin-bottom: 1.2rem;
+
+            &__used{
+                // &--light{
+                //     filter: drop-shadow(-0.2rem 0.2rem 0.5rem #a9aaac);
+                // }
+                &--dark{
+                    filter: drop-shadow(-0.2rem 0.2rem 0.5rem black);
+                }
+                
+            }
+        }
+
+        &__tools{
+            &__used{
+                display: flex;
+                background-color: $primary-color;
+
+                    &--light{
+                        box-shadow: -0.2rem 0.2rem 0.5rem rgba(192, 192, 192, 0.589);
+                    }
+                    &--dark{
+                        box-shadow: -0.2rem 0.2rem 0.5rem $primary-color-darker;
+                    }
+
+            }
+
+            &__used p{
+                margin: auto;
+
+                font-size: 1.8rem;
+                color: $secondary-color-light;
+            }
+        }
+
+        &__technos, &__tools{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+
+            &__used{
+                width: 6rem;
+                min-height: 6rem;
+
+                border-radius: 6px;
+
+                margin: 0.5rem;
+            
+            }
+        }
+    }
+
+    /*Conteneur des infos en heading*/
+    &__heading{
+
+        /*Partie haute du heading*/
+        &__header{
+        display: flex;
+        flex-direction: row;
+
+        font-weight: 400;
+        font-size: 1.6rem;
+
+        /*A SUPPRIMER*/
+        color: $secondary-color-darker;
+        }
+
+
+        &__header>h4{
+            margin-right: 1.2rem;
+        }
+
+        /* Style du petit separateur du header*/
+        h4:nth-of-type(2):before{
+            display: inline-block;
+            content: '\2022';
+            margin-right: 1.2rem;
+        }
+
+        &__title, &__location{
+            font-weight: 700;
+        }
+
+        &__title{
+            margin: 1.2rem 0;
+            font-size: 2.2rem;
+
+        
+            &--light{
+                color: $primary-color-dark;
+            }
+
+            &--dark{
+                color: $secondary-color-light;
+            }
+        }
+
+
+        &__location, &__address{
+            font-size: 1.4rem;
+        }
+
+        &__location{
+            color: $primary-color;
+        }
+
+        &__address{
+            color: $secondary-color-darker;
+            margin-top: 1.2rem;
+
+        }
+
+    }
+
+    &__btn{
+        width: 27.9rem;
+        height: 4.8rem;
+
+        margin: 2.4rem 0 7.2rem 0;
+        background-color: $primary-color;
+        color: $secondary-color-light;
+
+        border: none;
+        border-radius: 5px;
+        // box-shadow: -0.2rem 0.2rem 0.5rem $primary-color-light;
+
+
+        cursor: pointer;
+      
+    
+        &:hover{
+            background-color: $primary-color-light;
+            transition: all 0.2s ease-in-out;
+        
+        }
+    }
+
+
+    &__main__title{
+
+        margin: 4rem 0 2.4rem 0;
+    
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 2rem;
+
+       
+            &--light{
+                color: $primary-color-dark;
+            }
+        
+            &--dark{
+                color: $secondary-color-light;
+            }
+    }
+
+    &__main p{
+        margin-bottom: 3.2rem;
+        font-size: 1.6rem;
+        font-weight: normal;
+        line-height: 2.6rem;
+        color: $secondary-color-darker;
+    }
+
+}
+
+// ------------------BREAKPOINTS--------------------
+// TABLET
+@media screen and (min-width: 768px){
+    .jobContent{
+        min-width: 68.9rem;
+
+        padding: 4.8rem;
+
+        &__duties{
+            width: 68.9rem;
+            margin: -20rem 0 4.8rem -4.8rem;
+            padding-top: 4rem;
+
+            &__technos, &__tools{
+            justify-content: center;
+
+                    &__used{
+                        margin: 0 2.4rem;
+                    }
+                
+
+            }
+        }
+
+        &__heading{
+            margin-bottom: 2.4rem;
+
+            /*Conteneur des infos heading + le bouton pour le display en tablette + desktop*/
+            &--desktop{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+    
+                margin-bottom: 4.4rem;
+            }
+        }        
+
+        &__btn{
+            width: 14.1rem;
+            margin: unset;
+        }
+    }
+}
+
+// DESKTOP
+@media screen and (min-width: 1440px){
+
+    .jobContent{
+        min-width: 73rem;
+    
+            &__duties{
+                width: 73rem;
+
+            }
+    }
+
+}
