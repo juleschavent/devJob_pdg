@@ -13,7 +13,7 @@ const Header = () => {
 
     const handleLoginModal = () => {
         setLoginModal(!loginModal)
-        console.log(loginModal)
+        // console.log(loginModal)
     }
 
     return (

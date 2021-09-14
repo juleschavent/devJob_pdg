@@ -16,20 +16,20 @@ const JobDetails = () => {
         // req pour l'annonce qui a été cliquée grâce à variable ID
         axios.get(`http://localhost:3001/details/${id}`, {}).then((response) => {
             setCompanyDetails(response.data)
-            console.log("get company", response.data);
+            // console.log("get company", response.data);
         });
 
         axios.get(`http://localhost:3001/techno/${id}`, {}).then(
             (response) => {
                 setCompanyTechno(response.data);
-                console.log("get techno", response.data);
+                // console.log("get techno", response.data);
             }
         );
 
         axios.get(`http://localhost:3001/tool/${id}`, {}).then(
             (response) => {
                 setCompanyTool(response.data);
-                console.log("get tool", response.data);
+                // console.log("get tool", response.data);
             }
         );
     }, [])
