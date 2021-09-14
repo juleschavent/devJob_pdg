@@ -6,18 +6,19 @@ import { ThemeContext } from '../context/ThemeContext';
 
 
 export default function Login({ handleLoginModal }) {
+    
     const { theme } = useContext(ThemeContext);
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login } = useAuth()
+
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+
+    const { login } = useAuth()
     const { logout } = useAuth();
-
     const { currentUser } = useAuth();
-
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -64,5 +65,3 @@ export default function Login({ handleLoginModal }) {
         </aside>
     )
 }
-
-// className = { "card " + (theme ? "card--light" : "card--dark") }

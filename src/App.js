@@ -9,28 +9,31 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useContext } from 'react';
 import ConstContextProvider from './component/context/ConstContext';
 import { ThemeContext } from './component/context/ThemeContext'
+import AuthProvider from './component/context/AuthContext';
 
 function App() {
 
   const { theme } = useContext(ThemeContext);
 
   return (
-    <ConstContextProvider>
-      <Router>
-        <div className={theme ? "App App--light" : "App App--dark"}>
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <SearchForm />
-              <JobList />
-            </Route>
-            <Route path="/jobdetails/:id">
-              <JobDetails />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </ConstContextProvider>
+    <AuthProvider>
+      <ConstContextProvider>
+        <Router>
+          <div className={theme ? "App App--light" : "App App--dark"}>
+            <Header />
+            <Switch>
+              <Route exact path="/">
+                <SearchForm />
+                <JobList />
+              </Route>
+              <Route path="/jobdetails/:id">
+                <JobDetails />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </ConstContextProvider>
+    </AuthProvider>
   );
 }
 
