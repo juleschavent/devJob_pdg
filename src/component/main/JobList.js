@@ -1,8 +1,7 @@
 import "../../sass/sass_component/_jobList.scss"
-import LoadMore from "./LoadMore";
+import JobListLoadMore from "./JobListLoadMore";
 import MyDate from "../../assets/MyDate"
 import NoLogo from "../../assets/noLogo.png"
-import EditIcon from '@material-ui/icons/Edit';
 
 import { Link } from 'react-router-dom'
 import { useContext } from "react";
@@ -70,7 +69,7 @@ const JobList = () => {
                             </div>
                         </div>
                     </aside>
-                    : <LoadMore />}
+                    : <JobListLoadMore />}
             </main>
         </>
     );

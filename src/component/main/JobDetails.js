@@ -4,6 +4,7 @@ import JobFooter from "../main/JobFooter";
 import { useContext, useEffect } from "react";
 import JobHeader from "./JobHeader";
 import { ConstContext } from "../context/ConstContext";
+import TechnoChoice from "./TechnoChoice";
 
 const JobDetails = () => {
     const { id } = useParams();
@@ -45,6 +46,8 @@ const JobDetails = () => {
                 </div>
             ))}
             <JobFooter />
+
+            <TechnoChoice />
         </>
     );
 }
