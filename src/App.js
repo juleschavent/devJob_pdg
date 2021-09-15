@@ -4,7 +4,7 @@ import Header from './component/header/Header';
 import SearchForm from './component/main/SearchForm';
 import JobList from './component/main/JobList';
 import JobDetails from './component/main/JobDetails';
-import JobUpdate from './component/main/JobUpdate';
+import JobUpdate from './component/updateCompany/JobUpdate';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useContext } from 'react';

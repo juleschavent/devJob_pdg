@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ExternalLink } from "react-external-link";
-import Footer from "../footer/Footer";
+import JobFooter from "../main/JobFooter";
 import { useContext, useEffect } from "react";
 import JobHeader from "./JobHeader";
 import { ConstContext } from "../context/ConstContext";
@@ -44,7 +44,7 @@ const JobDetails = () => {
                     <p>{el.company_description}</p>
                 </div>
             ))}
-            <Footer />
+            <JobFooter />
         </>
     );
 }
