@@ -48,9 +48,9 @@ const ConstContextProvider = (props) => {
     // get les technos de l'entreprise ciblée
     const [companyTechno, setCompanyTechno] = useState(null)
     const handleCompanyTechno = (id) => {
-        axios.get(`http://localhost:3001/tool/${id}`, {}).then(
+        axios.get(`http://localhost:3001/techno/${id}`, {}).then(
             (response) => {
-                setCompanyTool(response.data);
+                setCompanyTechno(response.data);
                 // console.log("get tool", response.data);
             }
         );
@@ -59,9 +59,9 @@ const ConstContextProvider = (props) => {
     // get les tools de l'entreprise ciblée
     const [companyTool, setCompanyTool] = useState(null)
     const handleCompanyTool = (id) => {
-        axios.get(`http://localhost:3001/techno/${id}`, {}).then(
+        axios.get(`http://localhost:3001/tool/${id}`, {}).then(
             (response) => {
-                setCompanyTechno(response.data);
+                setCompanyTool(response.data);
                 // console.log("get techno", response.data);
             }
         );
