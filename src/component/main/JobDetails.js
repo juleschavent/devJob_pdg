@@ -31,8 +31,6 @@ const JobDetails = () => {
                 companyTechno={companyTechno}
                 companyTool={companyTool} />
             <JobFooter />
-
-            <TechnoChoice />
         </>
     );
 }
