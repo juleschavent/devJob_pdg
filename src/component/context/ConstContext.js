@@ -80,6 +80,7 @@ const ConstContextProvider = (props) => {
 
     // get la liste des technos pour update
     const [listTechno, setListTechno] = useState(null)
+    const [currentTechno, setCurrentTechno] = useState([])
     const handleListTechno = () => {
         axios.get(`http://localhost:3001/technoList`, {}).then(
             (response) => {
@@ -137,7 +138,9 @@ const ConstContextProvider = (props) => {
             listTechno,
             handleListTechno,
             toolList,
-            handleToolList
+            handleToolList,
+            currentTechno,
+            setCurrentTechno
         }}>
             {props.children}
         </ConstContext.Provider>

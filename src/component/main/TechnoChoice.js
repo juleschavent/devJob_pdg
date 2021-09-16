@@ -24,9 +24,8 @@ const TechnoChoice = ({ id }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { listTechno, handleListTechno, companyTechno, handleCompanyTechno } = useContext(ConstContext)
+    const { listTechno, handleListTechno, companyTechno, handleCompanyTechno, currentTechno, setCurrentTechno } = useContext(ConstContext)
 
-    const [currentTechno, setCurrentTechno] = useState([])
     const handleCurrentTechno = (value) => {
         if (currentTechno.some(el => el === value) === false) {
             setCurrentTechno(arr => [value, ...arr])
@@ -40,11 +39,12 @@ const TechnoChoice = ({ id }) => {
     useEffect(() => {
         handleCompanyTechno(id)
         handleListTechno()
+        setCurrentTechno([])
         for (const el of companyTechno) {
-            setCurrentTechno(arr => [el.technology_name, ...arr])
+            setCurrentTechno(arr => [el.technology_id, ...arr])
         }
         // console.log('company techno', companyTechno)
-        // console.log('current techno', currentTechno)
+        console.log('current techno', currentTechno)
     }, [])
 
     return (
@@ -56,7 +56,7 @@ const TechnoChoice = ({ id }) => {
                 </AccordionSummary>
                 <AccordionDetails className="technoChoice__accordion__details">
                     {listTechno && listTechno.map((el, id) => (
-                        <p key={id} className={"technoChoice__accordion__details__techno " + (currentTechno.some(ele => ele === el.technology_name) === false ? "" : "technoChoice__accordion__details__techno--active")} onClick={() => handleCurrentTechno(el.technology_name)}>{el.technology_name}</p>
+                        <p key={id} className={"technoChoice__accordion__details__techno " + (currentTechno.some(ele => ele === el.technology_id) === false ? "" : "technoChoice__accordion__details__techno--active")} onClick={() => handleCurrentTechno(el.technology_id)}>{el.technology_name}</p>
                     ))}
                 </AccordionDetails>
             </Accordion>

@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 import TechnoChoice from '../main/TechnoChoice';
 
 const JobUpdate = () => {
-    const { companyDetails, citys, handleCitys, listTechno, handleListTechno, toolList, handleToolList } = useContext(ConstContext)
+    const { companyDetails, citys, handleCitys, listTechno, handleListTechno, toolList, handleToolList, currentTechno } = useContext(ConstContext)
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)
@@ -39,8 +39,24 @@ const JobUpdate = () => {
             remote: companyRemote,
             city: companyCity
         }).then((response) => {
-            history.push(`/jobdetails/${companyDetails[0].company_id}`)
+            console.log('update company', response)
+            axios.delete(`http://localhost:3001/deleteTechno/${companyDetails[0].company_id}`).then((response) => {
+                console.log('delete techno', response)
+                currentTechno.forEach(element => {
+                    axios.put('http://localhost:3001/updateTechno', {
+                        id: companyDetails[0].company_id,
+                        value: element
+                    }).then((response) => {
+                        // history.push(`/jobdetails/${companyDetails[0].company_id}`)
+                        console.log('insert techno', response)
+                    })
+                });
+            })
         })
+
+
+
+
     }
 
     useEffect(() => {
@@ -90,3 +106,21 @@ const JobUpdate = () => {
 }
 
 export default JobUpdate;
+
+// ANCIENNE REQ POUR UPDATE COMPANY AVANT BORDEL TECHNO
+// axios.put('http://localhost:3001/updateCompany', {
+//     id: companyDetails[0].company_id,
+//     name: companyName,
+//     website: companyWebsite,
+//     logo: companyLogo,
+//     contact: companyContact,
+//     adress: companyAdress,
+//     desc: companyDesc,
+//     front: companyFront,
+//     back: companyBack,
+//     remote: companyRemote,
+//     city: companyCity
+// }).then((response) => {
+//     // history.push(`/jobdetails/${companyDetails[0].company_id}`)
+//     console.log(response)
+// })

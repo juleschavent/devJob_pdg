@@ -172,29 +172,22 @@ app.put('/updateCompany', (req, res) => {
 })
 
 // Update les technos par entreprise
-app.put('/update', (req, res) => {
+app.delete('/deleteTechno/:key', (req, res) => {
+    const id = req.params.key
+    db.query('DELETE FROM company_has_technology WHERE company_company_id = ?', id, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+app.put('/updateTechno', (req, res) => {
     const id = req.body.id
-    const name = req.body.name
-    const logo = req.body.logo
-    const website = req.body.website
-    const adress = req.body.adress
-    const contact = req.body.contact
-    const desc = req.body.desc
-    const remote = req.body.remote
-    const front = req.body.front
-    const back = req.body.back
-
-    db.query(`UPDATE company SET company_name = ?, 
-        company_logo = ?,
-        company_website = ?,
-        company_adress = ?,
-        company_contact = ?,
-        company_description = ?,
-        company_remote = ?,
-        company_front = ?,
-        company_back = ?
-        WHERE company_id = ?`,
-        [name, logo, website, adress, contact, desc, remote, front, back, id], (err, result) => {
+    const techno = req.body.value
+    db.query(`INSERT INTO company_has_technology (company_company_id, technology_technology_id)
+        VALUES (?, ?)`,
+        [id, techno], (err, result) => {
             if (err) {
                 console.log(err)
             } else {
