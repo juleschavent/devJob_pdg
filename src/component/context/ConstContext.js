@@ -103,13 +103,13 @@ const ConstContextProvider = (props) => {
     useEffect(() => {
         // Get la liste des entreprises, req principale
         axios.get("http://localhost:3001/companyList").then((response) => {
-            console.log(response);
+            // console.log(response);
             setCompanyList(response.data);
         });
 
         //get la liste des technos par entreprise, sert à boucler dans la boucle principale pour afficher chaque techno d'une entreprise
         axios.get("http://localhost:3001/techno").then((response) => {
-            console.log(response);
+            // console.log(response);
             setTechnoList(response.data);
         });
     }, [companyDetails])

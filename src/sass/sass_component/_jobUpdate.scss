@@ -1,0 +1,21 @@
+@import '/src/sass/utils/variable';
+
+.form {
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+
+        &__input {
+            padding: 2rem;
+        }
+    }
+}
+
+
+// ------------------BREAKPOINTS--------------------
+// TABLET
+@media screen and (min-width: 768px) {}
+
+// DESKTOP
+@media screen and (min-width: 1440px) {}

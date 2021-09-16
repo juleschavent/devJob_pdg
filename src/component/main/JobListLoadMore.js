@@ -1,6 +1,6 @@
 import "../../sass/sass_component/_loadMore.scss";
 
-const LoadMore = () => {
+const JobListLoadMore = () => {
     return (
         <div className="loadMore">
             <button className="loadMore__btn">Load More</button>
@@ -8,4 +8,4 @@ const LoadMore = () => {
     );
 }
 
-export default LoadMore;
+export default JobListLoadMore;
