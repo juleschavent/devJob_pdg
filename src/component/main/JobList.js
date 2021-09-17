@@ -1,10 +1,11 @@
-import "../../sass/sass_component/_jobList.scss"
-import LoadMore from "./LoadMore";
-import MyDate from "../../assets/MyDate"
-import NoLogo from "../../assets/noLogo.png"
+import "../../sass/sass_component/_jobList.scss";
+import "../../sass/sass_component/_loadMore.scss";
 
-import { Link } from 'react-router-dom'
-import { useContext } from "react";
+import MyDate from "../../assets/MyDate";
+import NoLogo from "../../assets/noLogo.png";
+
+import { Link } from 'react-router-dom';
+import { useContext, useState } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ConstContext } from "../context/ConstContext";
 
@@ -18,6 +19,11 @@ const JobList = () => {
     const { companyName } = useContext(ConstContext);
     const { location } = useContext(ConstContext);
     const { remote } = useContext(ConstContext);
+
+    const [visible, setVisible] = useState(3);
+    const showMoreItems = () => {
+        setVisible((prevValue) => prevValue + 3);
+    };
 
     // Système D pour afficher message d'erreur lorsqu'aucune entreprise ne correspond à la recherche
     let isCompany = [];
@@ -34,7 +40,7 @@ const JobList = () => {
     return (
         <>
             <main>
-                {companyList && companyList.map((el, id) => (
+                {companyList && companyList.slice(0, visible).map((el, id) => (
                     (el.company_remote <= remote &&
                         (el.company_name.toLowerCase().indexOf(companyName) === 0 &&
                             el.city_name.toLowerCase().indexOf(location) === 0))
@@ -62,6 +68,9 @@ const JobList = () => {
                         : ""
                 ))}
 
+
+
+
                 {(companyList && companyName !== '' && isCompany.some(el => el.toLowerCase().indexOf(companyName) === 0) === false) ||
                     (companyList && location !== '' && isLocation.some(el => el.toLowerCase().indexOf(location) === 0) === false)
                     ?
@@ -75,7 +84,9 @@ const JobList = () => {
                             </div>
                         </div>
                     </aside>
-                    : <LoadMore />}
+                    : <div className="loadMore">
+                    <button onClick={showMoreItems} className="loadMore__btn">Load More</button>
+                </div>}
             </main>
 
             {/* <LoadMore /> */}
