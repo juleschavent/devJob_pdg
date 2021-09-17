@@ -90,8 +90,9 @@ const ConstContextProvider = (props) => {
         );
     }
 
-    // get la liste des villes
+    // get la liste des tools pour companyTool
     const [toolList, setToolList] = useState(null)
+    const [currentTool, setCurrentTool] = useState([])
     const handleToolList = () => {
         axios.get(`http://localhost:3001/tools`, {}).then(
             (response) => {
@@ -140,7 +141,9 @@ const ConstContextProvider = (props) => {
             toolList,
             handleToolList,
             currentTechno,
-            setCurrentTechno
+            setCurrentTechno,
+            currentTool,
+            setCurrentTool
         }}>
             {props.children}
         </ConstContext.Provider>

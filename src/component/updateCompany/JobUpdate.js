@@ -5,26 +5,28 @@ import { ConstContext } from "../context/ConstContext";
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import TechnoChoice from '../main/TechnoChoice';
+import { AddCircle, LocationCity } from '@material-ui/icons';
+import ToolChoice from '../main/ToolChoice';
 
 const JobUpdate = () => {
-    const { companyDetails, citys, handleCitys, listTechno, handleListTechno, toolList, handleToolList, currentTechno } = useContext(ConstContext)
+    const { companyDetails, citys, handleCitys, listTechno, handleListTechno, toolList, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)
     const [companyWebsite, setCompanyWebsite] = useState(companyDetails[0].company_website)
-    const [companyLogo, setCompanyLogo] = useState(companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', ''))
     const [companyContact, setCompanyContact] = useState(companyDetails[0].company_contact)
     const [companyAdress, setCompanyAdress] = useState(companyDetails[0].company_adress)
     const [companyDesc, setCompanyDesc] = useState(companyDetails[0].company_description)
-    const [companyFront, setCompanyFront] = useState(0)
-    const [companyBack, setCompanyBack] = useState(0)
-    const [companyRemote, setCompanyRemote] = useState(0)
+    const [companyFront, setCompanyFront] = useState(companyDetails[0].company_front)
+    const [companyBack, setCompanyBack] = useState(companyDetails[0].company_back)
+    const [companyRemote, setCompanyRemote] = useState(companyDetails[0].company_remote)
     const [companyCity, setCompanyCity] = useState(companyDetails[0].city_id)
 
     const history = useHistory();
 
     const handleUpdate = (e) => {
         e.preventDefault()
+        const companyLogo = companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', '')
 
         axios.put('http://localhost:3001/updateCompany', {
             id: companyDetails[0].company_id,
@@ -39,24 +41,31 @@ const JobUpdate = () => {
             remote: companyRemote,
             city: companyCity
         }).then((response) => {
-            console.log('update company', response)
+            // console.log('update company', response)
             axios.delete(`http://localhost:3001/deleteTechno/${companyDetails[0].company_id}`).then((response) => {
-                console.log('delete techno', response)
+                // console.log('delete techno', response)
                 currentTechno.forEach(element => {
                     axios.put('http://localhost:3001/updateTechno', {
                         id: companyDetails[0].company_id,
                         value: element
                     }).then((response) => {
-                        // history.push(`/jobdetails/${companyDetails[0].company_id}`)
-                        console.log('insert techno', response)
-                    })
-                });
+                        // console.log('insert techno', response)
+                        axios.delete(`http://localhost:3001/deleteTool/${companyDetails[0].company_id}`).then((response) => {
+                            // console.log('delete tool', response)
+                            currentTool.forEach(element => {
+                                axios.put('http://localhost:3001/updateTool', {
+                                    id: companyDetails[0].company_id,
+                                    value: element
+                                }).then((response) => {
+                                    // console.log('insert tool', response)
+                                    history.push(`/jobdetails/${companyDetails[0].company_id}`)
+                                });
+                            });
+                        })
+                    });
+                })
             })
         })
-
-
-
-
     }
 
     useEffect(() => {
@@ -71,36 +80,46 @@ const JobUpdate = () => {
             {companyDetails && companyDetails.map((el, id) => (
                 <div key={id} className="form__inputs">
                     {/* Company name */}
-                    <input required placeholder="Company name..." defaultValue={el.company_name} onChange={e => setCompanyName(e.target.value)} className="form__inputs__input" />
+                    <input type="text" required placeholder="Company name..." defaultValue={el.company_name} onChange={e => setCompanyName(e.target.value)} className="form__inputs__input" />
                     {/* Website */}
-                    <input required placeholder="Web site..." defaultValue={el.company_website} onChange={e => setCompanyWebsite(e.target.value)} className="form__inputs__input" />
+                    <input type="text" required placeholder="Web site..." defaultValue={el.company_website} onChange={e => setCompanyWebsite(e.target.value)} className="form__inputs__input" />
                     {/* Address */}
-                    <input required placeholder="Address..." defaultValue={el.company_adress} onChange={e => setCompanyAdress(e.target.value)} className="form__inputs__input" />
+                    <input type="text" required placeholder="Address..." defaultValue={el.company_adress} onChange={e => setCompanyAdress(e.target.value)} className="form__inputs__input" />
                     {/* Description */}
-                    <input required placeholder="Description..." defaultValue={el.company_description} onChange={e => setCompanyDesc(e.target.value)} className="form__inputs__input" />
+                    <textarea rows="10" required placeholder="Description..." defaultValue={el.company_description} onChange={e => setCompanyDesc(e.target.value)} className="form__inputs__input" />
                     {/* Contact */}
-                    <input required placeholder="Contact..." defaultValue={el.company_contact} onChange={e => setCompanyContact(e.target.value)} className="form__inputs__input" />
-                    {/* Frontend */}
-                    <label>Frontend</label>
-                    {el.company_front === 1 ? <input type="checkbox" defaultChecked onClick={() => setCompanyFront(0)} /> : <input type="checkbox" onClick={() => setCompanyFront(1)} />}
-                    {/* Backend */}
-                    <label>Backend</label>
-                    {el.company_back === 1 ? <input type="checkbox" defaultChecked onClick={() => setCompanyBack(0)} /> : <input type="checkbox" onClick={() => setCompanyBack(1)} />}
-                    {/* Remote */}
-                    <label>Remote</label>
-                    {el.company_remote === 0 ? <input type="checkbox" defaultChecked onClick={() => setCompanyRemote(0)} /> : <input type="checkbox" onClick={() => setCompanyRemote(1)} />}
+                    <input type="text" required placeholder="Contact..." defaultValue={el.company_contact} onChange={e => setCompanyContact(e.target.value)} className="form__inputs__input" />
+
+                    <div className="form__inputs__checks">
+                        {/* Frontend */}
+                        <h3 className={companyFront === 1 ? "form__inputs__checks__checked" : ""} onClick={companyFront === 1 ? () => setCompanyFront(0) : () => setCompanyFront(1)}>Frontend</h3>
+
+                        {/* Backend */}
+                        <h3 className={companyBack === 1 ? "form__inputs__checks__checked" : ""} onClick={companyBack === 1 ? () => setCompanyBack(0) : () => setCompanyBack(1)}>Backend</h3>
+
+                        {/* Remote */}
+                        <h3 className={companyRemote === 1 ? "form__inputs__checks__checked" : ""} onClick={companyRemote === 1 ? () => setCompanyRemote(0) : () => setCompanyRemote(1)}>Remote</h3>
+                    </div>
                     {/* City */}
-                    <select defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
-                        {citys && citys.map((el, id) => (
-                            <option key={id} value={el.city_id}>{el.city_name}</option>
-                        ))}
-                    </select>
+                    <div className="form__inputs__city">
+                        <h3 className="form__inputs__city__title">Chose a city :</h3>
+                        <select className="form__inputs__city__options" defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
+                            {citys && citys.map((el, id) => (
+                                <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
+                            ))}
+                        </select>
+                        <AddCircle className="form__inputs__city__addCity" />
+                    </div>
                     {/* Techno */}
                     <TechnoChoice id={companyDetails[0].company_id} />
 
-                    <button type="submit">Update</button>
+                    <ToolChoice id={companyDetails[0].company_id} />
                 </div>
             ))}
+            <div className="form__btns">
+                <button type="submit" className="form__btns__btn form__btns__btn--update">Update</button>
+                <button className="form__btns__btn  form__btns__btn--cancel">Cancel</button>
+            </div>
         </form>
     );
 }

@@ -1,4 +1,4 @@
-import '../../sass/sass_component/_technoChoice.scss'
+import '../../sass/sass_component/_toolChoice.scss'
 import { useContext, useEffect } from "react";
 import { ConstContext } from "../context/ConstContext";
 import { ThemeContext } from "../context/ThemeContext";
@@ -18,33 +18,34 @@ const useStyles = makeStyles(() => ({
 }));
 //FIN Import et fonction pour accordion
 
-const TechnoChoice = ({ id }) => {
+
+const ToolChoice = ({ id }) => {
 
     const classes = useStyles();
 
     const { theme } = useContext(ThemeContext)
 
-    const { listTechno, handleListTechno, companyTechno, handleCompanyTechno, currentTechno, setCurrentTechno } = useContext(ConstContext)
+    const { toolList, handleToolList, companyTool, handleCompanyTool, currentTool, setCurrentTool } = useContext(ConstContext)
 
-    const handleCurrentTechno = (value) => {
-        if (currentTechno.some(el => el === value) === false) {
-            setCurrentTechno(arr => [value, ...arr])
+    const handleCurrentTool = (value) => {
+        if (currentTool.some(el => el === value) === false) {
+            setCurrentTool(arr => [value, ...arr])
         } else {
-            let filterTechno = currentTechno.filter(item => item !== value)
-            setCurrentTechno(filterTechno)
+            let filterTool = currentTool.filter(item => item !== value)
+            setCurrentTool(filterTool)
         }
-        console.log('current techno', currentTechno)
+        console.log('current Tool', currentTool)
     }
 
     useEffect(() => {
-        handleCompanyTechno(id)
-        handleListTechno()
-        setCurrentTechno([])
-        for (const el of companyTechno) {
-            setCurrentTechno(arr => [el.technology_id, ...arr])
+        handleCompanyTool(id)
+        handleToolList()
+        setCurrentTool([])
+        for (const el of companyTool) {
+            setCurrentTool(arr => [el.tool_id, ...arr])
         }
-        // console.log('company techno', companyTechno)
-        console.log('current techno', currentTechno)
+        // console.log('company Tool', companyTool)
+        console.log('current Tool', currentTool)
     }, [])
 
     return (
@@ -52,11 +53,11 @@ const TechnoChoice = ({ id }) => {
             <Accordion className={"technoChoice__accordion " + (theme ? "" : classes.rootDark)}>
                 {/* Accordion crée une erreur dans la console, ne pas prendre un compte, se règle seul lors du passage en prod et sera corrigé lors de la prochaine MAJ materialUi */}
                 <AccordionSummary expandIcon={<ExpandMoreIcon className={"technoChoice__accordion__summary__icon " + (theme ? "" : "technoChoice__accordion__summary__icon--dark")} />} aria-controls="panel1a-content" className="technoChoice__accordion__summary">
-                    <h2 className="technoChoice__accordion__summary__title">Techno List</h2>
+                    <h2 className="technoChoice__accordion__summary__title">Tool List</h2>
                 </AccordionSummary>
                 <AccordionDetails className="technoChoice__accordion__details">
-                    {listTechno && listTechno.map((el, id) => (
-                        <p key={id} className={"technoChoice__accordion__details__techno " + (currentTechno.some(ele => ele === el.technology_id) === false ? "" : "technoChoice__accordion__details__techno--active")} onClick={() => handleCurrentTechno(el.technology_id)}>{el.technology_name}</p>
+                    {toolList && toolList.map((el, id) => (
+                        <p key={id} className={"technoChoice__accordion__details__techno " + (currentTool.some(ele => ele === el.tool_id) === false ? "" : "technoChoice__accordion__details__techno--active")} onClick={() => handleCurrentTool(el.tool_id)}>{el.tool_name}</p>
                     ))}
                 </AccordionDetails>
             </Accordion>
@@ -64,4 +65,4 @@ const TechnoChoice = ({ id }) => {
     );
 }
 
-export default TechnoChoice;
+export default ToolChoice;

@@ -182,12 +182,39 @@ app.delete('/deleteTechno/:key', (req, res) => {
         }
     })
 })
+
 app.put('/updateTechno', (req, res) => {
     const id = req.body.id
     const techno = req.body.value
     db.query(`INSERT INTO company_has_technology (company_company_id, technology_technology_id)
         VALUES (?, ?)`,
         [id, techno], (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        })
+})
+
+// Update les tools par entreprise
+app.delete('/deleteTool/:key', (req, res) => {
+    const id = req.params.key
+    db.query('DELETE FROM company_has_tool WHERE company_company_id = ?', id, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+app.put('/updateTool', (req, res) => {
+    const id = req.body.id
+    const tool = req.body.value
+    db.query(`INSERT INTO company_has_tool (company_company_id, tool_tool_id)
+        VALUES (?, ?)`,
+        [id, tool], (err, result) => {
             if (err) {
                 console.log(err)
             } else {
