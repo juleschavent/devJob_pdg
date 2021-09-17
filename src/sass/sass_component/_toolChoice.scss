@@ -1,11 +1,6 @@
 @import '/src/sass/utils/variable';
 
 .technoChoice {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    margin-bottom: 3rem;
-    // padding: 2.7rem;
 
     &__accordion {
         max-width: 46rem;

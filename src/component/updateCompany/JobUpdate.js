@@ -5,11 +5,15 @@ import { ConstContext } from "../context/ConstContext";
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import TechnoChoice from '../main/TechnoChoice';
-import { AddCircle, LocationCity } from '@material-ui/icons';
+import { AddCircle } from '@material-ui/icons';
 import ToolChoice from '../main/ToolChoice';
+import { ThemeContext } from '../context/ThemeContext';
 
 const JobUpdate = () => {
-    const { companyDetails, citys, handleCitys, listTechno, handleListTechno, toolList, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
+
+    const { theme } = useContext(ThemeContext)
+
+    const { companyDetails, citys, handleCitys, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)
@@ -80,30 +84,30 @@ const JobUpdate = () => {
             {companyDetails && companyDetails.map((el, id) => (
                 <div key={id} className="form__inputs">
                     {/* Company name */}
-                    <input type="text" required placeholder="Company name..." defaultValue={el.company_name} onChange={e => setCompanyName(e.target.value)} className="form__inputs__input" />
+                    <input type="text" required placeholder="Company name..." defaultValue={el.company_name} onChange={e => setCompanyName(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
                     {/* Website */}
-                    <input type="text" required placeholder="Web site..." defaultValue={el.company_website} onChange={e => setCompanyWebsite(e.target.value)} className="form__inputs__input" />
+                    <input type="text" required placeholder="Web site..." defaultValue={el.company_website} onChange={e => setCompanyWebsite(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
                     {/* Address */}
-                    <input type="text" required placeholder="Address..." defaultValue={el.company_adress} onChange={e => setCompanyAdress(e.target.value)} className="form__inputs__input" />
+                    <input type="text" required placeholder="Address..." defaultValue={el.company_adress} onChange={e => setCompanyAdress(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
                     {/* Description */}
-                    <textarea rows="10" required placeholder="Description..." defaultValue={el.company_description} onChange={e => setCompanyDesc(e.target.value)} className="form__inputs__input" />
+                    <textarea rows="10" required placeholder="Description..." defaultValue={el.company_description} onChange={e => setCompanyDesc(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
                     {/* Contact */}
-                    <input type="text" required placeholder="Contact..." defaultValue={el.company_contact} onChange={e => setCompanyContact(e.target.value)} className="form__inputs__input" />
+                    <input type="text" required placeholder="Contact..." defaultValue={el.company_contact} onChange={e => setCompanyContact(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
 
                     <div className="form__inputs__checks">
                         {/* Frontend */}
-                        <h3 className={companyFront === 1 ? "form__inputs__checks__checked" : ""} onClick={companyFront === 1 ? () => setCompanyFront(0) : () => setCompanyFront(1)}>Frontend</h3>
+                        <h3 className={companyFront === 1 ? "form__inputs__checks__checked" : companyFront === 0 && theme === false ? "form__inputs__checks--dark" : ""} onClick={companyFront === 1 ? () => setCompanyFront(0) : () => setCompanyFront(1)}>Frontend</h3>
 
                         {/* Backend */}
-                        <h3 className={companyBack === 1 ? "form__inputs__checks__checked" : ""} onClick={companyBack === 1 ? () => setCompanyBack(0) : () => setCompanyBack(1)}>Backend</h3>
+                        <h3 className={companyBack === 1 ? "form__inputs__checks__checked" : companyBack === 0 && theme === false ? "form__inputs__checks--dark" : ""} onClick={companyBack === 1 ? () => setCompanyBack(0) : () => setCompanyBack(1)}>Backend</h3>
 
                         {/* Remote */}
-                        <h3 className={companyRemote === 1 ? "form__inputs__checks__checked" : ""} onClick={companyRemote === 1 ? () => setCompanyRemote(0) : () => setCompanyRemote(1)}>Remote</h3>
+                        <h3 className={companyRemote === 1 ? "form__inputs__checks__checked" : companyRemote === 0 && theme === false ? "form__inputs__checks--dark" : ""} onClick={companyRemote === 1 ? () => setCompanyRemote(0) : () => setCompanyRemote(1)}>Remote</h3>
                     </div>
                     {/* City */}
                     <div className="form__inputs__city">
-                        <h3 className="form__inputs__city__title">Chose a city :</h3>
-                        <select className="form__inputs__city__options" defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
+                        <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Chose a city :</h3>
+                        <select className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
                             {citys && citys.map((el, id) => (
                                 <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
                             ))}

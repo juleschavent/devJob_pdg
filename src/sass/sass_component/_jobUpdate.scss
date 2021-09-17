@@ -22,11 +22,26 @@
             background-color: $secondary-color-light;
             margin-bottom: 1rem;
             transition: all .1s ease-in-out;
-            box-shadow: 0 .2rem .3rem rgba(0, 0, 0, 0.171);
 
-            &:focus {
+            &--light {
+                color: $primary-color-dark;
+                box-shadow: 0 .2rem .3rem rgba(0, 0, 0, 0.171);
+
+                &:focus {
+                    color: $secondary-color;
+                    background-color: $primary-color-light;
+                }
+            }
+
+            &--dark {
                 color: $secondary-color;
-                background-color: $primary-color-light;
+                background-color: $primary-color-dark;
+                box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.596);
+
+                &:focus {
+                    color: $secondary-color;
+                    background-color: $primary-color-darker;
+                }
             }
         }
 
@@ -58,6 +73,10 @@
                 padding: .2rem .4rem;
                 border-radius: .2rem;
             }
+
+            &--dark {
+                color: $secondary-color;
+            }
         }
 
         &__city {
@@ -80,9 +99,21 @@
             &__title {
                 font-size: 1.6rem;
                 margin-right: 1rem;
+
+                &--dark {
+                    color: $secondary-color-light;
+                }
             }
 
             &__options {
+                padding: .5rem 1rem;
+                border: none;
+                border-radius: .3rem;
+
+                &--dark {
+                    background: $primary-color-dark;
+                    color: $secondary-color;
+                }
 
                 &__option {
                     &:active {
@@ -110,6 +141,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 5rem;
 
         &__btn {
             padding: 1rem 2rem;
