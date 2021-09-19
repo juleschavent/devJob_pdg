@@ -226,6 +226,22 @@
         color: $secondary-color-darker;
     }
 
+    .tempDeleteCompanyBtn {
+        width: 3rem;
+        height: 3rem;
+
+        margin: 2.4rem 0 7.2rem 0;
+        background-color: red;
+        color: $secondary-color-light;
+
+        border: none;
+        border-radius: 5px;
+        // box-shadow: -0.2rem 0.2rem 0.5rem $primary-color-light;
+
+
+        cursor: pointer;
+    }
+
 }
 
 // ------------------BREAKPOINTS--------------------

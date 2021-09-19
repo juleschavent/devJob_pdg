@@ -162,3 +162,18 @@ INNER JOIN technology ON technology.technology_id = company_has_technology.techn
 INNER JOIN company_has_tool ON company_has_tool.company_company_id = company.company_id
 INNER JOIN tool ON tool.tool_id = company_has_tool.tool_tool_id
 */
+
+///////////////////////////////////////             DELETE
+app.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    db.query(`
+            DELETE FROM company
+            WHERE company_id = ?
+            `, id, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})

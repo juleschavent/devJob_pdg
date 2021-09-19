@@ -15,7 +15,7 @@ const JobDetails = () => {
         companyTechno,
         handleCompanyTechno,
         companyTool,
-        handleCompanyTool
+        handleCompanyTool,
     } = useContext(ConstContext)
 
     useEffect(() => {

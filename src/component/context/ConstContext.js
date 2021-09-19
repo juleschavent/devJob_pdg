@@ -100,6 +100,13 @@ const ConstContextProvider = (props) => {
         );
     }
 
+    // delete les détails de l'entreprise ciblée
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+            console.log(response);
+        })
+    }
+
     useEffect(() => {
         // Get la liste des entreprises, req principale
         axios.get("http://localhost:3001/companyList").then((response) => {
@@ -137,7 +144,8 @@ const ConstContextProvider = (props) => {
             listTechno,
             handleListTechno,
             toolList,
-            handleToolList
+            handleToolList,
+            handleDelete
         }}>
             {props.children}
         </ConstContext.Provider>
