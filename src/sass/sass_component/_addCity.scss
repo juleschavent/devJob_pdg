@@ -16,17 +16,28 @@
     align-items: center;
 
     .addCity {
-        background-color: $secondary-color;
         padding: 5rem;
         display: flex;
         flex-direction: column;
         border-radius: .5rem;
 
+        &--light {
+            background-color: $secondary-color;
+        }
+
+        &--dark {
+            background-color: $primary-color-darker;
+        }
+
         &__label {
             font-size: 1.6rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
+
+            &--dark {
+                color: $secondary-color;
+            }
 
             &__icon {
                 margin-right: 1rem;
@@ -37,11 +48,20 @@
 
         &__input {
             padding: 1rem 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
             background-color: $secondary-color-light;
             border: none;
-            box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.171);
             border-radius: .4rem;
+
+            &--light {
+                box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.171);
+            }
+
+            &--dark {
+                color: $secondary-color;
+                background-color: $primary-color-dark;
+                box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.596);
+            }
         }
 
         &__btns {
