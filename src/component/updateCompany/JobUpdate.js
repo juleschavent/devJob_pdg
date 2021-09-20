@@ -8,6 +8,7 @@ import TechnoChoice from '../main/TechnoChoice';
 import { AddCircle } from '@material-ui/icons';
 import ToolChoice from '../main/ToolChoice';
 import { ThemeContext } from '../context/ThemeContext';
+import EditIcon from '@material-ui/icons/Edit';
 
 const JobUpdate = () => {
 
@@ -81,6 +82,7 @@ const JobUpdate = () => {
     return (
         companyDetails &&
         <form className="form" onSubmit={handleUpdate}>
+            <h2 className="form__title"><EditIcon className="form__title__icon" /> Update company details</h2>
             {companyDetails && companyDetails.map((el, id) => (
                 <div key={id} className="form__inputs">
                     {/* Company name */}
@@ -90,7 +92,7 @@ const JobUpdate = () => {
                     {/* Address */}
                     <input type="text" required placeholder="Address..." defaultValue={el.company_adress} onChange={e => setCompanyAdress(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
                     {/* Description */}
-                    <textarea rows="10" required placeholder="Description..." defaultValue={el.company_description} onChange={e => setCompanyDesc(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
+                    <textarea rows="10" required placeholder="Description..." defaultValue={el.company_description} onChange={e => setCompanyDesc(e.target.value)} className={"form__inputs__input form__inputs__input--textArea " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
                     {/* Contact */}
                     <input type="text" required placeholder="Contact..." defaultValue={el.company_contact} onChange={e => setCompanyContact(e.target.value)} className={"form__inputs__input " + (theme ? "form__inputs__input--light" : "form__inputs__input--dark")} />
 
@@ -115,9 +117,9 @@ const JobUpdate = () => {
                         <AddCircle className="form__inputs__city__addCity" />
                     </div>
                     {/* Techno */}
-                    <TechnoChoice id={companyDetails[0].company_id} />
-
-                    <ToolChoice id={companyDetails[0].company_id} />
+                    <TechnoChoice id={companyDetails[0].company_id} className="technoChoice" />
+                    {/* Tool */}
+                    <ToolChoice id={companyDetails[0].company_id} className="toolChoice" />
                 </div>
             ))}
             <div className="form__btns">

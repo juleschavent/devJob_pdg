@@ -1,4 +1,5 @@
 // import '../../sass/sass_component/_toolChoice.scss'
+import '../../sass/sass_component/_technoChoice.scss'
 import { useContext, useEffect } from "react";
 import { ConstContext } from "../context/ConstContext";
 import { ThemeContext } from "../context/ThemeContext";
