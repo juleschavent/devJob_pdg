@@ -95,7 +95,7 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                     </section>
 
                 </div>
-                <button className="tempDeleteCompanyBtn" onClick={handleDelete(el.company_id)}><Delete color="warning" fontSize="large" /></button>
+                <button className="tempDeleteCompanyBtn" onClick={() => handleDelete(el.company_id)}><Delete className="tempDeleteIcon" /></button>
             </article>
             ))
     );
