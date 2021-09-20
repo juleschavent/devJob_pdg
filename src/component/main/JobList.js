@@ -7,11 +7,18 @@ import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ConstContext } from "../context/ConstContext";
+import { useState } from "react";
 
 const JobList = () => {
 
     const { theme } = useContext(ThemeContext);
     const { companyList, technoList, companyName, location, remote } = useContext(ConstContext);
+
+    // Fonctionnalité LoadMore
+    const [visible, setVisible] = useState(3);
+    const showMoreItems = () => {
+        setVisible((prevValue) => prevValue + 3);
+    };
 
     // Système D pour afficher message d'erreur lorsqu'aucune entreprise ne correspond à la recherche
     let isCompany = [];
@@ -28,7 +35,7 @@ const JobList = () => {
     return (
         <>
             <main>
-                {companyList && companyList.map((el, id) => (
+                {companyList && companyList.slice(0, visible).map((el, id) => (
                     (el.company_remote <= remote &&
                         (el.company_name.toLowerCase().indexOf(companyName) === 0 &&
                             el.city_name.toLowerCase().indexOf(location) === 0))
@@ -69,7 +76,9 @@ const JobList = () => {
                             </div>
                         </div>
                     </aside>
-                    : <JobListLoadMore />}
+                    : <div className="loadMore">
+                        <button onClick={showMoreItems} className="loadMore__btn">Load More</button>
+                    </div>}
             </main>
         </>
     );
