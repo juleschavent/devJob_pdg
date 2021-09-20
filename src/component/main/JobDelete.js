@@ -20,7 +20,7 @@ const JobDelete = ({ handleOpenModal, companyDetails }) => {
     // delete les détails de l'entreprise ciblée
     const handleDelete = (id) => {
         axios.delete(`http://localhost:3001/deleteTechno/${id}`).then((response) => {
-            console.log('techno deleted successfully', response)
+            console.log('techno deleted successfully', response);
             axios.delete(`http://localhost:3001/deleteTool/${id}`).then((response) => {
                 console.log('tools deleted successfully', response);
                 axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
