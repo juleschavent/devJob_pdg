@@ -3,10 +3,10 @@
 .technoChoice {
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 
     &__accordion {
         max-width: 46rem;
-        // margin: 3rem auto;
         margin-top: 3rem;
 
         &--light {

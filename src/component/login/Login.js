@@ -6,7 +6,7 @@ import { ThemeContext } from '../context/ThemeContext';
 
 
 export default function Login({ handleLoginModal }) {
-    
+
     const { theme } = useContext(ThemeContext);
 
     const emailRef = useRef()
@@ -58,7 +58,7 @@ export default function Login({ handleLoginModal }) {
                 </form>
                 :
                 <form className={"login__form " + (theme ? "login__form--light" : "login__form--dark")}>
-                    <h2 className={"login__form__title " + (theme ? "login__form__title--light" : "login__form__title--dark")}>You are logged in has {currentUser.email}</h2>
+                    <h2 className={"login__form__title " + (theme ? "login__form__title--light" : "login__form__title--dark")}>You are logged in as {currentUser.email}</h2>
                     <button onClick={handleLogout} className="login__form__btn">Logout</button>
                     <h4 onClick={handleLoginModal} className={"login__form__goBack " + (theme ? "login__form__goBack--light" : "login__form__goBack--dark")}>Go back</h4>
                 </form>}

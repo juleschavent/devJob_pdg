@@ -105,7 +105,7 @@ const ConstContextProvider = (props) => {
     useEffect(() => {
         // Get la liste des entreprises, req principale
         axios.get("http://localhost:3001/companyList").then((response) => {
-            // console.log(response);
+            console.log(response.data);
             setCompanyList(response.data);
         });
 
