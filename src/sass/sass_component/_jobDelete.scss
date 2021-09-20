@@ -1,6 +1,36 @@
 @import '/src/sass/utils/variable';
 
+.deleteModalBg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .jobDelete {
+        border: 1px solid red;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: .5rem;
+
+        &--light {
+            background-color: $secondary-color;
+        }
+
+        &--dark {
+            background-color: $primary-color-darker;
+        }
+    }
+}
 
 // ------------------BREAKPOINTS--------------------
 // TABLET && DESKTOP
