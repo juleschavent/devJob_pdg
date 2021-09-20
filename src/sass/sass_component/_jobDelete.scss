@@ -16,17 +16,13 @@
     align-items: center;
 
     .jobDelete {
-        width: 40rem;
         position: relative;
+        width: 30.9rem;
         padding: 5rem;
         display: flex;
         flex-direction: column;
         border-radius: .5rem;
-        border: 1px solid red;
-
-        &--light {
-            background-color: $secondary-color;
-        }
+        background-color: $secondary-color;
 
         &--dark {
             background-color: $primary-color-darker;
@@ -41,56 +37,69 @@
 
             &__icon {
                 border: none;
+                cursor: pointer;
+                color: $primary-color-dark;
+                background-color: $secondary-color;
+                transition: all .1s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+
+                &--dark {
+                    color: $secondary-color-light;
+                    background-color: $primary-color-darker;
+                }
             }
         }
 
         &__header {
-            border: 1px solid black;
             display: flex;
             align-items: center;
 
             &__icon {
                 margin-right: 1rem;
-                color: red;
                 transform: scale(1.2);
+                color: red;
             }
 
             &__title {
-                text-align: center;
                 font-size: 1.6rem;
                 display: flex;
+                text-align: center;
+                color: $primary-color-dark;
 
-        
                 &--dark {
-                    color: white;
+                    color: $secondary-color-light;
                 }
             }
         }
 
         &__body {
-            border: 1px solid red;
+            margin: 3rem 0;
             display: flex;
             flex-direction: column;
-            margin: 2rem 0;
 
             &__text {
-                padding-bottom: .5rem;
                 font-size: 1.2rem;
+                padding-bottom: .6rem;
+                color: $primary-color-dark;
+
+                &--dark {
+                    color: $secondary-color-light;
+                }
             }
 
             &__input {
                 padding: 1rem 2rem;
-                // margin-bottom: 4rem;
-                background-color: $secondary-color-light;
                 border: none;
                 border-radius: .4rem;
-    
-                &--light {
-                    box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.171);
-                }
+                box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.171);
+                font-weight: 700;
+                color: red;
+                background-color: $secondary-color-light;
     
                 &--dark {
-                    color: $secondary-color;
                     background-color: $primary-color-dark;
                     box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.596);
                 }
@@ -98,19 +107,18 @@
         }
 
         &__footer {
-            border: 1px solid black;
             margin-top: 2rem;
             display: flex;
             justify-content: center;
 
             &__btn {
+                margin: 0 1rem;
                 padding: 1rem 2rem;
                 border: none;
-                background: none;
-                color: #FFF;
                 border-radius: .5rem;
-                margin: 0 1rem;
+                background: none;
                 font-size: 1.6rem;
+                color: $secondary-color-light;
                 transition: all .1s ease-in-out;
                 cursor: pointer;
 
@@ -118,13 +126,12 @@
                     background-color: red;
     
                     &:hover {
-                        background-color: $primary-color-light;
                         transform: scale(1.1);
                     }
                 }
     
                 &__cancel {
-                    background-color: #9DAEC2;
+                    background-color: $secondary-color-dark;
     
                     &:hover {
                         background-color: $primary-color-dark;
@@ -139,9 +146,15 @@
 // ------------------BREAKPOINTS--------------------
 // TABLET && DESKTOP
 @media screen and (min-width: 768px) {
+
+    .deleteModalBg {
+
+        .jobDelete {
+            width: auto;
+        }
+    }
 }
 
 // DESKTOP
 @media screen and (min-width: 1440px) {
-
 }

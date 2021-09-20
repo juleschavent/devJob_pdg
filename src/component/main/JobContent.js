@@ -9,7 +9,7 @@ import { useContext } from "react";
 const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
 
     const { theme } = useContext(ThemeContext);
-
+    
     return (
 
         companyTool && companyTechno && companyDetails && companyDetails.map((el, id) => (

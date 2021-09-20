@@ -13,7 +13,6 @@ const JobDetails = () => {
     const [openModal, setOpenModal] = useState(false);
     const handleOpenModal = () => {
         setOpenModal(!openModal);
-        console.log(openModal);
     }
 
     const { id } = useParams();
@@ -35,7 +34,7 @@ const JobDetails = () => {
     return (
         <>
             <JobHeader handleOpenModal={handleOpenModal} />
-            { openModal && <JobDelete /> }
+            { openModal && <JobDelete handleOpenModal={handleOpenModal} companyDetails={companyDetails} /> }
             <JobContent companyDetails={companyDetails}
                 companyTechno={companyTechno}
                 companyTool={companyTool} />
