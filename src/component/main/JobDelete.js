@@ -1,11 +1,12 @@
 import '../../sass/sass_component/_jobDelete.scss'
 
+import axios from 'axios';
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { useHistory } from 'react-router';
 import { ConstContext } from '../context/ConstContext';
 import { ThemeContext } from '../context/ThemeContext';
+import { DeleteForever } from '@material-ui/icons';
 
 
 const JobDelete = ({ handleOpenModal }) => {
@@ -39,14 +40,15 @@ const JobDelete = ({ handleOpenModal }) => {
             <section className={"jobDelete " + (theme ? "jobDelete--light" : "jobDelete--dark")}>
                 <div className="jobDelete__cross"><button className="jobDelete__cross__icon" onClick={handleOpenModal}> X </button></div>
                 <div className="jobDelete__header">
-                    <h1 className="jobDelete__header_title">Are you sure you want to continue ?</h1>
+                    <DeleteForever className="jobDelete__header__icon" /><h1 className={"jobDelete__header__title " + (theme ? "jobDelete__header__title--light" : "jobDelete__header__title--dark")}>Are you sure you want to continue ?</h1>
                 </div>
                 <div className="jobDelete__body">
-                    <div className="jobDelete__body__text">This action is irreversible !</div>
+                    <div className="jobDelete__body__text">Type " DELETE " to confirm.</div>
+                    <input type="text" className={"jobDelete__body__input " + (theme ? "jobDelete__body__input--light" : "jobDelete__body__input--dark")} placeholder="DELETE" />
                 </div>
                 <div className="jobDelete__footer">
-                    <button className="jobDelete__footer__btn" onClick={handleOpenModal}>Cancel</button>
-                    <button className="jobDelete__footer__btn" onClick={() => handleDelete(id)}>Delete</button>
+                    <button className="jobDelete__footer__btn jobDelete__footer__btn__delete" onClick={() => handleDelete(id)}>Delete</button>
+                    <button className="jobDelete__footer__btn jobDelete__footer__btn__cancel" onClick={handleOpenModal}>Cancel</button>
                 </div>
             </section>
         </aside>
