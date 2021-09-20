@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
 
 export const ConstContext = createContext();
 
@@ -101,17 +100,6 @@ const ConstContextProvider = (props) => {
         );
     }
 
-    // delete les détails de l'entreprise ciblée
-    const history = useHistory();
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
-            axios.get("http://localhost:3001/companyList").then((response) => {
-                setCompanyList(response.data);
-                history.push('/');
-            })
-        })
-    }
-
     useEffect(() => {
         // Get la liste des entreprises, req principale
         axios.get("http://localhost:3001/companyList").then((response) => {
@@ -150,7 +138,6 @@ const ConstContextProvider = (props) => {
             handleListTechno,
             toolList,
             handleToolList,
-            handleDelete
         }}>
             {props.children}
         </ConstContext.Provider>

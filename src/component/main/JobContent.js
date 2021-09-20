@@ -1,21 +1,18 @@
 import "../../sass/sass_component/_jobContent.scss";
 import Import from "../../assets/Import";
 import { ExternalLink } from "react-external-link";
-import Delete from '@material-ui/icons/Delete';
 
 import { ThemeContext } from "../context/ThemeContext";
-import { ConstContext } from "../context/ConstContext";
 import { useContext } from "react";
 
 
 const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
 
     const { theme } = useContext(ThemeContext);
-    const { handleDelete } = useContext(ConstContext);
 
     return (
-        
-        companyTool && companyTechno && companyDetails && companyDetails.map((el, id ) => (
+
+        companyTool && companyTechno && companyDetails && companyDetails.map((el, id) => (
 
             <article key={id} className={"jobContent " + (theme ? "jobContent--light" : "jobContent--dark")}>
 
@@ -95,9 +92,8 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                     </section>
 
                 </div>
-                <button className="tempDeleteCompanyBtn" onClick={() => handleDelete(el.company_id)}><Delete className="tempDeleteIcon" /></button>
             </article>
-            ))
+        ))
     );
 
 }

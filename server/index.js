@@ -137,18 +137,91 @@ app.get('/tools', (req, res) => {
 ////////////////////////////////////////            READ FIN
 
 ///////////////////////////////////////             UPDATE
-app.put('/update', (req, res) => {
+// Update l'entreprise
+app.put('/updateCompany', (req, res) => {
     const id = req.body.id
     const name = req.body.name
-    db.query('UPDATE company SET company_name = ? WHERE company_id = ?', [name, id], (err, result) => {
+    const logo = req.body.logo
+    const website = req.body.website
+    const adress = req.body.adress
+    const contact = req.body.contact
+    const desc = req.body.desc
+    const remote = req.body.remote
+    const front = req.body.front
+    const back = req.body.back
+    const city = req.body.city
+
+    db.query(`UPDATE company SET company_name = ?, 
+        company_logo = ?,
+        company_website = ?,
+        company_adress = ?,
+        company_contact = ?,
+        company_description = ?,
+        company_remote = ?,
+        company_front = ?,
+        company_back = ?,
+        city_city_id = ?
+        WHERE company_id = ?`,
+        [name, logo, website, adress, contact, desc, remote, front, back, city, id], (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        })
+})
+
+// Update les technos par entreprise
+app.delete('/deleteTechno/:key', (req, res) => {
+    const id = req.params.key
+    db.query('DELETE FROM company_has_technology WHERE company_company_id = ?', id, (err, result) => {
         if (err) {
             console.log(err)
         } else {
-            res.send(result);
+            res.send(result)
         }
     })
 })
 
+app.put('/updateTechno', (req, res) => {
+    const id = req.body.id
+    const techno = req.body.value
+    db.query(`INSERT INTO company_has_technology (company_company_id, technology_technology_id)
+        VALUES (?, ?)`,
+        [id, techno], (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        })
+})
+
+// Update les tools par entreprise
+app.delete('/deleteTool/:key', (req, res) => {
+    const id = req.params.key
+    db.query('DELETE FROM company_has_tool WHERE company_company_id = ?', id, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+app.put('/updateTool', (req, res) => {
+    const id = req.body.id
+    const tool = req.body.value
+    db.query(`INSERT INTO company_has_tool (company_company_id, tool_tool_id)
+        VALUES (?, ?)`,
+        [id, tool], (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        })
+})
 ///////////////////////////////////////             UPDATE FIN
 
 /* Requete de toute la DB en inner join
