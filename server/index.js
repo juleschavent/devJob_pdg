@@ -224,6 +224,23 @@ app.put('/updateTool', (req, res) => {
 })
 ///////////////////////////////////////             UPDATE FIN
 
+///////////////////////////////////////             INSERT
+
+app.put('/addCity', (req, res) => {
+    const city = req.body.city
+    db.query(`INSERT INTO city (city_name)
+        VALUES (?)`,
+        city, (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        })
+})
+
+///////////////////////////////////////             INSERT
+
 /* Requete de toute la DB en inner join
 SELECT * FROM company
 

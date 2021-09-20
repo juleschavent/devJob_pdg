@@ -1,0 +1,82 @@
+@import '/src/sass/utils/variable';
+
+.modalBg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .addCity {
+        background-color: $secondary-color;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: .5rem;
+
+        &__label {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+
+            &__icon {
+                margin-right: 1rem;
+                color: $primary-color;
+                transform: scale(1.2);
+            }
+        }
+
+        &__input {
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            background-color: $secondary-color-light;
+            border: none;
+            box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.171);
+            border-radius: .4rem;
+        }
+
+        &__btns {
+            display: flex;
+            justify-content: center;
+
+            &__btn {
+                padding: 1rem 2rem;
+                border: none;
+                background: none;
+                color: #FFF;
+                border-radius: .5rem;
+                margin: 0 1rem;
+                font-size: 1.6rem;
+                transition: all .1s ease-in-out;
+                cursor: pointer;
+            }
+
+            &__add {
+                background-color: #5964E0;
+
+                &:hover {
+                    background-color: $primary-color-light;
+                    transform: scale(1.1);
+                }
+            }
+
+            &__cancel {
+                background-color: #9DAEC2;
+
+                &:hover {
+                    background-color: $primary-color-dark;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

@@ -9,12 +9,19 @@ import { AddCircle } from '@material-ui/icons';
 import ToolChoice from '../main/ToolChoice';
 import { ThemeContext } from '../context/ThemeContext';
 import EditIcon from '@material-ui/icons/Edit';
+import AddCity from '../main/AddCity';
 
 const JobUpdate = () => {
 
     const { theme } = useContext(ThemeContext)
 
     const { companyDetails, citys, handleCitys, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
+
+    const [isCity, setIsCity] = useState(false)
+    const handleIsCity = () => {
+        setIsCity(!isCity)
+        console.log(isCity)
+    }
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)
@@ -77,7 +84,7 @@ const JobUpdate = () => {
         handleCitys()
         handleListTechno()
         handleToolList()
-    }, [])
+    }, [citys])
 
     return (
         companyDetails &&
@@ -99,23 +106,23 @@ const JobUpdate = () => {
                     <div className="form__inputs__checks">
                         {/* Frontend */}
                         <h3 className={companyFront === 1 ? "form__inputs__checks__checked" : companyFront === 0 && theme === false ? "form__inputs__checks--dark" : ""} onClick={companyFront === 1 ? () => setCompanyFront(0) : () => setCompanyFront(1)}>Frontend</h3>
-
                         {/* Backend */}
                         <h3 className={companyBack === 1 ? "form__inputs__checks__checked" : companyBack === 0 && theme === false ? "form__inputs__checks--dark" : ""} onClick={companyBack === 1 ? () => setCompanyBack(0) : () => setCompanyBack(1)}>Backend</h3>
-
                         {/* Remote */}
                         <h3 className={companyRemote === 1 ? "form__inputs__checks__checked" : companyRemote === 0 && theme === false ? "form__inputs__checks--dark" : ""} onClick={companyRemote === 1 ? () => setCompanyRemote(0) : () => setCompanyRemote(1)}>Remote</h3>
                     </div>
                     {/* City */}
-                    <div className="form__inputs__city">
-                        <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Chose a city :</h3>
-                        <select className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
-                            {citys && citys.map((el, id) => (
-                                <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
-                            ))}
-                        </select>
-                        <AddCircle className="form__inputs__city__addCity" />
-                    </div>
+                    {citys &&
+                        <div className="form__inputs__city">
+                            <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Chose a city :</h3>
+                            <select className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
+                                {citys.map((el, id) => (
+                                    <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
+                                ))}
+                            </select>
+                            <AddCircle onClick={handleIsCity} className="form__inputs__city__addCity" />
+                            {isCity && <AddCity handleIsCity={handleIsCity} id={companyDetails[0].company_id} />}
+                        </div>}
                     {/* Techno */}
                     <TechnoChoice id={companyDetails[0].company_id} className="technoChoice" />
                     {/* Tool */}
