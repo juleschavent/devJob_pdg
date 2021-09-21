@@ -50,8 +50,8 @@ const JobDelete = ({ handleOpenModal, companyDetails }) => {
     }
 
     return (
-        companyDetails && companyDetails.map((el, id) => (
-            <aside className="deleteModalBg" key={id}>
+        companyDetails && companyDetails.map((el, index) => (
+            <aside className="deleteModalBg" key={index}>
                 <section className={"jobDelete " + (theme ? "jobDelete" : "jobDelete--dark")}>
                     <div className="jobDelete__cross"><button className={"jobDelete__cross__icon " + (theme ? "jobDelete__cross__icon" : "jobDelete__cross__icon--dark")} onClick={handleOpenModal}> X </button></div>
                     <div className="jobDelete__header">

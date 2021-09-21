@@ -54,6 +54,7 @@
         }
 
         &__header {
+            border: 1px solid green;
             display: flex;
             align-items: center;
 
@@ -66,8 +67,13 @@
             &__title {
                 font-size: 1.6rem;
                 display: flex;
+                flex-wrap: wrap;
                 text-align: center;
                 color: $primary-color-dark;
+
+                .test {
+                    margin: 0 auto;
+                }
 
                 &--dark {
                     color: $secondary-color-light;

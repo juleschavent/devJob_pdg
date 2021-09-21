@@ -12,17 +12,17 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
     
     return (
 
-        companyTool && companyTechno && companyDetails && companyDetails.map((el, id) => (
+        companyTool && companyTechno && companyDetails && companyDetails.map((el, idCompany) => (
 
-            <article key={id} className={"jobContent " + (theme ? "jobContent--light" : "jobContent--dark")}>
+            <article key={idCompany} className={"jobContent " + (theme ? "jobContent--light" : "jobContent--dark")}>
 
                 <div className={"jobContent__duties " + (theme ? "jobContent__duties--light" : "jobContent__duties--dark")}>
 
                     <h2>Technos :</h2>
 
                     <div className="jobContent__duties__technos">
-                        {companyTechno.map((el, id) => (
-                            <div className={"jobContent__duties__technos__used " + (theme ? "jobContent__duties__technos__used--light" : "jobContent__duties__technos__used--dark")}>
+                        {companyTechno.map((el, idTechno) => (
+                            <div key={idTechno} className={"jobContent__duties__technos__used " + (theme ? "jobContent__duties__technos__used--light" : "jobContent__duties__technos__used--dark")}>
                                 <img src={Import(el.technology_name.toLowerCase() + ".svg", "technoLogo/")} alt=""
                                     title={el.technology_name} />
                             </div>
@@ -32,8 +32,8 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                     <h2>Tools:</h2>
 
                     <div className="jobContent__duties__tools">
-                        {companyTool.map((el, id) => (
-                            <div className={"jobContent__duties__tools__used " + (theme ? "jobContent__duties__tools__used--light" : "jobContent__duties__tools__used--dark")}>
+                        {companyTool.map((el, idTool) => (
+                            <div key={idTool} className={"jobContent__duties__tools__used " + (theme ? "jobContent__duties__tools__used--light" : "jobContent__duties__tools__used--dark")}>
                                 <p>{el.tool_name}</p>
                             </div>
 
