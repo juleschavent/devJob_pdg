@@ -138,21 +138,3 @@ const JobUpdate = () => {
 }
 
 export default JobUpdate;
-
-// ANCIENNE REQ POUR UPDATE COMPANY AVANT BORDEL TECHNO
-// axios.put('http://localhost:3001/updateCompany', {
-//     id: companyDetails[0].company_id,
-//     name: companyName,
-//     website: companyWebsite,
-//     logo: companyLogo,
-//     contact: companyContact,
-//     adress: companyAdress,
-//     desc: companyDesc,
-//     front: companyFront,
-//     back: companyBack,
-//     remote: companyRemote,
-//     city: companyCity
-// }).then((response) => {
-//     // history.push(`/jobdetails/${companyDetails[0].company_id}`)
-//     console.log(response)
-// })
