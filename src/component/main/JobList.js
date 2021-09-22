@@ -31,10 +31,6 @@ const JobList = () => {
         })
     }
 
-    if (technoList) {
-        console.log(technoList)
-    }
-
     return (
         <>
             <main>

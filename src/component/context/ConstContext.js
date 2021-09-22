@@ -98,7 +98,7 @@ const ConstContextProvider = (props) => {
             let filterTechno = currentTechno.filter(item => item !== value)
             setCurrentTechno(filterTechno)
         }
-        console.log('current techno', currentTechno)
+        // console.log('current techno', currentTechno)
     }
 
 
@@ -123,13 +123,13 @@ const ConstContextProvider = (props) => {
             let filterTool = currentTool.filter(item => item !== value)
             setCurrentTool(filterTool)
         }
-        console.log('current Tool', currentTool)
+        // console.log('current Tool', currentTool)
     }
 
     useEffect(() => {
         // Get la liste des entreprises, req principale
         axios.get("http://localhost:3001/companyList").then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             setCompanyList(response.data);
         });
 
