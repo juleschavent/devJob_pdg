@@ -91,13 +91,16 @@ const ConstContextProvider = (props) => {
     }
     const handleCurrentTechno = (value) => {
         if (currentTechno.some(el => el === value) === false) {
-            setCurrentTechno(arr => [value, ...arr])
+            if (currentTechno.length < 3) {
+                setCurrentTechno(arr => [value, ...arr])
+            } else alert('Too many technos')
         } else {
             let filterTechno = currentTechno.filter(item => item !== value)
             setCurrentTechno(filterTechno)
         }
         console.log('current techno', currentTechno)
     }
+
 
     // get la liste des tools pour companyTool
     const [toolList, setToolList] = useState(null)
@@ -112,7 +115,10 @@ const ConstContextProvider = (props) => {
     }
     const handleCurrentTool = (value) => {
         if (currentTool.some(el => el === value) === false) {
-            setCurrentTool(arr => [value, ...arr])
+            if (currentTool.length < 3) {
+                setCurrentTool(arr => [value, ...arr])
+            } else alert("Too many tools")
+
         } else {
             let filterTool = currentTool.filter(item => item !== value)
             setCurrentTool(filterTool)
