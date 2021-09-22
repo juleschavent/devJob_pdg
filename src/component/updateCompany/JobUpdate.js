@@ -48,28 +48,30 @@ const JobUpdate = () => {
             city: companyCity
         }).then((response) => {
             // console.log('update company', response)
-            axios.delete(`http://localhost:3001/deleteTechno/${companyDetails[0].company_id}`).then((response) => {
-                // console.log('delete techno', response)
-                currentTechno.forEach(element => {
-                    axios.put('http://localhost:3001/updateTechno', {
-                        id: companyDetails[0].company_id,
-                        value: element
-                    }).then((response) => {
-                        // console.log('insert techno', response)
-                        axios.delete(`http://localhost:3001/deleteTool/${companyDetails[0].company_id}`).then((response) => {
-                            // console.log('delete tool', response)
-                            currentTool.forEach(element => {
-                                axios.put('http://localhost:3001/updateTool', {
-                                    id: companyDetails[0].company_id,
-                                    value: element
-                                }).then((response) => {
-                                    // console.log('insert tool', response)
-                                    history.push(`/jobdetails/${companyDetails[0].company_id}`)
-                                });
-                            });
+            axios.delete(`http://localhost:3001/deleteTechno/${companyDetails[0].company_id}`)
+            axios.delete(`http://localhost:3001/deleteTool/${companyDetails[0].company_id}`).then((response) => {
+                // console.log('delete techno', response) 
+                if (currentTechno) {
+                    currentTechno.forEach(element => {
+                        axios.put('http://localhost:3001/updateTechno', {
+                            id: companyDetails[0].company_id,
+                            value: element
+                        }).then((response) => {
+                            // console.log('insert techno', response)
                         })
-                    });
-                })
+                    })
+                    if (currentTool) {
+                        currentTool.forEach(element => {
+                            axios.put('http://localhost:3001/updateTool', {
+                                id: companyDetails[0].company_id,
+                                value: element
+                            }).then((response) => {
+                                // console.log('insert tool', response)
+                            });
+                        });
+                    }
+                }
+                history.push(`/jobdetails/${companyDetails[0].company_id}`)
             })
         })
     }
@@ -132,21 +134,3 @@ const JobUpdate = () => {
 }
 
 export default JobUpdate;
-
-// ANCIENNE REQ POUR UPDATE COMPANY AVANT BORDEL TECHNO
-// axios.put('http://localhost:3001/updateCompany', {
-//     id: companyDetails[0].company_id,
-//     name: companyName,
-//     website: companyWebsite,
-//     logo: companyLogo,
-//     contact: companyContact,
-//     adress: companyAdress,
-//     desc: companyDesc,
-//     front: companyFront,
-//     back: companyBack,
-//     remote: companyRemote,
-//     city: companyCity
-// }).then((response) => {
-//     // history.push(`/jobdetails/${companyDetails[0].company_id}`)
-//     console.log(response)
-// })

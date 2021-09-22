@@ -34,6 +34,19 @@ app.get('/companyList', (req, res) => {
         })
 })
 
+// Read de l'ID de la comapgnie
+app.get('/companyId', (req, res) => {
+    const companyName = req.body.companyName
+    db.query(`SELECT company_id FROM company WHERE company_name = '?'`), companyName,
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        }
+})
+
 // Read de la liste des technos pour chaque entreprise
 app.get('/techno', (req, res) => {
     db.query(`SELECT * FROM company
@@ -184,11 +197,11 @@ app.delete('/deleteTechno/:key', (req, res) => {
 })
 
 app.put('/updateTechno', (req, res) => {
-    const id = req.body.id
-    const techno = req.body.value
+    const idCompany = req.body.id
+    const idTechno = req.body.value
     db.query(`INSERT INTO company_has_technology (company_company_id, technology_technology_id)
         VALUES (?, ?)`,
-        [id, techno], (err, result) => {
+        [idCompany, idTechno], (err, result) => {
             if (err) {
                 console.log(err)
             } else {
@@ -242,7 +255,7 @@ app.put('/create', (req, res) => {
 
 
     db.query('INSERT INTO company (company_id, company_name, company_logo, company_website, company_adress, company_contact, company_description, company_remote, company_postedat, company_front, company_back, city_city_id) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?)',
-    [companyName, companyLogo, companyWebsite, companyContact, companyAdress, companyDesc, companyRemote, companyFront, companyBack, companyCity],
+        [companyName, companyLogo, companyWebsite, companyContact, companyAdress, companyDesc, companyRemote, companyFront, companyBack, companyCity],
         (err, result) => {
             // si la requete envoie une erreur, console log la
             if (err) {
@@ -255,22 +268,6 @@ app.put('/create', (req, res) => {
     );
 })
 
-// Create techno for company
-
-app.put('/createTechno', (req, res) => {
-    const companyId = req.body.id;
-    const companyTechno =req.body.companyTechno;
-
-    db.query('INSERT INTO company_has_technology (company_company_id, technology_technology_id) VALUES (?, ?)',
-    [companyId, companyTechno], (err, result) => {
-        if(err){
-            console.log(err)
-        } else {
-            res.send(result);
-        }
-    }
-    )
-})
 ///////////////////////////////////////             CREATE FIN
 
 

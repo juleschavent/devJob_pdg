@@ -2,6 +2,7 @@ import '../../sass/sass_component/_jobUpdate.scss';
 
 import axios from 'axios';
 import { useContext, useState, useEffect } from "react";
+import { useHistory } from 'react-router';
 import { ConstContext } from '../context/ConstContext';
 import { ThemeContext } from '../context/ThemeContext';
 import AddCity from '../main/AddCity';
@@ -13,6 +14,7 @@ import { AddCircle } from '@material-ui/icons';
 const JobCreate = () => {
 
     const { theme } = useContext(ThemeContext);
+    const history = useHistory();
 
     const { citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
 
@@ -26,11 +28,10 @@ const JobCreate = () => {
     const [companyBack, setCompanyBack] = useState(0);
     const [companyCity, setCompanyCity] = useState(1);
 
+    const [companyId, setCompanyId] = useState(null);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(companyName, companyCity)
-
-        console.log(companyRemote, companyBack, companyFront)
 
         const companyLogo = companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', '')
 
@@ -46,6 +47,21 @@ const JobCreate = () => {
             companyBack: companyBack,
             companyCity: companyCity
         }).then((response) => {
+            console.log(response);
+            axios.get(`http://localhost:3001/companyId`, {
+            }).then((response) => {
+                setCompanyId(response.data);
+                console.log(response);
+                console.log(companyId);
+                // currentTechno.forEach(element => {
+                //     axios.put('http://localhost:3001/updateTechno', {
+                //         idCompany: companyId,
+                //         idTechno: element
+                //     }).then((response) => {
+                //         console.log('nianiania', response)
+                //     })
+                // })
+            })
         });
     };
 
@@ -97,7 +113,7 @@ const JobCreate = () => {
             </div>
             <div className="form__btns">
                 <button className="form__btns__btn form__btns__btn--create">Create</button>
-                <button className="form__btns__btn form__btns__btn--cancel">Cancel</button>
+                <button className="form__btns__btn form__btns__btn--cancel" onClick={() => history.push('/')}>Cancel</button>
             </div>
         </form>
     );

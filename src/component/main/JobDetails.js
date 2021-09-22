@@ -3,8 +3,6 @@ import JobFooter from "../main/JobFooter";
 import { useContext, useEffect } from "react";
 import JobHeader from "./JobHeader";
 import { ConstContext } from "../context/ConstContext";
-import TechnoChoice from "./TechnoChoice";
-
 import JobContent from "./JobContent";
 
 const JobDetails = () => {
@@ -15,7 +13,7 @@ const JobDetails = () => {
         companyTechno,
         handleCompanyTechno,
         companyTool,
-        handleCompanyTool
+        handleCompanyTool,
     } = useContext(ConstContext)
 
     useEffect(() => {
