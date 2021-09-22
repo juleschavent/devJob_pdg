@@ -4,6 +4,7 @@ import Header from './component/header/Header';
 import SearchForm from './component/main/SearchForm';
 import JobList from './component/main/JobList';
 import JobDetails from './component/main/JobDetails';
+import JobCreate from './component/createCompany/JobCreate';
 import JobUpdate from './component/updateCompany/JobUpdate';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -29,6 +30,9 @@ function App() {
               </Route>
               <Route path="/jobdetails/:id">
                 <JobDetails />
+              </Route>
+              <Route path="/jobcreate">
+                <JobCreate />
               </Route>
               <Route path="/jobupdate">
                 <JobUpdate />

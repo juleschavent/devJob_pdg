@@ -1,4 +1,4 @@
-import '../../sass/sass_component/_jobUpdate.scss'
+import '../../sass/sass_component/_jobUpdate.scss';
 
 import { useContext, useEffect, useState } from "react";
 import { ConstContext } from "../context/ConstContext";
