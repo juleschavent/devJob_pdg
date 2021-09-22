@@ -102,6 +102,10 @@ const ConstContextProvider = (props) => {
         );
     }
 
+    const handleTest = () => {
+        console.log('test')
+    }
+
     useEffect(() => {
         // Get la liste des entreprises, req principale
         axios.get("http://localhost:3001/companyList").then((response) => {
@@ -143,7 +147,7 @@ const ConstContextProvider = (props) => {
             currentTechno,
             setCurrentTechno,
             currentTool,
-            setCurrentTool
+            setCurrentTool,
         }}>
             {props.children}
         </ConstContext.Provider>

@@ -1,5 +1,4 @@
 import "../../sass/sass_component/_jobList.scss"
-import JobListLoadMore from "./JobListLoadMore";
 import MyDate from "../../assets/MyDate"
 import NoLogo from "../../assets/noLogo.png"
 

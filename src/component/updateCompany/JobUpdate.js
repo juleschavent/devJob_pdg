@@ -15,7 +15,7 @@ const JobUpdate = () => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { companyDetails, citys, handleCitys, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
+    const { companyDetails, citys, handleCitys, handleListTechno, handleToolList, currentTechno, currentTool, } = useContext(ConstContext)
 
     const [isCity, setIsCity] = useState(false)
     const handleIsCity = () => {
@@ -54,28 +54,30 @@ const JobUpdate = () => {
             city: companyCity
         }).then((response) => {
             // console.log('update company', response)
-            axios.delete(`http://localhost:3001/deleteTechno/${companyDetails[0].company_id}`).then((response) => {
-                // console.log('delete techno', response)
-                currentTechno.forEach(element => {
-                    axios.put('http://localhost:3001/updateTechno', {
-                        id: companyDetails[0].company_id,
-                        value: element
-                    }).then((response) => {
-                        // console.log('insert techno', response)
-                        axios.delete(`http://localhost:3001/deleteTool/${companyDetails[0].company_id}`).then((response) => {
-                            // console.log('delete tool', response)
-                            currentTool.forEach(element => {
-                                axios.put('http://localhost:3001/updateTool', {
-                                    id: companyDetails[0].company_id,
-                                    value: element
-                                }).then((response) => {
-                                    // console.log('insert tool', response)
-                                    history.push(`/jobdetails/${companyDetails[0].company_id}`)
-                                });
-                            });
+            axios.delete(`http://localhost:3001/deleteTechno/${companyDetails[0].company_id}`)
+            axios.delete(`http://localhost:3001/deleteTool/${companyDetails[0].company_id}`).then((response) => {
+                // console.log('delete techno', response) 
+                if (currentTechno) {
+                    currentTechno.forEach(element => {
+                        axios.put('http://localhost:3001/updateTechno', {
+                            id: companyDetails[0].company_id,
+                            value: element
+                        }).then((response) => {
+                            // console.log('insert techno', response)
                         })
-                    });
-                })
+                    })
+                    if (currentTool) {
+                        currentTool.forEach(element => {
+                            axios.put('http://localhost:3001/updateTool', {
+                                id: companyDetails[0].company_id,
+                                value: element
+                            }).then((response) => {
+                                // console.log('insert tool', response)
+                            });
+                        });
+                    }
+                }
+                history.push(`/jobdetails/${companyDetails[0].company_id}`)
             })
         })
     }
