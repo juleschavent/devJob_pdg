@@ -26,7 +26,7 @@ const ToolChoice = ({ id }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { toolList, handleToolList, companyTool, handleCompanyTool, currentTool, setCurrentTool } = useContext(ConstContext)
+    const { toolList, handleToolList, companyTool, currentTool, setCurrentTool } = useContext(ConstContext)
 
     const handleCurrentTool = (value) => {
         if (currentTool.some(el => el === value) === false) {
@@ -39,12 +39,14 @@ const ToolChoice = ({ id }) => {
     }
 
     useEffect(() => {
-        handleCompanyTool(id)
         handleToolList()
         setCurrentTool([])
-        for (const el of companyTool) {
-            setCurrentTool(arr => [el.tool_id, ...arr])
+        if (companyTool) {
+            for (const el of companyTool) {
+                setCurrentTool(arr => [el.tool_id, ...arr])
+            }
         }
+
         // console.log('company Tool', companyTool)
         console.log('current Tool', currentTool)
     }, [])

@@ -224,6 +224,56 @@ app.put('/updateTool', (req, res) => {
 })
 ///////////////////////////////////////             UPDATE FIN
 
+///////////////////////////////////////             CREATE
+
+//Create Company
+app.put('/create', (req, res) => {
+    // const companyId = req.body.companyId 
+    const companyName = req.body.companyName;
+    const companyLogo = req.body.companyLogo;
+    const companyWebsite = req.body.companyWebsite;
+    const companyContact = req.body.companyContact;
+    const companyAdress = req.body.companyAdress;
+    const companyDesc = req.body.companyDesc;
+    const companyRemote = req.body.companyRemote;
+    const companyFront = req.body.companyFront;
+    const companyBack = req.body.companyBack;
+    const companyCity = req.body.companyCity;
+
+
+    db.query('INSERT INTO company (company_id, company_name, company_logo, company_website, company_adress, company_contact, company_description, company_remote, company_postedat, company_front, company_back, city_city_id) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?)',
+    [companyName, companyLogo, companyWebsite, companyContact, companyAdress, companyDesc, companyRemote, companyFront, companyBack, companyCity],
+        (err, result) => {
+            // si la requete envoie une erreur, console log la
+            if (err) {
+                console.log(err)
+            } else {
+                // Sinon renvoi le result
+                res.send('result.data')
+            }
+        }
+    );
+})
+
+// Create techno for company
+
+app.put('/createTechno', (req, res) => {
+    const companyId = req.body.id;
+    const companyTechno =req.body.companyTechno;
+
+    db.query('INSERT INTO company_has_technology (company_company_id, technology_technology_id) VALUES (?, ?)',
+    [companyId, companyTechno], (err, result) => {
+        if(err){
+            console.log(err)
+        } else {
+            res.send(result);
+        }
+    }
+    )
+})
+///////////////////////////////////////             CREATE FIN
+
+
 ///////////////////////////////////////             INSERT
 
 app.put('/addCity', (req, res) => {

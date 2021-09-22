@@ -24,7 +24,7 @@ const TechnoChoice = ({ id }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { listTechno, handleListTechno, companyTechno, handleCompanyTechno, currentTechno, setCurrentTechno } = useContext(ConstContext)
+    const { listTechno, handleListTechno, companyTechno, currentTechno, setCurrentTechno } = useContext(ConstContext)
 
     const handleCurrentTechno = (value) => {
         if (currentTechno.some(el => el === value) === false) {
@@ -37,12 +37,14 @@ const TechnoChoice = ({ id }) => {
     }
 
     useEffect(() => {
-        handleCompanyTechno(id)
         handleListTechno()
         setCurrentTechno([])
-        for (const el of companyTechno) {
-            setCurrentTechno(arr => [el.technology_id, ...arr])
+        if (companyTechno) {
+            for (const el of companyTechno) {
+                setCurrentTechno(arr => [el.technology_id, ...arr])
+            }
         }
+
         // console.log('company techno', companyTechno)
         console.log('current techno', currentTechno)
     }, [])

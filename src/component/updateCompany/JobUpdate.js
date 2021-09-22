@@ -15,13 +15,7 @@ const JobUpdate = () => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { companyDetails, citys, handleCitys, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
-
-    const [isCity, setIsCity] = useState(false)
-    const handleIsCity = () => {
-        setIsCity(!isCity)
-        console.log(isCity)
-    }
+    const { companyDetails, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)

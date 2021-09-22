@@ -7,12 +7,10 @@
     &__title {
         font-size: 2rem;
         font-weight: 700;
-        color: $primary-color-dark;
         margin-bottom: 2rem;
         display: flex;
         align-items: center;
         color: $primary-color;
-
 
         &__icon {
             margin-right: 1rem;
@@ -174,6 +172,14 @@
 
             &:hover {
                 transform: scale(1.1);
+            }
+
+            &--create {
+                background-color: green;
+
+                &:hover {
+                    background-color: $primary-color-light;
+                }
             }
 
             &--update {
