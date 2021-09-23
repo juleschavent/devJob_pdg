@@ -78,6 +78,13 @@ const ConstContextProvider = (props) => {
         );
     }
 
+    // Toggle du modal AddCity
+    const [isCity, setIsCity] = useState(false)
+    const handleIsCity = () => {
+        setIsCity(!isCity)
+        console.log(isCity)
+    }
+
     // get la liste des technos pour update
     const [listTechno, setListTechno] = useState(null)
     const [currentTechno, setCurrentTechno] = useState([])
@@ -98,7 +105,7 @@ const ConstContextProvider = (props) => {
             let filterTechno = currentTechno.filter(item => item !== value)
             setCurrentTechno(filterTechno)
         }
-        // console.log('current techno', currentTechno)
+        console.log('current techno', currentTechno)
     }
 
 
@@ -160,6 +167,8 @@ const ConstContextProvider = (props) => {
             handleCompanyTool,
             citys,
             handleCitys,
+            isCity,
+            handleIsCity,
             listTechno,
             handleListTechno,
             toolList,

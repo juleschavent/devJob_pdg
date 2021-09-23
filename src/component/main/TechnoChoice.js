@@ -18,20 +18,21 @@ const useStyles = makeStyles(() => ({
 }));
 //FIN Import et fonction pour accordion
 
-const TechnoChoice = ({ id }) => {
+const TechnoChoice = () => {
 
     const classes = useStyles();
 
     const { theme } = useContext(ThemeContext)
 
-    const { listTechno, handleListTechno, companyTechno, handleCompanyTechno, currentTechno, setCurrentTechno, handleCurrentTechno } = useContext(ConstContext)
+    const { listTechno, handleListTechno, companyTechno, currentTechno, setCurrentTechno, handleCurrentTechno } = useContext(ConstContext)
 
     useEffect(() => {
-        handleCompanyTechno(id)
         handleListTechno()
         setCurrentTechno([])
-        for (const el of companyTechno) {
-            setCurrentTechno(arr => [el.technology_id, ...arr])
+        if (companyTechno) {
+            for (const el of companyTechno) {
+                setCurrentTechno(arr => [el.technology_id, ...arr])
+            }
         }
         // console.log('company techno', companyTechno)
         console.log('current techno', currentTechno)

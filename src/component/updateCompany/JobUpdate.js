@@ -1,4 +1,4 @@
-import '../../sass/sass_component/_jobUpdate.scss'
+import '../../sass/sass_component/_jobUpdate.scss';
 
 import { useContext, useEffect, useState } from "react";
 import { ConstContext } from "../context/ConstContext";
@@ -15,13 +15,7 @@ const JobUpdate = () => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { companyDetails, citys, handleCitys, handleListTechno, handleToolList, currentTechno, currentTool, } = useContext(ConstContext)
-
-    const [isCity, setIsCity] = useState(false)
-    const handleIsCity = () => {
-        setIsCity(!isCity)
-        console.log(isCity)
-    }
+    const { companyDetails, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)
@@ -59,20 +53,24 @@ const JobUpdate = () => {
                 // console.log('delete techno', response) 
                 if (currentTechno) {
                     currentTechno.forEach(element => {
+                        console.log(companyDetails[0].company_id)
+                        console.log(element)
                         axios.put('http://localhost:3001/updateTechno', {
-                            id: companyDetails[0].company_id,
-                            value: element
+                            idCompany: companyDetails[0].company_id,
+                            idTechno: element
                         }).then((response) => {
-                            // console.log('insert techno', response)
+                            console.log('insert techno', response)
                         })
                     })
                     if (currentTool) {
                         currentTool.forEach(element => {
+                            console.log(companyDetails[0].company_id)
+                            console.log(element)
                             axios.put('http://localhost:3001/updateTool', {
-                                id: companyDetails[0].company_id,
-                                value: element
+                                idCompany: companyDetails[0].company_id,
+                                idTool: element
                             }).then((response) => {
-                                // console.log('insert tool', response)
+                                console.log('insert tool', response)
                             });
                         });
                     }

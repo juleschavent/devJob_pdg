@@ -19,7 +19,7 @@ const AddCity = ({ handleIsCity, id }) => {
             city: newCity
         }).then((response) => {
             handleIsCity()
-            history.push(`/jobupdate`)
+            history.push(-1)
             // console.log(response)
         })
     }

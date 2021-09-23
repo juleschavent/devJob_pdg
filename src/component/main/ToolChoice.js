@@ -20,21 +20,23 @@ const useStyles = makeStyles(() => ({
 //FIN Import et fonction pour accordion
 
 
-const ToolChoice = ({ id }) => {
+const ToolChoice = () => {
 
     const classes = useStyles();
 
     const { theme } = useContext(ThemeContext)
 
-    const { toolList, handleToolList, companyTool, handleCompanyTool, currentTool, setCurrentTool, handleCurrentTool } = useContext(ConstContext)
+    const { toolList, handleToolList, companyTool, currentTool, setCurrentTool, handleCurrentTool } = useContext(ConstContext)
 
     useEffect(() => {
-        handleCompanyTool(id)
         handleToolList()
         setCurrentTool([])
-        for (const el of companyTool) {
-            setCurrentTool(arr => [el.tool_id, ...arr])
+        if (companyTool) {
+            for (const el of companyTool) {
+                setCurrentTool(arr => [el.tool_id, ...arr])
+            }
         }
+
         // console.log('company Tool', companyTool)
         console.log('current Tool', currentTool)
     }, [])
