@@ -35,16 +35,16 @@ app.get('/companyList', (req, res) => {
 })
 
 // Read de l'ID de la comapgnie
-app.get('/companyId', (req, res) => {
-    const companyName = req.body.companyName
-    db.query(`SELECT company_id FROM company WHERE company_name = '?'`), companyName,
+app.get('/companyId/:key', (req, res) => {
+    const companyName = req.params.key
+    db.query(`SELECT company_id FROM company WHERE company_name = ?`, companyName,
         (err, result) => {
             if (err) {
-                console.log(err)
+                console.log(err);
             } else {
                 res.send(result);
             }
-        }
+        })
 })
 
 // Read de la liste des technos pour chaque entreprise
@@ -197,10 +197,10 @@ app.delete('/deleteTechno/:key', (req, res) => {
 })
 
 app.put('/updateTechno', (req, res) => {
-    const idCompany = req.body.id
-    const idTechno = req.body.value
-    db.query(`INSERT INTO company_has_technology (company_company_id, technology_technology_id)
-        VALUES (?, ?)`,
+    const idCompany = req.body.idCompany
+    const idTechno = req.body.idTechno
+    db.query(`INSERT INTO company_has_technology(company_company_id, technology_technology_id)
+        VALUES(?, ?)`,
         [idCompany, idTechno], (err, result) => {
             if (err) {
                 console.log(err)
@@ -223,11 +223,11 @@ app.delete('/deleteTool/:key', (req, res) => {
 })
 
 app.put('/updateTool', (req, res) => {
-    const id = req.body.id
-    const tool = req.body.value
+    const idCompany = req.body.idCompany
+    const idTool = req.body.idTool
     db.query(`INSERT INTO company_has_tool (company_company_id, tool_tool_id)
         VALUES (?, ?)`,
-        [id, tool], (err, result) => {
+        [idCompany, idTool], (err, result) => {
             if (err) {
                 console.log(err)
             } else {

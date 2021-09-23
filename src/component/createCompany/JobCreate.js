@@ -16,7 +16,7 @@ const JobCreate = () => {
     const { theme } = useContext(ThemeContext);
     const history = useHistory();
 
-    const { citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
+    const { companyList, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
 
     const [companyName, setCompanyName] = useState('');
     const [companyWebsite, setCompanyWebsite] = useState('');
@@ -28,12 +28,13 @@ const JobCreate = () => {
     const [companyBack, setCompanyBack] = useState(0);
     const [companyCity, setCompanyCity] = useState(1);
 
-    const [companyId, setCompanyId] = useState(null);
-
     const handleSubmit = (e) => {
+
+        let companyId = 0;
+
         e.preventDefault();
 
-        const companyLogo = companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', '')
+        const companyLogo = companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', '');
 
         axios.put("http://localhost:3001/create", {
             companyName: companyName,
@@ -47,23 +48,30 @@ const JobCreate = () => {
             companyBack: companyBack,
             companyCity: companyCity
         }).then((response) => {
-            console.log(response);
-            axios.get(`http://localhost:3001/companyId`, {
+            axios.get(`http://localhost:3001/companyId/${companyName}`, {
             }).then((response) => {
-                setCompanyId(response.data);
-                console.log(response);
-                console.log(companyId);
-                // currentTechno.forEach(element => {
-                //     axios.put('http://localhost:3001/updateTechno', {
-                //         idCompany: companyId,
-                //         idTechno: element
-                //     }).then((response) => {
-                //         console.log('nianiania', response)
-                //     })
-                // })
+                companyId = response.data[0].company_id;
+                // console.log('companyId: ', companyId);
+                currentTechno.forEach(element => {
+                    axios.put('http://localhost:3001/updateTechno', {
+                        idCompany: companyId,
+                        idTechno: element
+                    }).then((response) => {
+                        // console.log('Techno inserted successfully', response);
+                    })
+                })
+                currentTool.forEach(element => {
+                    axios.put('http://localhost:3001/updateTool', {
+                        idCompany: companyId,
+                        idTool: element
+                    }).then((response) => {
+                        // console.log('Tools inserted successfully', response);
+                        history.push(`/jobdetails/${companyId}`);
+                    })
+                })
             })
-        });
-    };
+        })
+    }
 
     useEffect(() => {
         handleCitys()

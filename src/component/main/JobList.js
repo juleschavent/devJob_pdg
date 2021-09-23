@@ -81,7 +81,6 @@ const JobList = () => {
                     </aside>
                     : <div className="loadMore">
                         <button onClick={showMoreItems} className="loadMore__btn">Load More</button>
-                        <Link to={'/jobcreate'}><button className="tempJobCreateBtn">Create Job</button></Link>
                     </div>}
             </main>
         </>
