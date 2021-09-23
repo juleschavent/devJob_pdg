@@ -1,0 +1,186 @@
+@import '/src/sass/utils/variable';
+
+.deleteModalBg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .jobDelete {
+        position: relative;
+        width: 30.9rem;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: .5rem;
+        background-color: $secondary-color;
+
+        &--dark {
+            background-color: $primary-color-darker;
+        }
+
+        &__cross {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+
+            &__icon {
+                border: none;
+                cursor: pointer;
+                color: $primary-color-dark;
+                background-color: $secondary-color;
+                transition: all .1s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+
+                &--dark {
+                    color: $secondary-color-light;
+                    background-color: $primary-color-darker;
+                }
+            }
+        }
+
+        &__header {
+            display: flex;
+            align-items: center;
+
+            &__icon {
+                margin-right: 1rem;
+                transform: scale(1.2);
+                color: red;
+            }
+
+            &__title {
+                font-size: 1.6rem;
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+                color: $primary-color-dark;
+
+                &--dark {
+                    color: $secondary-color-light;
+                }
+            }
+        }
+
+        &__body {
+            margin: 3rem 0;
+            display: flex;
+            flex-direction: column;
+
+            &__text {
+                font-size: 1.2rem;
+                padding-bottom: .6rem;
+                color: $primary-color-dark;
+
+                &--dark {
+                    color: $secondary-color-light;
+                }
+            }
+
+            &__response {
+                font-size: 1.2rem;
+                padding-top: .6rem;
+                color: $primary-color-dark;
+
+                &--dark {
+                    color: $secondary-color-light;
+                }
+            }
+
+            &__input {
+                padding: 1rem 2rem;
+                border: none;
+                border-radius: .4rem;
+                box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.171);
+                font-weight: 700;
+                color: red;
+                background-color: $secondary-color-light;
+    
+                &--dark {
+                    background-color: $primary-color-dark;
+                    box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.596);
+                }
+            }
+        }
+
+        &__footer {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+
+            &__btn {
+                margin: 0 1rem;
+                padding: 1rem 2rem;
+                border: none;
+                border-radius: .5rem;
+                background: none;
+                font-size: 1.6rem;
+                color: $secondary-color-light;
+                transition: all .1s ease-in-out;
+                cursor: pointer;
+
+                &__delete {
+                    background-color: red;
+    
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+
+                    &--disabled {
+                        color: red;
+
+                        &:hover {
+                            color: $primary-color-darker;
+                        }
+
+                        &--dark {
+
+                            &:hover {
+                                color: $secondary-color;
+                            }
+                        }
+                    }
+                }
+    
+                &__cancel {
+                    background-color: $secondary-color-dark;
+    
+                    &:hover {
+                        background-color: $primary-color-dark;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------BREAKPOINTS--------------------
+// TABLET && DESKTOP
+@media screen and (min-width: 768px) {
+
+    .deleteModalBg {
+
+        .jobDelete {
+            width: auto;
+        }
+    }
+}
+
+// DESKTOP
+@media screen and (min-width: 1440px) {
+}

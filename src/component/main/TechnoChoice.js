@@ -24,7 +24,7 @@ const TechnoChoice = ({ id }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { listTechno, handleListTechno, companyTechno, handleCompanyTechno, currentTechno, setCurrentTechno, handleCurrentTechno } = useContext(ConstContext)
+    const { listTechno, handleListTechno, companyTechno, currentTechno, setCurrentTechno, handleCurrentTechno } = useContext(ConstContext)
 
     useEffect(() => {
         handleListTechno()

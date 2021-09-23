@@ -18,9 +18,9 @@ function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <AuthProvider>
-      <ConstContextProvider>
-        <Router>
+    <Router>
+      <AuthProvider>
+        <ConstContextProvider>
           <div className={theme ? "App App--light" : "App App--dark"}>
             <Header />
             <Switch>
@@ -39,9 +39,9 @@ function App() {
               </Route>
             </Switch>
           </div>
-        </Router>
-      </ConstContextProvider>
-    </AuthProvider>
+        </ConstContextProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

@@ -235,6 +235,32 @@ app.delete('/deleteTool/:key', (req, res) => {
     })
 })
 
+app.put('/updateTechno', (req, res) => {
+    const id = req.body.id
+    const techno = req.body.value
+    db.query(`INSERT INTO company_has_technology (company_company_id, technology_technology_id)
+        VALUES (?, ?)`,
+        [id, techno], (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        })
+})
+
+// Update les tools par entreprise
+app.delete('/deleteTool/:key', (req, res) => {
+    const id = req.params.key
+    db.query('DELETE FROM company_has_tool WHERE company_company_id = ?', id, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
 app.put('/updateTool', (req, res) => {
     const idCompany = req.body.idCompany
     const idTool = req.body.idTool
@@ -312,3 +338,18 @@ INNER JOIN technology ON technology.technology_id = company_has_technology.techn
 INNER JOIN company_has_tool ON company_has_tool.company_company_id = company.company_id
 INNER JOIN tool ON tool.tool_id = company_has_tool.tool_tool_id
 */
+
+///////////////////////////////////////             DELETE
+app.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    db.query(`
+            DELETE FROM company
+            WHERE company_id = ?
+            `, id, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
