@@ -134,6 +134,33 @@ app.get('/tools', (req, res) => {
         })
 })
 
+// Read de l'ID de la comapgnie
+app.get('/companyId/:key', (req, res) => {
+    const companyName = req.params.key
+    db.query(`SELECT company_id FROM company WHERE company_name = ?`, companyName,
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        })
+})
+
+app.put('/updateTechno', (req, res) => {
+    const idCompany = req.body.id
+    const idTechno = req.body.value
+    db.query(`INSERT INTO company_has_technology(company_company_id, technology_technology_id
+        VALUES(?, ?)`,
+        [idCompany, idTechno], (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(result);
+            }
+        })
+})
+
 ////////////////////////////////////////            READ FIN
 
 ///////////////////////////////////////             UPDATE

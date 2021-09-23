@@ -25,9 +25,7 @@ const JobDetails = () => {
     return (
         <>
             <JobHeader />
-            <JobContent companyDetails={companyDetails}
-                companyTechno={companyTechno}
-                companyTool={companyTool} />
+            <JobContent companyDetails={companyDetails} companyTechno={companyTechno} companyTool={companyTool} />
             <JobFooter />
         </>
     );
