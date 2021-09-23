@@ -160,20 +160,6 @@ app.get('/companyId/:key', (req, res) => {
         })
 })
 
-app.put('/updateTechno', (req, res) => {
-    const idCompany = req.body.idCompany
-    const idTechno = req.body.idTechno
-    db.query(`INSERT INTO company_has_technology(company_company_id, technology_technology_id
-        VALUES(?, ?)`,
-        [idCompany, idTechno], (err, result) => {
-            if (err) {
-                console.log(err)
-            } else {
-                res.send(result);
-            }
-        })
-})
-
 ////////////////////////////////////////            READ FIN
 
 ///////////////////////////////////////             UPDATE
@@ -226,7 +212,8 @@ app.delete('/deleteTechno/:key', (req, res) => {
 app.put('/updateTechno', (req, res) => {
     const idCompany = req.body.idCompany
     const idTechno = req.body.idTechno
-    db.query(`INSERT INTO company_has_technology (company_company_id, technology_technology_id) VALUES(?, ?)`,
+    db.query(`INSERT INTO company_has_technology(company_company_id, technology_technology_id)
+        VALUES(?, ?)`,
         [idCompany, idTechno], (err, result) => {
             if (err) {
                 console.log(err)
