@@ -61,8 +61,8 @@
                 margin: 0.5rem;
 
                 :hover{
-                    transform: scale(1.3);
-                    transition: transform 0.4s ease-in-out;
+                    transform: scale(1.1);
+                    transition: transform 0.2s ease-in-out;
 
                 }
             
@@ -75,9 +75,7 @@
 
             &__used{
                 width: 6rem;
-                // &--light{
-                //     filter: drop-shadow(-0.2rem 0.2rem 0.5rem #a9aaac);
-                // }
+
                 &--dark{
                     filter: drop-shadow(-0.2rem 0.2rem 0.5rem black);
                 }
@@ -104,7 +102,7 @@
             &__used p{
                 margin: auto;
 
-                padding: 2rem;
+                padding: 0 1rem;
 
                 font-size: 1.8rem;
                 color: $secondary-color-light;
@@ -116,6 +114,14 @@
 
     /*Conteneur des infos en heading*/
     &__heading{
+        &__date{
+            color: $secondary-color-darker;
+            margin-bottom: 1.2rem;
+            margin-top: -1.2rem;
+            font-weight: 400;
+            font-size: 1.4rem;
+        }
+
 
         /*Partie haute du heading*/
         &__header{
@@ -125,7 +131,6 @@
         font-weight: 400;
         font-size: 1.6rem;
 
-        /*A SUPPRIMER*/
         color: $secondary-color-darker;
         }
 
@@ -160,7 +165,7 @@
         }
 
 
-        &__location, &__address{
+        &__location, &__address, &__contact{
             font-size: 1.4rem;
         }
 
@@ -168,10 +173,13 @@
             color: $primary-color;
         }
 
-        &__address{
+        &__address, &__contact{
             color: $secondary-color-darker;
-            margin-top: 1.2rem;
+            margin: 1.2rem 0;
+        }
 
+        &__address{
+            max-width: 65%;
         }
 
     }
@@ -186,29 +194,23 @@
 
         border: none;
         border-radius: 5px;
-        // box-shadow: -0.2rem 0.2rem 0.5rem $primary-color-light;
-
 
         cursor: pointer;
-      
-    
+          
         &:hover{
             background-color: $primary-color-light;
             transition: all 0.2s ease-in-out;
-        
         }
     }
 
 
     &__main__title{
-
         margin: 4rem 0 2.4rem 0;
     
         font-size: 2rem;
         font-weight: bold;
         line-height: 2rem;
 
-       
             &--light{
                 color: $primary-color-dark;
             }
@@ -244,16 +246,14 @@
             &__technos, &__tools{
             justify-content: center;
 
-                    &__used{
-                        margin: 0 2.4rem;
-                    }
-                
-
+                &__used{
+                    margin: 0 2.4rem;
+                }
             }
         }
 
         &__heading{
-            margin-bottom: 2.4rem;
+            margin-bottom: 1.2rem;
 
             /*Conteneur des infos heading + le bouton pour le display en tablette + desktop*/
             &--desktop{
