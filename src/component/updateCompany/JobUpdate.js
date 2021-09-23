@@ -54,19 +54,19 @@ const JobUpdate = () => {
                 if (currentTechno) {
                     currentTechno.forEach(element => {
                         axios.put('http://localhost:3001/updateTechno', {
-                            id: companyDetails[0].company_id,
-                            value: element
+                            idCompany: companyDetails[0].company_id,
+                            idTechno: element
                         }).then((response) => {
-                            // console.log('insert techno', response)
+                            console.log('insert techno', response)
                         })
                     })
                     if (currentTool) {
                         currentTool.forEach(element => {
                             axios.put('http://localhost:3001/updateTool', {
-                                id: companyDetails[0].company_id,
-                                value: element
+                                idCompany: companyDetails[0].company_id,
+                                idTool: element
                             }).then((response) => {
-                                // console.log('insert tool', response)
+                                console.log('insert tool', response)
                             });
                         });
                     }
