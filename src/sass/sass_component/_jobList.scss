@@ -6,20 +6,53 @@ main {
     margin: 0 auto;
     padding-bottom: 5rem;
 
-    .tempJobCreateBtn {
-        width: 14.1rem;
-        height: 4.8rem;
-        border: none;
-        border-radius: 0.5rem;
-        font-size: 1.6rem;
-        color: $secondary-color-light;
-        background-color: green;
 
-        &:hover {
-            background-color: lightgreen;
+    .addCompany {
+        position: relative;
+        min-height: 15rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        &__toolTip {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            color: $primary-color;
+            background-color: $secondary-color-light;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+            font-size: 1.4rem;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
+            visibility: hidden;
+        }
+
+        &__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 8rem;
+            height: 8rem;
+            color: $primary-color;
+            transition: all .1s ease-in-out;
             cursor: pointer;
+            transition: all .1s ease-in-out;
+            box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
+            background-color: white;
+            border-radius: .5rem;
+
+            &:hover {
+                transform: scale(1.1);
+                color: $primary-color-light;
+            }
         }
     }
+}
+
+.addCompany:hover .addCompany__toolTip {
+    visibility: visible;
 }
 
 // CARD STYLE
@@ -182,9 +215,19 @@ main {
         justify-content: center;
         padding: 0;
         padding-bottom: 5rem;
-        // margin: 4rem auto;
         max-width: 68.9rem;
+
+        .addCompany {
+            align-items: center;
+            max-height: 18rem;
+
+            &__toolTip {
+                bottom: 0;
+            }
+        }
     }
+
+
 
 }
 

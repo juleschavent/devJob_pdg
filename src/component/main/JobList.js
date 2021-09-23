@@ -1,16 +1,19 @@
 import "../../sass/sass_component/_jobList.scss"
 import MyDate from "../../assets/MyDate"
 import NoLogo from "../../assets/noLogo.png"
+import { AddCircle } from '@material-ui/icons';
 
 import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ConstContext } from "../context/ConstContext";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 const JobList = () => {
 
     const { theme } = useContext(ThemeContext);
+    const { currentUser } = useAuth();
     const { companyList, technoList, companyName, location, remote } = useContext(ConstContext);
 
     // Fonctionnalité LoadMore
@@ -34,6 +37,17 @@ const JobList = () => {
     return (
         <>
             <main>
+                {/* <div className={"card " + (theme ? "card--light" : "card--dark")}>
+                    test
+                </div> */}
+                {currentUser &&
+                    <div className="addCompany">
+                        <Link to="/jobcreate">
+                            <AddCircle className="addCompany__icon" />
+                        </Link>
+                        <p className="addCompany__toolTip">Add a new company</p>
+                    </div>
+                }
                 {companyList && companyList.slice(0, visible).map((el, id) => (
                     (el.company_remote <= remote &&
                         (el.company_name.toLowerCase().indexOf(companyName) === 0 &&
