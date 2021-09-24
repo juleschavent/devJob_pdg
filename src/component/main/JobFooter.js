@@ -14,7 +14,7 @@ const JobFooter = () => {
 
     return (
         <footer className={"footer " + (theme ? "footer--light" : "footer--dark")}>
-            <div className="footer__content">
+            <section className="footer__content">
                 <div className="footer__content__logo">
                     <Link to="/">
                         <img src={LogoDark} alt="Logo de DevJobs" className="footer__content__logo__svg" />
@@ -33,8 +33,8 @@ const JobFooter = () => {
                     <h4 className={"footer__content__project__title " + (theme ? "footer__content__project__title--light" : "footer__content__project__title--dark")}>devjobs</h4>
                     <p className="footer__content__project__desc">Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
                 </div>
-            </div>
-            <div className="footer__social">
+            </section>
+            <section className="footer__social">
                 <div className="footer__social__icon">
                     <img src={GitHubIcon} alt="Logo de GitHub" className="footer__social__icon__svg" />
                     <img src={LinkedInIcon} alt="Logo de GitHub" className="footer__social__icon__svg" />
@@ -42,7 +42,7 @@ const JobFooter = () => {
                 </div>
                 { theme && <Link to="/" style={{textDecoration: 'none', color: '#19202D' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
                 { !theme && <Link to="/" style={{textDecoration: 'none', color: '#FFF' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
-            </div>
+            </section>
         </footer>
     );
 }
