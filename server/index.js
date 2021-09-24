@@ -147,19 +147,6 @@ app.get('/tools', (req, res) => {
         })
 })
 
-// Read de l'ID de la comapgnie
-app.get('/companyId/:key', (req, res) => {
-    const companyName = req.params.key
-    db.query(`SELECT company_id FROM company WHERE company_name = ?`, companyName,
-        (err, result) => {
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(result);
-            }
-        })
-})
-
 ////////////////////////////////////////            READ FIN
 
 ///////////////////////////////////////             UPDATE
@@ -246,7 +233,6 @@ app.delete('/delete/:id', (req, res) => {
 
 //Create Company
 app.put('/create', (req, res) => {
-    // const companyId = req.body.companyId 
     const companyName = req.body.companyName;
     const companyLogo = req.body.companyLogo;
     const companyWebsite = req.body.companyWebsite;
@@ -254,13 +240,13 @@ app.put('/create', (req, res) => {
     const companyAdress = req.body.companyAdress;
     const companyDesc = req.body.companyDesc;
     const companyRemote = req.body.companyRemote;
+    const companyDate = req.body.companyDate;
     const companyFront = req.body.companyFront;
     const companyBack = req.body.companyBack;
     const companyCity = req.body.companyCity;
 
-
-    db.query('INSERT INTO company (company_id, company_name, company_logo, company_website, company_adress, company_contact, company_description, company_remote, company_postedat, company_front, company_back, city_city_id) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?)',
-        [companyName, companyLogo, companyWebsite, companyContact, companyAdress, companyDesc, companyRemote, companyFront, companyBack, companyCity],
+    db.query('INSERT INTO company (company_id, company_name, company_logo, company_website, company_adress, company_contact, company_description, company_remote, company_postedat, company_front, company_back, city_city_id) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [companyName, companyLogo, companyWebsite, companyContact, companyAdress, companyDesc, companyRemote, companyDate, companyFront, companyBack, companyCity],
         (err, result) => {
             // si la requete envoie une erreur, console log la
             if (err) {

@@ -10,6 +10,13 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
 
     const { theme } = useContext(ThemeContext);
 
+    const handleDate = (date) => {
+        let year = date.slice(0, 4)
+        let month = date.slice(4, 6)
+        let day = date.slice(6)
+        return day + ' / ' + month + ' / ' + year
+    }
+
     return (
 
         companyTool && companyTechno && companyDetails && companyDetails.map((el, idCompany) => (
@@ -36,13 +43,7 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                             <div key={idTool} className={"jobContent__duties__tools__used " + (theme ? "jobContent__duties__tools__used--light" : "jobContent__duties__tools__used--dark")}>
                                 <p>{el.tool_name}</p>
                             </div>
-
                         ))}
-
-                        {/* <div className="jobContent__duties__tools__used">
-                            <p>blablabla</p>
-                        </div> */}
-
                     </div>
 
                 </div>
@@ -52,9 +53,7 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                 <div className="jobContent__heading--desktop">
                     <div className="jobContent__heading">
                         <div className="jobContent__heading__header">
-                            {/* <h4>Publié / mis à jour le: </h4> */}
-                            <h4>Publié le: {el.company_postedat} </h4>
-
+                            <h4>Published on {handleDate(el.company_postedat)}</h4>
                             <h4> {el.company_front === 1 && el.company_back === 1
                                 ? "Fullstack"
                                 : (el.company_front === 1 && el.company_back === 0)

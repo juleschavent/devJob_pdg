@@ -10,13 +10,14 @@ import TechnoChoice from '../main/TechnoChoice';
 import ToolChoice from '../main/ToolChoice';
 
 import { AddCircle } from '@material-ui/icons';
+import MyDate from '../../assets/MyDate';
 
 const JobCreate = () => {
 
     const { theme } = useContext(ThemeContext);
     const history = useHistory();
 
-    const { companyList, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
+    const { citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, setCurrentTechno, currentTool, setCurrentTool } = useContext(ConstContext)
 
     const [companyName, setCompanyName] = useState('');
     const [companyWebsite, setCompanyWebsite] = useState('');
@@ -29,11 +30,10 @@ const JobCreate = () => {
     const [companyCity, setCompanyCity] = useState(1);
 
     const handleSubmit = (e) => {
-
-        let companyId = 0;
-
         e.preventDefault();
 
+        let companyId = 0;
+        let today = MyDate();
         const companyLogo = companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', '');
 
         axios.put("http://localhost:3001/create", {
@@ -46,8 +46,10 @@ const JobCreate = () => {
             companyRemote: companyRemote,
             companyFront: companyFront,
             companyBack: companyBack,
-            companyCity: companyCity
+            companyCity: companyCity,
+            companyDate: today
         }).then((response) => {
+            // console.log(response.config.data)
             axios.get(`http://localhost:3001/companyId/${companyName}`, {
             }).then((response) => {
                 companyId = response.data[0].company_id;
@@ -74,10 +76,12 @@ const JobCreate = () => {
     }
 
     useEffect(() => {
+        setCurrentTechno([]);
+        setCurrentTool([]);
         handleCitys()
         handleListTechno()
         handleToolList()
-    }, [citys])
+    }, [])
 
     return (
         <form className="form" onSubmit={handleSubmit}>
