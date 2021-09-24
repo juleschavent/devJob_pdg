@@ -5,9 +5,11 @@
     justify-content: center;
     margin-top: 1rem;
 
+
     &__accordion {
         max-width: 46rem;
         margin-top: 3rem;
+        width: 100%;
 
         &--light {
             transform: scale(2);

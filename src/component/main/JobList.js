@@ -37,17 +37,13 @@ const JobList = () => {
     return (
         <>
             <main>
-                {/* <div className={"card " + (theme ? "card--light" : "card--dark")}>
-                    test
-                </div> */}
                 {currentUser &&
                     <div className="addCompany">
                         <Link to="/jobcreate">
                             <AddCircle className="addCompany__icon" />
                         </Link>
                         <p className="addCompany__toolTip">Add a new company</p>
-                    </div>
-                }
+                    </div>}
                 {companyList && companyList.slice(0, visible).map((el, id) => (
                     (el.company_remote <= remote &&
                         (el.company_name.toLowerCase().indexOf(companyName) === 0 &&
@@ -89,7 +85,8 @@ const JobList = () => {
                             </div>
                         </div>
                     </aside>
-                    : <div className="loadMore">
+                    :
+                    <div className="loadMore">
                         <button onClick={showMoreItems} className="loadMore__btn">Load More</button>
                     </div>}
             </main>

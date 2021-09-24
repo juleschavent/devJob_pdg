@@ -30,7 +30,7 @@ const JobHeader = ({ handleOpenModal }) => {
                 <ExternalLink href={companyDetails[0].company_website} style={{ textDecoration: 'none' }}><button className={"header__details__headings__btn " + (theme ? "header__details__headings__btn--light" : "header__details__headings__btn--dark")}>Company Site</button></ExternalLink>
             </div>
             {currentUser && <Link to="/jobupdate"><EditIcon className="header__details__editIcon" /></Link>}
-            {currentUser && <DeleteIcon className="header__details__deleteIcon" onClick={handleOpenModal}/>}
+            {currentUser && <DeleteIcon className="header__details__deleteIcon" onClick={handleOpenModal} />}
         </section >
     );
 }
