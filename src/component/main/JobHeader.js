@@ -27,9 +27,9 @@ const JobHeader = ({ handleOpenModal }) => {
                     <h2 className={"header__details__headings__info__title " + (theme ? "header__details__headings__info__title--light" : "header__details__headings__info__title--dark")}>{companyDetails[0].company_name}</h2>
                     <p className="header__details__headings__info__url">{companyDetails[0].company_logo}</p>
                 </div>
-                <ExternalLink href={companyDetails[0].company_website} style={{ textDecoration: 'none' }}><button className={"header__details__headings__btn " + (theme ? "header__details__headings__btn--light" : "header__details__headings__btn--dark")}>Company Site</button></ExternalLink>
+                <ExternalLink href={companyDetails[0].company_website} style={{ textDecoration: 'none' }}><button aria-labelledby="Bouton de redirection vers le site de la compagnie visualisée" className={"header__details__headings__btn " + (theme ? "header__details__headings__btn--light" : "header__details__headings__btn--dark")}>Company Site</button></ExternalLink>
             </div>
-            {currentUser && <Link to="/jobupdate"><EditIcon className="header__details__editIcon" /></Link>}
+            {currentUser && <Link aria-label="Redirection vers Update Company" to="/jobupdate"><EditIcon className="header__details__editIcon" /></Link>}
             {currentUser && <DeleteIcon className="header__details__deleteIcon" onClick={handleOpenModal}/>}
         </section >
     );

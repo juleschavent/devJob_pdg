@@ -13,7 +13,7 @@ const Toggle = () => {
             <img src={IconSun} alt="Icone du soleil pour mode clair" />
             <div className="toggle__container">
                 <input type="checkbox" id="toggle" name="toggle" onClick={toggleTheme}></input>
-                <label htmlFor="toggle" />
+                <label aria-label="toggle pout mode sombre" htmlFor="toggle" />
             </div>
             <img src={IconMoon} alt="Icone de la lune pour mode sombre" />
         </div>
