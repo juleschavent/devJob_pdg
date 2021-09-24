@@ -23,7 +23,7 @@ const JobFooter = () => {
                 <nav className="footer__content__about">
                     <h4 className={"footer__content__about__title " + (theme ? "footer__content__about__title--light" : "footer__content__about__title--dark")}>about</h4>
                     <ul className="footer__content__about__list">
-                        <li className="footer__content__about__list__link">Mentions légales</li>
+                        <li className="footer__content__about__list__link">Legal notice</li>
                         <li className="footer__content__about__list__link">Company</li>
                         <li className="footer__content__about__list__link">Contact</li>
                         <li className="footer__content__about__list__link">Team</li>
