@@ -37,13 +37,17 @@ const JobList = () => {
     return (
         <>
             <main>
-                {currentUser &&
+                {/* Si user est identifié et si aucune recherche ne correspond alors cacher le bouton add company pour afficher message d'erreur */}
+                {currentUser ? (companyList && companyName !== '' && isCompany.some(el => el.toLowerCase().indexOf(companyName) === 0) === false) ||
+                    (companyList && location !== '' && isLocation.some(el => el.toLowerCase().indexOf(location) === 0) === false) ? '' :
                     <div className="addCompany">
                         <Link to="/jobcreate">
                             <AddCircle className="addCompany__icon" />
                         </Link>
                         <p className="addCompany__toolTip">Add a new company</p>
-                    </div>}
+                    </div> : ''
+                }
+
                 {companyList && companyList.slice(0, visible).map((el, id) => (
                     (el.company_remote <= remote &&
                         (el.company_name.toLowerCase().indexOf(companyName) === 0 &&
