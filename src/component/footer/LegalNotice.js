@@ -1,14 +1,36 @@
-// import { useTheme } from '@material-ui/styles';
 // import { useContext } from 'react';
 import '../../sass/sass_component/_legalNotice.scss'
 // import { ThemeContext } from '../context/ThemeContext';
+import arrowUp from './../../assets/logo/up.svg';
 
 import { Link } from 'react-scroll';
+import { useState } from 'react';
 
 
 
 const LegalNotice = () => {
     // const { theme } = useContext(ThemeContext);
+
+    const [visible, setVisible] = useState(false);
+
+    const toggleVisible = () => {
+        const scrolled = document.documentElement.scrollTop;
+        if(scrolled > 300){
+            setVisible(true)
+        }
+        else if (scrolled <= 300){
+            setVisible(false)
+        }
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    };
+
+    window.addEventListener('scroll', toggleVisible)
 
     return (
 
@@ -20,7 +42,7 @@ const LegalNotice = () => {
             <section className="legalNot__summary">
             <h2>Sommaire</h2>
                 <ul>
-                    <li><Link activeClass="active" to="contact" spy={true} smooth={true}>Coordonnées de l'association</Link></li>
+                    <li><Link activeClass="active" to="contact" spy={true} smooth={true} offset={-24} >Coordonnées de l'association</Link></li>
                     <li><Link to="info" spy={true} smooth={true}>Informations sur notre hebergeur</Link></li>
                     <li><Link to="rgpd" spy={true} smooth={true}>RGPD</Link> 
                         <ul>
@@ -81,9 +103,11 @@ const LegalNotice = () => {
                     <p><span>Informations personnelles: </span> « les informations qui permettent, sous quelque forme que ce soit, directement ou non, l’identification des personnes physiques auxquelles elles s’appliquent » (article 4 de la loi n° 78-17 du 6 janvier 1978).
                     </p>
 
-
             </section>
             
+            <button onClick={scrollToTop} className="box__scrollToTop" style={{display: visible ? 'inline' : 'none'}}>
+                <img src={arrowUp} title="arrow up" className="scrollToTop" alt="Fleche vers le haut"  />
+            </button>
 
         </article>
     );
