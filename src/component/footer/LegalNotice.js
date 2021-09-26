@@ -1,16 +1,21 @@
 // import { useContext } from 'react';
-import '../../sass/sass_component/_legalNotice.scss'
-// import { ThemeContext } from '../context/ThemeContext';
+import '../../sass/sass_component/_legalNotice.scss';
+import { ThemeContext } from '../context/ThemeContext';
 import arrowUp from './../../assets/logo/up.svg';
 
 import { Link } from 'react-scroll';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 
 
 const LegalNotice = () => {
-    // const { theme } = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
 
+
+
+
+
+    // Eléments pour scroll back to top
     const [visible, setVisible] = useState(false);
 
     const toggleVisible = () => {
@@ -34,7 +39,8 @@ const LegalNotice = () => {
 
     return (
 
-        <article className="legalNot">
+    <article className={"legalNot " + (theme ? "legalNot--light" : "legalNot--dark")}>
+    {/* // <article className="legalNot"> */}
             <h1>Mentions légales</h1>
 
             <div className="legalNot__separator"></div>
@@ -42,7 +48,8 @@ const LegalNotice = () => {
             <section className="legalNot__summary">
             <h2>Sommaire</h2>
                 <ul>
-                    <li><Link activeClass="active" to="contact" spy={true} smooth={true} offset={-24} >Coordonnées de l'association</Link></li>
+                    <li><Link className="summary__link"
+                     activeClass="active" to="contact" spy={true} smooth={true} offset={-24} >Coordonnées de l'association</Link></li>
                     <li><Link to="info" spy={true} smooth={true}>Informations sur notre hebergeur</Link></li>
                     <li><Link to="rgpd" spy={true} smooth={true}>RGPD</Link> 
                         <ul>
