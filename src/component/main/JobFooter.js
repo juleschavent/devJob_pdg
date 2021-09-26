@@ -2,7 +2,6 @@ import "../../sass/sass_component/_footer.scss";
 import LogoDark from "../../assets/logo--blue.svg";
 import GitHubIcon from "../../assets/mediaIcon/github.svg";
 import LinkedInIcon from "../../assets/mediaIcon/linkedin.svg";
-import FacebookIcon from "../../assets/mediaIcon/facebook.svg";
 
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
@@ -38,7 +37,6 @@ const JobFooter = () => {
                 <div className="footer__social__icon">
                     <img src={GitHubIcon} alt="Logo de GitHub" className="footer__social__icon__svg" />
                     <img src={LinkedInIcon} alt="Logo de GitHub" className="footer__social__icon__svg" />
-                    <img src={FacebookIcon} alt="Logo de GitHub" className="footer__social__icon__svg" />
                 </div>
                 { theme && <Link to="/" style={{textDecoration: 'none', color: '#19202D' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
                 { !theme && <Link to="/" style={{textDecoration: 'none', color: '#FFF' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
