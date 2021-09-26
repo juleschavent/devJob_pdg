@@ -50,7 +50,6 @@
     &__separator {
         width: 100%;
         height: 0.09rem;
-        // margin: 4.8rem auto 4.8rem -10%;
         margin: 4.8rem auto;
         background-color: $secondary-color-dark;
     }
@@ -81,6 +80,7 @@
     }
 
     span{
+        font-size: 1.7rem;
         font-weight: 500;
     }
 
@@ -124,8 +124,6 @@
     }
 
 
-
-
     .box__scrollToTop{
         width: 4.8rem;
         height: 4.8rem;
@@ -163,8 +161,6 @@
         }
     }
 }
-
-
 
 
 // ------------------BREAKPOINTS--------------------

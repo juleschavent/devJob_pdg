@@ -6,13 +6,8 @@ import arrowUp from './../../assets/logo/up.svg';
 import { Link } from 'react-scroll';
 import { useState, useContext } from 'react';
 
-
-
 const LegalNotice = () => {
     const { theme } = useContext(ThemeContext);
-
-
-
 
 
     // Eléments pour scroll back to top
@@ -40,7 +35,6 @@ const LegalNotice = () => {
     return (
 
     <article className={"legalNot " + (theme ? "legalNot--light" : "legalNot--dark")}>
-    {/* // <article className="legalNot"> */}
             <h1>Mentions légales</h1>
 
             <div className="legalNot__separator"></div>
@@ -50,13 +44,13 @@ const LegalNotice = () => {
                 <ul>
                     <li><Link className="summary__link"
                      activeClass="active" to="contact" spy={true} smooth={true} offset={-24} >Coordonnées de l'association</Link></li>
-                    <li><Link to="info" spy={true} smooth={true}>Informations sur notre hebergeur</Link></li>
-                    <li><Link to="rgpd" spy={true} smooth={true}>RGPD</Link> 
+                    <li><Link to="info" spy={true} smooth={true} offset={-48}>Informations sur notre hebergeur</Link></li>
+                    <li><Link to="rgpd" spy={true} smooth={true} offset={-24}>RGPD</Link> 
                         <ul>
-                            <li><Link to="persoData" spy={true} smooth={true}>Gestion des données personnelles et politique de confidentialité</Link></li>
+                            <li><Link to="persoData" spy={true} smooth={true} offset={-20}>Gestion des données personnelles et politique de confidentialité</Link></li>
                             <li><Link to="jurisdiction" spy={true} smooth={true}>Droit applicable et attribution de juridiction</Link></li>
                             <li><Link to="law" spy={true} smooth={true}>Les principales lois concernées</Link></li>
-                            <li><Link to="lexicon" spy={true} smooth={true}>Lexique</Link></li>
+                            <li><Link to="lexicon" spy={true} smooth={true} >Lexique</Link></li>
                         </ul>
                     </li>
                 </ul>
