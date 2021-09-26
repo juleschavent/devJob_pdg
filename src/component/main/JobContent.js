@@ -70,12 +70,12 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
         <div className="jobContent__separator"></div>
 
         <div className="jobContent__heading--desktop">
-          <div className="jobContent__heading">
+          <div className={"jobContent__heading " + ( theme ? "jobContent__heading--light" : "jobContent__heading--dark")}>
             <h4 className="jobContent__heading__date">
               Publié le: {el.company_postedat}{" "}
             </h4>
 
-            <div className="jobContent__heading__header">
+            <div className={"jobContent__heading__header " + ( theme ? "jobContent__heading__header--light" : "jobContent__heading__header--dark")}>
               <h4>
                 {" "}
                 {el.company_front === 1 && el.company_back === 1
@@ -99,11 +99,11 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
             >
               {el.company_name}
             </h2>
-            <h3 className="jobContent__heading__location">{el.city_name}</h3>
-            <h3 className="jobContent__heading__address">
+            <h3 className={"jobContent__heading__location " + ( theme ? "jobContent__heading__location--light" : "jobContent__heading__location--dark")}>{el.city_name}</h3>
+            <h3 className={"jobContent__heading__address " + ( theme ? "jobContent__heading__location-light" : "jobContent__heading__location--dark")}>
               {el.company_adress}
             </h3>
-            <h3 className="jobContent__heading__contact">
+            <h3 className={"jobContent__heading__contact " + ( theme ? "jobContent__heading__contact-light" : "jobContent__heading__contact--dark")}>
               {el.company_contact}
             </h3>
           </div>

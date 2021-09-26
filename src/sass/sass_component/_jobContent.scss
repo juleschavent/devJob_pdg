@@ -14,11 +14,18 @@
     &--light{
         background-color: $secondary-color-light;
         box-shadow: 0 .2rem .2rem rgba(192, 192, 192, 0.589);
+        
+        p{
+            color: $primary-color-dark;
+        }
     }
 
     &--dark{
         background-color: $primary-color-dark;
         box-shadow: 0 .5rem .3rem rgba(0, 0, 0, 0.596);
+        p{
+            color: $secondary-color;
+        }
     }
 
     &__separator{
@@ -65,9 +72,7 @@
                 :hover{
                     transform: scale(1.1);
                     transition: transform 0.2s ease-in-out;
-
                 }
-            
             }
         }
 
@@ -81,7 +86,6 @@
                 &--dark{
                     filter: drop-shadow(-0.2rem 0.2rem 0.5rem black);
                 }
-                
             }
         }
 
@@ -98,24 +102,34 @@
                     &--dark{
                         box-shadow: -0.2rem 0.2rem 0.5rem $primary-color-darker;
                     }
-
             }
 
             &__used p{
                 margin: auto;
-
                 padding: 0 1rem;
 
                 font-size: 1.8rem;
                 color: $secondary-color-light;
             }
         }
-
-
     }
 
     /*Conteneur des infos en heading*/
     &__heading{
+        &__header, &__title, &__location, &__address, &__contact{
+            &--light{
+                color: $primary-color-dark;
+            }
+        }
+
+        &__header, &__title, &__location, &__address, &__contact{
+            &--dark{
+                color: $secondary-color;
+            }
+        }
+
+
+
         &__date{
             color: $secondary-color-darker;
             margin-bottom: 1.2rem;
@@ -132,8 +146,7 @@
 
         font-weight: 400;
         font-size: 1.6rem;
-
-        color: $secondary-color-darker;
+        
         }
 
 
@@ -155,15 +168,6 @@
         &__title{
             margin: 1.2rem 0;
             font-size: 2.2rem;
-
-        
-            &--light{
-                color: $primary-color-dark;
-            }
-
-            &--dark{
-                color: $secondary-color-light;
-            }
         }
 
 
@@ -171,12 +175,7 @@
             font-size: 1.4rem;
         }
 
-        &__location{
-            color: $primary-color;
-        }
-
         &__address, &__contact{
-            color: $secondary-color-darker;
             margin: 1.2rem 0;
         }
 
@@ -184,7 +183,6 @@
             max-width: 65%;
             line-height: 2.5rem;
         }
-
     }
 
     &__btn{
@@ -213,7 +211,8 @@
         font-size: 2rem;
         font-weight: bold;
         line-height: 2rem;
-
+        
+        
             &--light{
                 color: $primary-color-dark;
             }
@@ -228,7 +227,14 @@
         font-size: 1.6rem;
         font-weight: normal;
         line-height: 2.6rem;
+
+        &--light{
         color: $secondary-color-darker;
+        }
+
+        &--dark{
+            color: $secondary-color-light;
+        }
     }
 
 }
