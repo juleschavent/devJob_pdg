@@ -70,12 +70,26 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
         <div className="jobContent__separator"></div>
 
         <div className="jobContent__heading--desktop">
-          <div className={"jobContent__heading " + ( theme ? "jobContent__heading--light" : "jobContent__heading--dark")}>
-            <h4 className="jobContent__heading__date">
+          <div
+            className={
+              "jobContent__heading " +
+              (theme
+                ? "jobContent__heading--light"
+                : "jobContent__heading--dark")
+            }
+          >
+            <h4 className={"jobContent__heading__date " + ( theme ? "jobContent__heading__date--light" : "jobContent__heading__date--dark")}>
               Publié le: {el.company_postedat}{" "}
             </h4>
 
-            <div className={"jobContent__heading__header " + ( theme ? "jobContent__heading__header--light" : "jobContent__heading__header--dark")}>
+            <div
+              className={
+                "jobContent__heading__header " +
+                (theme
+                  ? "jobContent__heading__header--light"
+                  : "jobContent__heading__header--dark")
+              }
+            >
               <h4>
                 {" "}
                 {el.company_front === 1 && el.company_back === 1
@@ -89,21 +103,35 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
 
               <h4>{el.company_remote === 1 ? "Remote" : "On the spot"}</h4>
             </div>
-            <h2
+            <h2 className="jobContent__heading__title">{el.company_name}</h2>
+            <h3
               className={
-                "jobContent__heading__title " +
+                "jobContent__heading__location " +
                 (theme
-                  ? "jobContent__heading__title--light"
-                  : "jobContent__heading__title--dark")
+                  ? "jobContent__heading__location--light"
+                  : "jobContent__heading__location--dark")
               }
             >
-              {el.company_name}
-            </h2>
-            <h3 className={"jobContent__heading__location " + ( theme ? "jobContent__heading__location--light" : "jobContent__heading__location--dark")}>{el.city_name}</h3>
-            <h3 className={"jobContent__heading__address " + ( theme ? "jobContent__heading__location-light" : "jobContent__heading__location--dark")}>
+              {el.city_name}
+            </h3>
+            <h3
+              className={
+                "jobContent__heading__address " +
+                (theme
+                  ? "jobContent__heading__location-light"
+                  : "jobContent__heading__location--dark")
+              }
+            >
               {el.company_adress}
             </h3>
-            <h3 className={"jobContent__heading__contact " + ( theme ? "jobContent__heading__contact-light" : "jobContent__heading__contact--dark")}>
+            <h3
+              className={
+                "jobContent__heading__contact " +
+                (theme
+                  ? "jobContent__heading__contact-light"
+                  : "jobContent__heading__contact--dark")
+              }
+            >
               {el.company_contact}
             </h3>
           </div>
@@ -120,12 +148,14 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
 
         <div className="jobContent__main">
           <section className="jobContent__main__description">
-            <h3 className={
+            <h3
+              className={
                 "jobContent__main__title " +
                 (theme
                   ? "jobContent__main__title--light"
                   : "jobContent__main__title--dark")
-              }>
+              }
+            >
               Description
             </h3>
             <p>{el.company_description}</p>

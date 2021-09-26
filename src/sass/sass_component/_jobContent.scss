@@ -64,11 +64,10 @@
             justify-content: space-evenly;
 
             &__used{
-                
                 min-height: 6rem;
                 border-radius: 6px;
                 margin: 0.5rem;
-
+                
                 :hover{
                     transform: scale(1.1);
                     transition: transform 0.2s ease-in-out;
@@ -79,7 +78,7 @@
 
         &__technos{
             margin-bottom: 2.4rem;
-
+            
             &__used{
                 width: 6rem;
 
@@ -116,22 +115,21 @@
 
     /*Conteneur des infos en heading*/
     &__heading{
-        &__header, &__title, &__location, &__address, &__contact{
+        &__header, &__location, &__address, &__contact, &__date{
             &--light{
                 color: $primary-color-dark;
             }
         }
 
-        &__header, &__title, &__location, &__address, &__contact{
+        &__header, &__location, &__address, &__contact, &__date{
             &--dark{
-                color: $secondary-color;
+                color: $secondary-color-dark;
             }
         }
 
 
 
         &__date{
-            color: $secondary-color-darker;
             margin-bottom: 1.2rem;
             margin-top: -1.2rem;
             font-weight: 400;
@@ -168,6 +166,7 @@
         &__title{
             margin: 1.2rem 0;
             font-size: 2.2rem;
+            color: $primary-color;
         }
 
 
