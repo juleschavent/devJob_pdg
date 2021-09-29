@@ -43,11 +43,11 @@
                 &--light {
                     color: $primary-color-dark;
                 }
-            
+
                 &--dark {
                     color: $secondary-color-light;
                 }
-                
+
             }
 
             &__list {
@@ -84,12 +84,12 @@
                 &--light {
                     color: $primary-color-dark;
                 }
-            
+
                 &--dark {
                     color: $secondary-color-light;
                 }
             }
-            
+
             &__desc {
                 line-height: 2.5rem;
                 font-size: 1.4rem;
@@ -106,7 +106,7 @@
 
         &__icon {
             margin: 5rem 2.4rem;
-            
+
             &__svg {
                 width: 4rem;
                 margin: 0 1.5rem;
@@ -127,7 +127,7 @@
             &--light {
                 color: $primary-color-dark;
             }
-        
+
             &--dark {
                 color: $secondary-color-light;
             }
@@ -145,16 +145,31 @@
         &__content {
             padding: 0 4.8rem;
             width: 68.9rem;
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+            &__logo {
+                grid-column: span 2;
+                margin-bottom: 2rem;
+            }
 
             &__about {
-                
+                align-self: flex-start;
+                margin: 2rem 0;
+
                 &__list {
                     display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
 
                     &__link {
-                        margin: 0 2rem;
+                        margin: 1rem 2rem;
                     }
                 }
+            }
+
+            &__project {
+                margin: 2rem 0;
             }
         }
     }
@@ -173,6 +188,8 @@
             align-items: flex-start;
             justify-content: space-between;
             text-align: left;
+            display: flex;
+            align-items: center;
 
             &__logo {
                 // align-self: center;
@@ -180,6 +197,7 @@
 
             &__about {
                 margin: 0;
+                align-self: center;
 
                 &__list {
                     flex-direction: column;

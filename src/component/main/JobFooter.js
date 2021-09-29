@@ -22,7 +22,7 @@ const JobFooter = () => {
                 <nav className="footer__content__about">
                     <h4 className={"footer__content__about__title " + (theme ? "footer__content__about__title--light" : "footer__content__about__title--dark")}>about</h4>
                     <ul className="footer__content__about__list">
-                        <li className="footer__content__about__list__link">Legal notice</li>
+                        <Link to='/legalnotice' style={{ textDecoration: 'none' }}><li className="footer__content__about__list__link">Legal notice</li></Link>
                         <li className="footer__content__about__list__link">Company</li>
                         <li className="footer__content__about__list__link">Contact</li>
                         <li className="footer__content__about__list__link">Team</li>
@@ -38,8 +38,8 @@ const JobFooter = () => {
                     <img src={GitHubIcon} alt="Logo de GitHub" className="footer__social__icon__svg" />
                     <img src={LinkedInIcon} alt="Logo de GitHub" className="footer__social__icon__svg" />
                 </div>
-                { theme && <Link to="/" style={{textDecoration: 'none', color: '#19202D' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
-                { !theme && <Link to="/" style={{textDecoration: 'none', color: '#FFF' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
+                {theme && <Link to="/" style={{ textDecoration: 'none', color: '#19202D' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
+                {!theme && <Link to="/" style={{ textDecoration: 'none', color: '#FFF' }}><p className={"footer__social__copyright " + (theme ? "footer__social__copyright--light" : "footer__social__copyright--dark")}>devjobs © 2021</p></Link>}
             </section>
         </footer>
     );
