@@ -189,7 +189,7 @@
             justify-content: space-between;
             text-align: left;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
 
             &__logo {
                 // align-self: center;
@@ -211,6 +211,7 @@
             &__project {
                 display: flex;
                 width: 42rem;
+                margin: 0;
             }
         }
     }

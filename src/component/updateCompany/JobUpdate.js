@@ -114,8 +114,8 @@ const JobUpdate = () => {
                     {/* City */}
                     {citys &&
                         <div className="form__inputs__city">
-                            <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Chose a city :</h3>
-                            <select className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
+                            <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Choose a city :</h3>
+                            <select name="choose a city=" label="Choix de la ville" className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
                                 {citys.map((el, id) => (
                                     <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
                                 ))}
