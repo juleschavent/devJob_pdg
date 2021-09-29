@@ -1,50 +1,54 @@
 @import './../utils/variable';
 
 
-.legalNot{
+.legalNot {
     width: 32.7rem;
     margin: 4.8rem auto 0;
     // padding: 4rem 2.4rem;
-    padding: 0 2.4rem ;
+    padding: 0 2.4rem;
     border-radius: 6px;
     line-height: 2.2rem;
 
 
     &--light {
         background-color: $secondary-color-light;
-            
-            h2, h3{
-                color: $primary-color-darker;
-            }
 
-            p, li{
-                color: $primary-color-dark;
-            }
+        h2,
+        h3 {
+            color: $primary-color-darker;
+        }
 
-            .box__scrollToTop{
-                border: 3px solid $primary-color-dark;
+        p,
+        li {
+            color: $primary-color-dark;
+        }
 
-            }
+        .box__scrollToTop {
+            border: 3px solid $primary-color-dark;
+
+        }
     }
 
     &--dark {
         background-color: $primary-color-dark;
 
-            h2, h3{
-                color: $secondary-color-light;
-            }
+        h2,
+        h3 {
+            color: $secondary-color-light;
+        }
 
-            p, li{
-                color: $secondary-color-dark;
-            }
+        p,
+        li {
+            color: $secondary-color-dark;
+        }
 
-            .box__scrollToTop{
-                border: 3px solid $secondary-color-darker;
+        .box__scrollToTop {
+            border: 3px solid $secondary-color-darker;
 
-                .scrollToTop{
-                    filter: grayscale(100%) invert(100%) saturate(100%) brightness(1000%);
-                }
+            .scrollToTop {
+                filter: grayscale(100%) invert(100%) saturate(100%) brightness(1000%);
             }
+        }
     }
 
     &__separator {
@@ -54,7 +58,7 @@
         background-color: $secondary-color-dark;
     }
 
-    h1{
+    h1 {
         padding-top: 3.6rem;
         font-size: 2.4rem;
         font-weight: bold;
@@ -62,69 +66,72 @@
         color: $primary-color;
     }
 
-    h2{
+    h2 {
         margin: 2rem 0;
         font-size: 2rem;
         font-weight: 600;
     }
 
-    h3{
+    h3 {
         margin: 1.2rem 0;
         font-size: 1.8rem;
         font-weight: 500;
     }
 
-    p{
+    p {
         font-size: 1.6rem;
         font-weight: 400;
     }
 
-    span{
+    span {
         font-size: 1.7rem;
         font-weight: 500;
     }
 
-    li{
+    li {
         margin-left: 2.4rem;
         font-size: 1.6rem;
         cursor: pointer;
 
         position: relative;
-     //text-decoration: underline $primary-color;
+        //text-decoration: underline $primary-color;
 
     }
 
 
 
 
-    li::marker{
+    li::marker {
         color: $primary-color;
     }
 
 
-    &__summary, &__contact, &__info, &__rgpd{
+    &__summary,
+    &__contact,
+    &__info,
+    &__rgpd {
         line-height: 2.4rem;
     }
 
-    &__contact{
-        p:nth-of-type(2){
+    &__contact {
+        p:nth-of-type(2) {
             margin: 1.2rem 0;
         }
     }
 
-    &__info{
-        p{
+    &__info {
+        p {
             margin-top: 1.2rem;
         }
     }
 
-    &__rgpd{
+    &__rgpd {
         padding-bottom: 4.8rem;
         text-align: justify;
     }
 
 
-    .box__scrollToTop{
+    .box__scrollToTop {
         width: 4.8rem;
         height: 4.8rem;
         margin-left: -9.6rem;
@@ -145,7 +152,7 @@
         background-color: transparent;
         border-radius: 1rem;
 
-        .scrollToTop{
+        .scrollToTop {
             width: 2.4rem;
             height: 2.4rem;
             animation: bouncingArrow 0.5s alternate ease infinite;
@@ -155,6 +162,7 @@
             from {
                 transform: translateY(0.2rem);
             }
+
             to {
                 transform: translateY(-0.1rem);
             }
@@ -166,11 +174,11 @@
 // ------------------BREAKPOINTS--------------------
 // TABLET
 @media screen and (min-width: 768px) {
-    .legalNot{
+    .legalNot {
         min-width: 68.9rem;
     }
 
-    .box__scrollToTop{
+    .box__scrollToTop {
         right: 60px;
 
     }
@@ -178,7 +186,7 @@
 
 // DESKTOP
 @media screen and (min-width: 1440px) {
-    .legalNot{
+    .legalNot {
         min-width: 73rem;
     }
 }
