@@ -30,7 +30,7 @@ const JobFooter = () => {
                 </nav>
                 <div className="footer__content__project">
                     <h4 className={"footer__content__project__title " + (theme ? "footer__content__project__title--light" : "footer__content__project__title--dark")}>devjobs</h4>
-                    <p className="footer__content__project__desc">Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    <p className="footer__content__project__desc">DevJob est une plateforme permettant aux organismes de formation de lister les entreprises leaders de leur secteur pour accompagner les apprenants dans leur recherche de stage.</p>
                 </div>
             </section>
             <section className="footer__social">
