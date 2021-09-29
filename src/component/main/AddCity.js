@@ -8,12 +8,11 @@ import { ConstContext } from '../context/ConstContext';
 
 const AddCity = ({ handleIsCity, id }) => {
     const { theme } = useContext(ThemeContext)
-    const { currentCity, handleCurrentCity, setCurrentCity } = useContext(ConstContext)
+    const { currentCity, handleCitys } = useContext(ConstContext)
     const history = useHistory()
     const [newCity, setNewCity] = useState()
     const handleNewCity = (e) => {
         setNewCity(e.target.value)
-        setCurrentCity(e.target.value)
         // console.log(newCity)
         console.log('current city', currentCity)
     }
@@ -22,8 +21,9 @@ const AddCity = ({ handleIsCity, id }) => {
         axios.put('http://localhost:3001/addCity', {
             city: newCity
         }).then((response) => {
+            handleCitys()
             handleIsCity()
-            history.push(-1)
+            // history.push(-1)
             // console.log(response)
         })
     }

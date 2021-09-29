@@ -81,7 +81,7 @@ const JobCreate = () => {
         handleCitys()
         handleListTechno()
         handleToolList()
-    }, [citys])
+    }, [])
 
     return (
         <form className="form" onSubmit={handleSubmit}>

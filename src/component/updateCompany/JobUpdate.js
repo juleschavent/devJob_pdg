@@ -15,7 +15,7 @@ const JobUpdate = () => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { companyDetails, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool, currentCity, handleCurrentCity, setCurrentCity } = useContext(ConstContext)
+    const { companyDetails, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool } = useContext(ConstContext)
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)
@@ -84,7 +84,6 @@ const JobUpdate = () => {
         handleCitys()
         handleListTechno()
         handleToolList()
-        handleCurrentCity(companyDetails[0].city_id)
     }, [citys])
 
     return (
