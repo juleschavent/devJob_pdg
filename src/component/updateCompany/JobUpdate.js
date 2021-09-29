@@ -15,7 +15,7 @@ const JobUpdate = () => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { companyDetails, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool, currentCity, handleCurrentCity } = useContext(ConstContext)
+    const { companyDetails, citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, currentTool, currentCity, handleCurrentCity, setCurrentCity } = useContext(ConstContext)
 
     // const [companyId, setCompanyId] = useState()
     const [companyName, setCompanyName] = useState(companyDetails[0].company_name)
@@ -116,16 +116,11 @@ const JobUpdate = () => {
                     {citys &&
                         <div className="form__inputs__city">
                             <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Choose a city :</h3>
-                            <select name="choose a city=" label="Choix de la ville" className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={currentCity} onChange={(e) => setCompanyCity(e.target.value)}>
+                            <select name="choose a city=" label="Choix de la ville" className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
                                 {citys.map((el, id) => (
                                     <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
                                 ))}
                             </select>
-                            {/* <select name="choose a city=" label="Choix de la ville" className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={el.city_id} onChange={(e) => setCompanyCity(e.target.value)}>
-                                {citys.map((el, id) => (
-                                    <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
-                                ))}
-                            </select> */}
                             <AddCircle onClick={handleIsCity} className="form__inputs__city__addCity" />
                             {isCity && <AddCity handleIsCity={handleIsCity} id={companyDetails[0].company_id} />}
                         </div>}

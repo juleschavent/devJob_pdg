@@ -17,7 +17,7 @@ const JobCreate = () => {
     const { theme } = useContext(ThemeContext);
     const history = useHistory();
 
-    const { citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, setCurrentTechno, currentTool, setCurrentTool } = useContext(ConstContext)
+    const { citys, handleCitys, isCity, handleIsCity, handleListTechno, handleToolList, currentTechno, setCurrentTechno, currentTool, setCurrentTool, currentCity } = useContext(ConstContext)
 
     const [companyName, setCompanyName] = useState('');
     const [companyWebsite, setCompanyWebsite] = useState('');
@@ -81,7 +81,7 @@ const JobCreate = () => {
         handleCitys()
         handleListTechno()
         handleToolList()
-    }, [])
+    }, [citys])
 
     return (
         <form className="form" onSubmit={handleSubmit}>
@@ -109,8 +109,8 @@ const JobCreate = () => {
                 {/* City */}
                 {citys &&
                     <div className="form__inputs__city">
-                        <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Chose a city :</h3>
-                        <select className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} onChange={(e) => setCompanyCity(e.target.value)}>
+                        <h3 className={"form__inputs__city__title " + (theme ? "" : "form__inputs__city__title--dark")}>Choose a city :</h3>
+                        <select className={"form__inputs__city__options " + (theme ? "" : "form__inputs__city__options--dark")} defaultValue={currentCity} onChange={(e) => setCompanyCity(e.target.value)}>
                             {citys.map((el, id) => (
                                 <option className="form__inputs__city__options__option" key={id} value={el.city_id}>{el.city_name}</option>
                             ))}
