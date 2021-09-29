@@ -63,7 +63,7 @@ const JobDelete = ({ handleOpenModal, companyDetails }) => {
                     <div className="jobDelete__body">
                         <div className={"jobDelete__body__text " + (theme ? "jobDelete__body__text" : "jobDelete__body__text--dark")}><p>Type " DELETE " to confirm.</p></div>
                         <input type="text" className={"jobDelete__body__input " + (theme ? "jobDelete__body__input" : "jobDelete__body__input--dark")} required placeholder="DELETE" value={confirmDelete} onChange={(e) => setConfirmDelete(e.target.value)} />
-                        <div className={"jobDelete__body__text " + (theme ? "jobDelete__body__response" : "jobDelete__body__response--dark")}><p>{confirmDeleteMsg}</p></div>
+                        <div className={"jobDelete__body__response " + (theme ? "jobDelete__body__response" : "jobDelete__body__response--dark")}><p>{confirmDeleteMsg}</p></div>
                     </div>
                     <div className="jobDelete__footer">
                         {!confirmDeleteValid && <button disabled className={"jobDelete__footer__btn jobDelete__footer__btn__delete--disabled " + (theme ? "jobDelete__footer__btn jobDelete__footer__btn__delete--disabled" : "jobDelete__footer__btn jobDelete__footer__btn__delete--disabled--dark")} onClick={() => handleDelete(id)}>Delete</button>}
