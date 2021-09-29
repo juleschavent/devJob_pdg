@@ -4,14 +4,18 @@ import '../../sass/sass_component/_addCity.scss'
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { ThemeContext } from '../context/ThemeContext';
+import { ConstContext } from '../context/ConstContext';
 
 const AddCity = ({ handleIsCity, id }) => {
     const { theme } = useContext(ThemeContext)
+    const { currentCity, handleCurrentCity, setCurrentCity } = useContext(ConstContext)
     const history = useHistory()
     const [newCity, setNewCity] = useState()
     const handleNewCity = (e) => {
         setNewCity(e.target.value)
+        setCurrentCity(e.target.value)
         // console.log(newCity)
+        console.log('current city', currentCity)
     }
     const handleSubmitCity = (e) => {
         e.preventDefault()
