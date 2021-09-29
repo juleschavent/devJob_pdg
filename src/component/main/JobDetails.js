@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import JobFooter from "../main/JobFooter";
 import { useContext, useEffect, useState } from "react";
 import JobHeader from "./JobHeader";
 import { ConstContext } from "../context/ConstContext";
@@ -34,11 +33,10 @@ const JobDetails = () => {
     return (
         <>
             <JobHeader handleOpenModal={handleOpenModal} />
-            { openModal && <JobDelete handleOpenModal={handleOpenModal} companyDetails={companyDetails} /> }
+            {openModal && <JobDelete handleOpenModal={handleOpenModal} companyDetails={companyDetails} />}
             <JobContent companyDetails={companyDetails}
                 companyTechno={companyTechno}
                 companyTool={companyTool} />
-            <JobFooter />
         </>
     );
 }

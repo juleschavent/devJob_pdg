@@ -13,6 +13,7 @@ import { useContext } from 'react';
 import ConstContextProvider from './component/context/ConstContext';
 import { ThemeContext } from './component/context/ThemeContext'
 import AuthProvider from './component/context/AuthContext';
+import JobFooter from './component/main/JobFooter';
 
 function App() {
 
@@ -38,11 +39,11 @@ function App() {
               <Route path="/jobupdate">
                 <JobUpdate />
               </Route>
-              {/* provisoire */}
               <Route path="/LegalNotice">
                 <LegalNotice />
               </Route>
             </Switch>
+            <JobFooter />
           </div>
         </ConstContextProvider>
       </AuthProvider>
