@@ -6,6 +6,7 @@ import JobList from './component/main/JobList';
 import JobDetails from './component/main/JobDetails';
 import JobCreate from './component/createCompany/JobCreate';
 import JobUpdate from './component/updateCompany/JobUpdate';
+import LegalNotice from './component/footer/LegalNotice';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useContext } from 'react';
@@ -36,6 +37,10 @@ function App() {
               </Route>
               <Route path="/jobupdate">
                 <JobUpdate />
+              </Route>
+              {/* provisoire */}
+              <Route path="/LegalNotice">
+                <LegalNotice />
               </Route>
             </Switch>
           </div>
