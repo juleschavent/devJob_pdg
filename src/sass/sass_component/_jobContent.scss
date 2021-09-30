@@ -50,13 +50,13 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: space-evenly;
-            transition: all 2s ease-in-out;
+            transition: all .5s ease-in-out;
 
             &__used {
-                min-height: 6rem;
+                // min-height: 6rem;
                 border-radius: 6px;
                 margin: 0.5rem;
-                transition: all 2s ease-in-out;
+                transition: all .5s ease-in-out;
 
                 :hover {
                     transform: scale(1.1);
@@ -69,7 +69,7 @@
 
             &__used {
                 width: 6rem;
-                transition: all 2s ease-in-out;
+                transition: all .5s ease-in-out;
 
                 &--dark {
                     filter: drop-shadow(-0.2rem 0.2rem 0.5rem black);
@@ -79,8 +79,8 @@
 
         &__tools {
             &__used {
-                min-width: 6rem;
-                transition: all 2s ease-in-out;
+                // min-width: 6rem;
+                transition: all .5s ease-in-out;
                 display: flex;
                 background-color: $primary-color;
 
@@ -96,7 +96,7 @@
             &__used p {
                 margin: auto;
 
-                padding: 2rem;
+                padding: .5rem 1rem;
 
                 font-size: 1.8rem;
                 color: $secondary-color-light;
