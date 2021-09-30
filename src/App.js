@@ -13,7 +13,7 @@ import { useContext } from 'react';
 import ConstContextProvider from './component/context/ConstContext';
 import { ThemeContext } from './component/context/ThemeContext'
 import AuthProvider from './component/context/AuthContext';
-import JobFooter from './component/main/JobFooter';
+import JobFooter from './component/footer/JobFooter';
 
 function App() {
 
