@@ -36,7 +36,7 @@ const JobCreate = () => {
         let today = MyDate();
         const companyLogo = companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', '');
 
-        axios.put("http://localhost:3001/create", {
+        axios.put("http://server-devjob.chvt.me/create", {
             companyName: companyName,
             companyLogo: companyLogo,
             companyWebsite: companyWebsite,
@@ -50,12 +50,12 @@ const JobCreate = () => {
             companyDate: today
         }).then((response) => {
             // console.log(response.config.data)
-            axios.get(`http://localhost:3001/companyId/${companyName}`, {
+            axios.get(`http://server-devjob.chvt.me/companyId/${companyName}`, {
             }).then((response) => {
                 companyId = response.data[0].company_id;
                 // console.log('companyId: ', companyId);
                 currentTechno.forEach(element => {
-                    axios.put('http://localhost:3001/updateTechno', {
+                    axios.put('http://server-devjob.chvt.me/updateTechno', {
                         idCompany: companyId,
                         idTechno: element
                     }).then((response) => {
@@ -63,7 +63,7 @@ const JobCreate = () => {
                     })
                 })
                 currentTool.forEach(element => {
-                    axios.put('http://localhost:3001/updateTool', {
+                    axios.put('http://server-devjob.chvt.me/updateTool', {
                         idCompany: companyId,
                         idTool: element
                     }).then((response) => {

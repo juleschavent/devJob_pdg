@@ -8,16 +8,32 @@ app.use(cors())
 app.use(express.json())
 
 const db = mysql.createConnection({
-    user: 'root',
+    user: 'bofv3727_devjob',
     host: 'localhost',
-    password: '',
-    database: 'devjob',
+    password: 'devjob123456',
+    database: 'bofv3727_devjob',
 })
 
-app.listen(3001, () => {
-    console.log('Server is running on port 3001')
-})
+// app.listen(3001, () => {
+//     console.log('Server is running on port 3001')
+// })
 
+// const dotenv = require('dotenv')
+// dotenv.config()
+
+// const db = mysql.createConnection({
+//     user: process.env.USER,
+//     host: process.env.HOST,
+//     password: process.env.PASSWORD,
+//     database: process.env.DATABASE,
+// })
+
+// const PORT = 3001
+// app.listen(process.env.PORT || PORT, () => {
+//     console.log(`Server is running on port ${PORT}`)
+// })
+
+app.listen()
 
 ////////////////////////////////////////            READ
 // Read de la liste des entreprises

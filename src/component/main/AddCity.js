@@ -18,7 +18,7 @@ const AddCity = ({ handleIsCity, id }) => {
     }
     const handleSubmitCity = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3001/addCity', {
+        axios.put('http://server-devjob.chvt.me/addCity', {
             city: newCity
         }).then((response) => {
             handleCitys()

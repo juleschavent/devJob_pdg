@@ -37,13 +37,13 @@ const JobDelete = ({ handleOpenModal, companyDetails }) => {
     const history = useHistory();
     // delete les détails de l'entreprise ciblée
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3001/deleteTechno/${id}`).then((response) => {
+        axios.delete(`http://server-devjob.chvt.me/deleteTechno/${id}`).then((response) => {
             // console.log('techno deleted successfully', response);
-            axios.delete(`http://localhost:3001/deleteTool/${id}`).then((response) => {
+            axios.delete(`http://server-devjob.chvt.me/deleteTool/${id}`).then((response) => {
                 // console.log('tools deleted successfully', response);
-                axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+                axios.delete(`http://server-devjob.chvt.me/delete/${id}`).then((response) => {
                     // console.log('company deleted successfully', response);
-                    axios.get("http://localhost:3001/companyList").then((response) => {
+                    axios.get("http://server-devjob.chvt.me/companyList").then((response) => {
                         setCompanyList(response.data);
                         history.push('/');
                     });
