@@ -20,7 +20,7 @@ function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <Router>
+    <Router basename={'/devjob'}>
       <AuthProvider>
         <ConstContextProvider>
           <div className={theme ? "App App--light" : "App App--dark"}>

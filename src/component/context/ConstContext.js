@@ -39,7 +39,7 @@ const ConstContextProvider = (props) => {
     // get les détails de l'entreprise ciblée
     const [companyDetails, setCompanyDetails] = useState(null)
     const handleCompanyDetails = (id) => {
-        axios.get(`http://server-devjob.chvt.me/details/${id}`, {}).then((response) => {
+        axios.get(`https://server-devjob.chvt.me/details/${id}`, {}).then((response) => {
             setCompanyDetails(response.data)
             // console.log("get company", response.data);
         });
@@ -48,7 +48,7 @@ const ConstContextProvider = (props) => {
     // get les technos de l'entreprise ciblée
     const [companyTechno, setCompanyTechno] = useState(null)
     const handleCompanyTechno = (id) => {
-        axios.get(`http://server-devjob.chvt.me/techno/${id}`, {}).then(
+        axios.get(`https://server-devjob.chvt.me/techno/${id}`, {}).then(
             (response) => {
                 setCompanyTechno(response.data);
                 // console.log("get tool", response.data);
@@ -59,7 +59,7 @@ const ConstContextProvider = (props) => {
     // get les tools de l'entreprise ciblée
     const [companyTool, setCompanyTool] = useState(null)
     const handleCompanyTool = (id) => {
-        axios.get(`http://server-devjob.chvt.me/tool/${id}`, {}).then(
+        axios.get(`https://server-devjob.chvt.me/tool/${id}`, {}).then(
             (response) => {
                 setCompanyTool(response.data);
                 // console.log("get techno", response.data);
@@ -70,7 +70,7 @@ const ConstContextProvider = (props) => {
     // get la liste des villes
     const [citys, setCitys] = useState(null)
     const handleCitys = () => {
-        axios.get(`http://server-devjob.chvt.me/citys`, {}).then(
+        axios.get(`https://server-devjob.chvt.me/citys`, {}).then(
             (response) => {
                 setCitys(response.data);
                 // console.log("get citys", response.data);
@@ -89,7 +89,7 @@ const ConstContextProvider = (props) => {
     const [listTechno, setListTechno] = useState(null)
     const [currentTechno, setCurrentTechno] = useState([])
     const handleListTechno = () => {
-        axios.get(`http://server-devjob.chvt.me/technoList`, {}).then(
+        axios.get(`https://server-devjob.chvt.me/technoList`, {}).then(
             (response) => {
                 setListTechno(response.data);
                 // console.log("get liste techno pour update", response.data);
@@ -113,7 +113,7 @@ const ConstContextProvider = (props) => {
     const [toolList, setToolList] = useState(null)
     const [currentTool, setCurrentTool] = useState([])
     const handleToolList = () => {
-        axios.get(`http://server-devjob.chvt.me/tools`, {}).then(
+        axios.get(`https://server-devjob.chvt.me/tools`, {}).then(
             (response) => {
                 setToolList(response.data);
                 // console.log("get liste tools pour update", response.data);
@@ -135,13 +135,13 @@ const ConstContextProvider = (props) => {
 
     useEffect(() => {
         // Get la liste des entreprises, req principale
-        axios.get("http://server-devjob.chvt.me/companyList").then((response) => {
+        axios.get("https://server-devjob.chvt.me/companyList").then((response) => {
             // console.log(response.data);
             setCompanyList(response.data);
         });
 
         //get la liste des technos par entreprise, sert à boucler dans la boucle principale pour afficher chaque techno d'une entreprise
-        axios.get("http://server-devjob.chvt.me/techno").then((response) => {
+        axios.get("https://server-devjob.chvt.me/techno").then((response) => {
             // console.log(response);
             setTechnoList(response.data);
         });

@@ -34,7 +34,7 @@ const JobUpdate = () => {
         e.preventDefault()
         const companyLogo = companyWebsite.replace('https://', '').replace('www.', '').replace('/fr', '')
 
-        axios.put('http://server-devjob.chvt.me/updateCompany', {
+        axios.put('https://server-devjob.chvt.me/updateCompany', {
             id: companyDetails[0].company_id,
             name: companyName,
             website: companyWebsite,
@@ -48,14 +48,14 @@ const JobUpdate = () => {
             city: companyCity
         }).then((response) => {
             // console.log('update company', response)
-            axios.delete(`http://server-devjob.chvt.me/deleteTechno/${companyDetails[0].company_id}`)
-            axios.delete(`http://server-devjob.chvt.me/deleteTool/${companyDetails[0].company_id}`).then((response) => {
+            axios.delete(`https://server-devjob.chvt.me/deleteTechno/${companyDetails[0].company_id}`)
+            axios.delete(`https://server-devjob.chvt.me/deleteTool/${companyDetails[0].company_id}`).then((response) => {
                 // console.log('delete techno', response) 
                 if (currentTechno) {
                     currentTechno.forEach(element => {
                         console.log(companyDetails[0].company_id)
                         console.log(element)
-                        axios.put('http://server-devjob.chvt.me/updateTechno', {
+                        axios.put('https://server-devjob.chvt.me/updateTechno', {
                             idCompany: companyDetails[0].company_id,
                             idTechno: element
                         }).then((response) => {
@@ -66,7 +66,7 @@ const JobUpdate = () => {
                         currentTool.forEach(element => {
                             console.log(companyDetails[0].company_id)
                             console.log(element)
-                            axios.put('http://server-devjob.chvt.me/updateTool', {
+                            axios.put('https://server-devjob.chvt.me/updateTool', {
                                 idCompany: companyDetails[0].company_id,
                                 idTool: element
                             }).then((response) => {
