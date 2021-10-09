@@ -51,7 +51,7 @@ const ConstContextProvider = (props) => {
         axios.get(`https://server-devjob.chvt.me/techno/${id}`, {}).then(
             (response) => {
                 setCompanyTechno(response.data);
-                // console.log("get tool", response.data);
+                console.log("get techno", response.data);
             }
         );
     }

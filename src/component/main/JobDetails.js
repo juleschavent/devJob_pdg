@@ -36,7 +36,8 @@ const JobDetails = () => {
             {openModal && <JobDelete handleOpenModal={handleOpenModal} companyDetails={companyDetails} />}
             <JobContent companyDetails={companyDetails}
                 companyTechno={companyTechno}
-                companyTool={companyTool} />
+                companyTool={companyTool}
+                id={id} />
         </>
     );
 }

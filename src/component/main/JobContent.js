@@ -3,10 +3,11 @@ import Import from "../../assets/Import";
 import { ExternalLink } from "react-external-link";
 
 import { ThemeContext } from "../context/ThemeContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { ConstContext } from "../context/ConstContext";
 
 
-const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
+const JobContent = ({ companyDetails, companyTechno, companyTool, id }) => {
 
     const { theme } = useContext(ThemeContext);
 
@@ -16,6 +17,18 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
         let day = date.slice(6)
         return day + ' / ' + month + ' / ' + year
     }
+
+    const {
+        handleCompanyDetails,
+        handleCompanyTechno,
+        handleCompanyTool
+    } = useContext(ConstContext)
+
+    useEffect(() => {
+        handleCompanyDetails(id)
+        handleCompanyTechno(id)
+        handleCompanyTool(id)
+    }, [])
 
     return (
 
@@ -28,7 +41,7 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                     <h2>Technos :</h2>
 
                     <div className="jobContent__duties__technos">
-                        {companyTechno.map((el, idTechno) => (
+                        {companyTechno && companyTechno.map((el, idTechno) => (
                             <div key={idTechno} className={"jobContent__duties__technos__used " + (theme ? "jobContent__duties__technos__used--light" : "jobContent__duties__technos__used--dark")}>
                                 <img src={Import(el.technology_name.toLowerCase() + ".svg", "technoLogo/")} alt=""
                                     title={el.technology_name} />
@@ -39,7 +52,7 @@ const JobContent = ({ companyDetails, companyTechno, companyTool }) => {
                     <h2>Tools:</h2>
 
                     <div className="jobContent__duties__tools">
-                        {companyTool.map((el, idTool) => (
+                        {companyTool && companyTool.map((el, idTool) => (
                             <div key={idTool} className={"jobContent__duties__tools__used " + (theme ? "jobContent__duties__tools__used--light" : "jobContent__duties__tools__used--dark")}>
                                 <p>{el.tool_name}</p>
                             </div>
