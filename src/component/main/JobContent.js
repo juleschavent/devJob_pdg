@@ -82,7 +82,7 @@ const JobContent = ({ companyDetails, companyTechno, companyTool, id }) => {
                     </div>
 
                     <button className="jobContent__btn">
-                        <ExternalLink href={el.company_website}
+                        <ExternalLink href={"https://" + el.company_website}
                             style={{
                                 textDecoration: 'none',
                                 color: 'white'
